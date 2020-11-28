@@ -1,0 +1,183 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+
+<style>
+	
+
+
+	
+	
+		
+	
+	
+</style>
+<html>
+ <body>
+ 
+ <div id="body"><!-- #body -->
+
+                <h3 class="title">1:1 문의</h3> 
+
+                <p class="bbs-form-guide"><!-- bbs-form-guide -->
+                    <span class="essential"><em class="blind">필수입력</em></span>표시된 항목은 필수 입력 사항입니다.
+                </p><!-- // bbs-form-guide -->
+
+                <table class="table-c table-col table-one-one"><!-- table-c -->
+                <caption>고객명, 휴대폰 번호, 이메일 주소, 문의유형, 주문번호, 상품코드, 제목, 내용, 답변 희망형태, 파일첨부로 구성된 일대일문의 입력 테이블입니다.</caption>
+                <colgroup>
+                    <col style="width: 170px;">
+                    <col style="width: auto;">
+                </colgroup>
+                <form id="frm" name="frm" enctype="multipart/form-data"></form>
+				<input type="hidden" id="MEM_ADV_MAIL" name="MEM_ADV_MAIL">
+                <tbody>
+                    <tr>
+                        <th scope="row">고객명</th>
+                        <td>최지훈</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="phone">휴대폰 번호</label></th>
+                        <td>
+                            <select class="sel_chg" id="MEM_ADV_HP1" name="MEM_ADV_HP1" title="휴대폰 번호 앞자리" style="display: none;">
+                            	<option value="010">010</option>
+                            	<option value="011">011</option>
+                            	<option value="016">016</option>
+                            	<option value="017">017</option>
+                            	<option value="018">018</option>
+                            	<option value="019">019</option>
+                            </select><div class="sel_d" data-id="MEM_ADV_HP1" style="min-width:54px"><span class="ctrl"><span class="arrow"></span></span><input type="hidden" id="f_MEM_ADV_HP1" name="f_MEM_ADV_HP1" value=""><button type="button" class="my_value" id="" value="010">010</button><ol class="a_list"><li class=""><a href="javascript:void(0);" code="010">010</a></li><li class=""><a href="javascript:void(0);" code="011">011</a></li><li class=""><a href="javascript:void(0);" code="016">016</a></li><li class=""><a href="javascript:void(0);" code="017">017</a></li><li class=""><a href="javascript:void(0);" code="018">018</a></li><li class="last"><a href="javascript:void(0);" code="019">019</a></li></ol></div> -
+                            <input type="text" class="text small" maxlength="4" title="휴대폰 번호 중간자리" id="MEM_ADV_HP2" name="MEM_ADV_HP2" value="9545"> -
+                            <input type="text" class="text small" maxlength="4" title="휴대폰 번호 끝자리" id="MEM_ADV_HP3" name="MEM_ADV_HP3" value="1492">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="email">이메일 주소</label></th>
+                        <td>
+                            <input id="EMAIL_ID" name="EMAIL_ID" type="text" class="text" title="이메일 아이디" value="cjh201475"> @
+                            <input id="EMAIL_DOMAIN" name="EMAIL_DOMAIN" type="text" class="text" title="이메일 도메인" value="naver.com">
+                            <select class="sel_chg" title="이메일 도메인 선택" id="emailDomainSelectbox" style="display: none;">
+                                <option value="">직접입력</option>
+                                <option value="naver.com">naver.com</option>
+                                <option value="hanmail.net">hanmail.net</option>
+                                <option value="daum.net">daum.net</option>
+                                <option value="gmail.com">gmail.com</option>
+                                <option value="nate.com">nate.com</option>
+                                <option value="hotmail.com">hotmail.com</option>
+                                <option value="yahoo.co.kr">yahoo.co.kr</option>
+                                <option value="yahoo.com">yahoo.com</option>
+                                <option value="dreamwiz.com">dreamwiz.com</option>
+                             </select><div class="sel_d" data-id="emailDomainSelectbox" style="min-width:198px"><span class="ctrl"><span class="arrow"></span></span><input type="hidden" id="f_emailDomainSelectbox" name="f_emailDomainSelectbox" value=""><button type="button" class="my_value" id="" value="직접입력">직접입력</button><ol class="a_list"><li class=""><a href="javascript:void(0);" code="">직접입력</a></li><li class=""><a href="javascript:void(0);" code="naver.com">naver.com</a></li><li class=""><a href="javascript:void(0);" code="hanmail.net">hanmail.net</a></li><li class=""><a href="javascript:void(0);" code="daum.net">daum.net</a></li><li class=""><a href="javascript:void(0);" code="gmail.com">gmail.com</a></li><li class=""><a href="javascript:void(0);" code="nate.com">nate.com</a></li><li class=""><a href="javascript:void(0);" code="hotmail.com">hotmail.com</a></li><li class=""><a href="javascript:void(0);" code="yahoo.co.kr">yahoo.co.kr</a></li><li class=""><a href="javascript:void(0);" code="yahoo.com">yahoo.com</a></li><li class="last"><a href="javascript:void(0);" code="dreamwiz.com">dreamwiz.com</a></li></ol></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="category">문의유형<span class="essential"><em class="blind">필수입력</em></span></label></th>
+                        <td>
+                            <select id="MEM_ADV_QST_TYPE_UP" name="MEM_ADV_QST_TYPE_UP" data-width="160" class="sel_chg" title="문의 유형 첫번째 카테고리" onchange="test();" style="display: none;">
+                            	<option value="">전체</option>
+                            	<option value="106">
+										            회원정보/멤버십</option>
+										    <option value="">
+										            상품</option>
+										    <option value="">
+										            주문/결제</option>
+										    <option value="">
+										            배송</option>
+										    <option value="">
+										            교환/반품/AS</option>
+										    <option value="">
+										            취소/환불</option>
+										    <option value="">
+										            쿠폰/포인트/OK캐시백/e.POINT</option>
+										    <option value="">
+										            이벤트/혜택</option>
+										    <option value="">
+										            거래증빙서류</option>
+										    <option value="">
+										            추가서비스</option>
+										    <option value="">
+										            시스템 및 사이트오류</option>
+										    <option value="">
+										            기타</option>
+										    </select><div class="sel_d" data-id="MEM_ADV_QST_TYPE_UP" style="min-width:160px"><span class="ctrl"><span class="arrow"></span></span><input type="hidden" id="f_MEM_ADV_QST_TYPE_UP" name="f_MEM_ADV_QST_TYPE_UP" value=""><button type="button" class="my_value" id="" value="전체">전체</button><ol class="a_list"><li class=""><a href="javascript:void(0);" code="">전체</a></li><li class=""><a href="javascript:void(0);" code="106">
+										    
+										            회원정보/멤버십</a></li><li class=""><a href="javascript:void(0);">
+										            상품</a></li><li class=""><a href="javascript:void(0);">
+										            주문/결제</a></li><li class=""><a href="javascript:void(0);">
+										            배송</a></li><li class=""><a href="javascript:void(0);">
+										            교환/반품/AS</a></li><li class=""><a href="javascript:void(0);">
+										            취소/환불</a></li><li class=""><a href="javascript:void(0);">
+										            쿠폰/포인트/OK캐시백/e.POINT</a></li><li class=""><a href="javascript:void(0);">
+										            이벤트/혜택</a></li><li class=""><a href="javascript:void(0);">
+										            거래증빙서류</a></li><li class=""><a href="javascript:void(0);">
+										            추가서비스</a></li><li class=""><a href="javascript:void(0);">
+										            시스템 및 사이트오류</a></li><li class="last"><a href="javascript:void(0);">
+										            기타</a></li></ol></div>
+                            <select id="MEM_ADV_QST_TYPE" name="MEM_ADV_QST_TYPE" data-width="150" class="sel_chg" title="문의 유형 두번째 카테고리" style="display: none;">
+                                <option value="">전체</option>
+                            </select><div class="sel_d" data-id="MEM_ADV_QST_TYPE" style="min-width:150px"><span class="ctrl"><span class="arrow"></span></span><input type="hidden" id="f_MEM_ADV_QST_TYPE" name="f_MEM_ADV_QST_TYPE" value=""><button type="button" class="my_value" id="" value="전체">전체</button><ol class="a_list"><li class="last"><a href="javascript:void(0);" code="">전체</a></li></ol></div>
+                        </td>
+                    </tr>
+                    <tr id="orderTr" style="display:none;">
+                        <th scope="row"><label for="orderNumber">주문번호<span class="essential"><em class="blind">필수입력</em></span></label></th>
+                        <td>
+                            <input type="text" id="ORD_MST_CD" name="ORD_MST_CD" class="text" readonly="">
+                            <a href="javascript:;" class="btn_st0 btn_blk777 small" id="orderBtn"><span>검색</span></a>
+                        </td>
+                    </tr>
+                    <tr id="productTr" style="display:none;">
+                        <th scope="row"><label for="code">상품코드<span class="essential"><em class="blind">필수입력</em></span></label></th>
+                        <td>
+                            <input type="text" id="MEM_ADV_MDL_NO" name="MEM_ADV_MDL_NO" class="text" readonly="">
+                            <a href="javascript:;" class="btn_st0 btn_blk777 small" id="productBtn"><span>검색</span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="subject">제목<span class="essential"><em class="blind">필수입력</em></span></label></th>
+                        <td>
+                            <input type="text" id="MEM_ADV_TITLE" name="MEM_ADV_TITLE" class="text xlarge">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="letter">내용<span class="essential"><em class="blind">필수입력</em></span></label></th>
+                        <td>
+                            <textarea class="textarea" id="MEM_ADV_CONTENTS" name="MEM_ADV_CONTENTS"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="answerType1">답변 희망형태</label></th>
+                        <td>
+                            <label for="answerType1" class="js-radio on">
+                                <input type="radio" name="MEM_ADV_MAIL_YN" id="MEM_ADV_MAIL_YN" value="Y" checked="checked">
+                                이메일
+                            </label>
+                            <label for="answerType3" class="js-radio">
+                                <input type="radio" name="MEM_ADV_MAIL_YN" id="MEM_ADV_MAIL_YN" value="N">
+                                받지않음(마이페이지에서 확인) 
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="file">파일첨부</label></th>
+                        <td>
+                            <input type="file" id="file" name="file" class="text file">
+                            <a href="javascript:;" class="btn_st0 btn_white small" id="fileDelBtn"><span>파일지우기</span></a>
+                        </td>
+                    </tr>
+                </tbody>
+                 <input type="hidden" name="MEM_MST_MEM_ID" id="MEM_MST_MEM_ID" value="sser98">
+	             <input type="hidden" name="MEM_MST_MEM_NM" id="MEM_MST_MEM_NM" value="최지훈">
+                
+                </table><!-- // table-c -->
+
+                <div class="section-button ar"><!-- section-button -->
+                    <a href="javascript:;" class="btn_st1 btn_rd" id="goRegist"><span>저장</span></a>
+                    
+                </div><!-- // section-button -->
+
+            </div>
+ 
+ 
+ </body>
+
+</html>

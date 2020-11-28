@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+여백 및 기본적인 폰트를 설정
+
+body {
+	margin : 0;
+	padding : 0;
+	font-family: Arial, "Ms Trebuchet", sans-serif;
+	
+	word-break: break-all; /* 공백없이 영어로만 되어질 경우 해당구역을 빠져나가므로 이것을 막기위해 사용한다. */
+	
+}
+
+div#wrap{
+	/* border: solid 1px navy; */
+	width: 960px;
+	margin: 0 auto; /* 화면에 가운데 온다 */
+}
+
+/* *점을 없애자 자식을 포함한 하위의 모든것 */
+/* 네비게이션의 리스트의 점(disc) 제거 */
+header#page_header ul , footer#page_footer ul {
+	list-style: none; /* 기호를 안보이게 한다 */
+		
+}  
+
+header#page_header li , footer#page_footer li {
+	/* border : solid 1px gray; */
+	display : inline-block;
+	width : 100px;
+	margin : 0 20px 0 0; 상우좌하
+}
+
+
+/* a 태그에 밑줄 제거하기 */
+a {
+	text-decoration: none;
+} 
+/* 태그에 방문하기 전의 링크 */
+a:link {
+	color: blue;
+}
+
+/* 태그에 방문하기 후의 링크 */
+a:visited {
+	color: blue;
+}
+
+/* 태그에 마우스 포인터를 올려 놓았지만  */
+ 
+ header#page_header a:hover /* 마우스가 올라가면 */ {
+	
+	background-color : red;
+	color : yellow;
+	font-weight : bolder;
+	
+}
+
+
+div#first li {
+	line-height : 40px;
+}
+
+div#second > ul > li { /* 아이디가 first 인 div 태그 속에 들어있는 모든 li 태그 */
+	
+}
+div#line {
+ 	border-top : solid 2px red; 
+/* 	board-right : solid 2px blue; */
+/* 	border-bottom : solid 2px green; */
+/*  board-left : solid 2px yellow; */
+
+	margin-top: 20px;
+}
+
+
+section#posts {
+/* 	border : solid 1px red; */ 
+	float : left; /* 가로방향으로 표시한다. */
+	width: 72%;
+}
+
+section#posts aside {
+	
+	float : right;
+	width : 35%; /* float로 주고 width를 주면 오른쪽에서 비율이나옴. */
+	font-size: large;
+	color : pink;
+	margin-left: 20px;
+	font-weight: bolder;
+	line-height: 30px;
+	
+}
+
+section#sidebar {
+	 /* border: solid 1px yellow; */ 
+	float : right;
+	width: 24%;	
+	border-left : solid 1px gray;
+	padding-left: 1%;
+}
+
+footer#page_footer {
+	border : solid 1px blue;
+	clear : both;
+	text-align: center; /* float 을 해제해서 페이지 하단에 안착시킨다. */
+	
+}
+
+p {
+	margin: 0 0 20px 0; 
+}
+

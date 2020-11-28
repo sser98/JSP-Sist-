@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>black</title>
+<style type="text/css">
+
+    div#container {
+        margin: 0 auto;
+        width: 80%;
+        border: solid black;
+    }
+
+    div#parent {
+        border: solid green;
+        margin: 10px;
+    }
+
+    div#parent {
+        width: 50%;
+        background-color: #ffcccf;
+    }
+
+    
+
+	div.me {
+        /* 위치를 옮기고 싶다. */
+        top: 200px;
+        /* 최초 좌표에서 위에서 아래로 200px만큼 떨어져있다. (+값) */
+        left: 200px;
+        /* 최초 좌표에서 왼쪽으로 200px만큼 이동 */
+        background-color: yellow;
+        position:absolute;
+        /* position: static; */
+        /* 위치 이동이 안됨. 그냥 거기 붙음 */
+
+	}
+/*
+   엘리먼트에 CSS 속성으로 position을 지정하면 여러가지 방법으로 위치를 지정할 수 있다.
+
+  -   정적위치(static positioning)
+   position: static
+   
+   position: static 은 position 값을 아예 안 준것과 동일하다.
+    position: static 으로 했을때에는 위치값을 줘봐야 엘리먼트의 위치는 변하지 않는다.
+
+        자식 엘리먼트의 크기에 따라서 부모 엘리먼트의 크기가 자동으로 변경된다.
+    css 로 position 속성의 값을 지정하지 않으면 기본은 position: static 이다.
+    left, top, right, bottom 과 같은 offset(top, right, bottom, left)은 무시가 된다.
+    
+    position: static 인 경우 class가 me인 엘리먼트가 parent 엘리먼트 안에 포함되어 있을 경우, 
+    me의 크기를 따로 지정하지 않으면 me의 크기는 parent 크기를 따라간다. 
+*/
+
+
+</style>
+</head>
+
+<body>
+    <div id="container">
+
+        <div id="parent">
+            parent(부모)<br>
+            parent(부모)<br>
+            parent(부모)<br>
+            parent(부모)<br>
+            parent(부모)<br>
+    
+            <div class="me">
+                첫번째 me(나)는 position: static;으로 했으므로  
+                top: 200px; left: 200px; 으로 위치값을 줘봐야 엘리먼트의 위치값은 변하지
+                않으며 크기(width)를 따로 지정하지 않았으므로 
+                부모 엘리먼트(요소)의 크기(width)를 따라간다.<br/>
+            </div>
+
+            <div class="parent">
+                두번째 me(나)는 position: static;으로 했으므로  
+                top: 200px; left: 200px; 으로 위치값을 줘봐야 엘리먼트의 위치값은 변하지
+                않으며 크기(width)를 따로 지정하지 않았으므로 
+                부모 엘리먼트(요소)의 크기(width)를 따라간다.<br/>
+            </div>
+
+
+            <div id ="other">
+                other(기타 다른것들) <br/>
+                other(기타 다른것들) <br/>
+                other(기타 다른것들) <br/>
+                other(기타 다른것들) <br/>
+                other(기타 다른것들) <br/>
+                other(기타 다른것들) <br/>
+                other(기타 다른것들) <br/>
+            </div>
+    </div>
+    
+    
+</body>
+</html>

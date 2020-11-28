@@ -1,0 +1,11 @@
+#scroller {
+    width:360px;
+    height:196px;
+    /* margin:auto; */
+    overflow:hidden;
+    position:absolute;
+    top:100px;
+	left:35%;
+}
+
+.image {position:relative;}

@@ -1,0 +1,8 @@
+package common.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+public interface InterCommand {
+	
+	void execute(HttpServletRequest request, HttpServletResponse response) throws Exception;
+}

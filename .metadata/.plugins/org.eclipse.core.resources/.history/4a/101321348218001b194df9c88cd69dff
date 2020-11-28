@@ -1,0 +1,42 @@
+package common.controller2;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public abstract class AbstractController2 implements InterCommand2 {
+	
+	
+	private boolean isRedirect = false;
+	
+	
+	private String viewPage;
+	// viewPage 는 inRedirect 값이 false 이라면 view단 페이지(.jsp)의 경로명 이고,
+	// isRedirect 값이 true 이라면 이동해야할 페이지 URL 주소이다. 
+	
+	public boolean isRedirect() {
+		return isRedirect;
+	}
+
+
+	public void setRedirect(boolean isRedirect) {
+		this.isRedirect = isRedirect;
+	}
+
+
+	public String getViewPage() {
+		return viewPage;
+	}
+
+
+	public void setViewPage(String viewPage) {
+		this.viewPage = viewPage;
+	}
+
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		
+	}
+	
+	
+}

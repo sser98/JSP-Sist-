@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지를 수평 또는 수직으로 표시하기(수평으로)</title>
+<!--
+	다섯 개의 이미지를 약간의 간격을 두고 나란히(수평으로) 표시하고자 한다.
+ --> 
+ <script type="text/javascript" src="/JqueryStudy/js/jquery-3.3.1.min.js"></script>
+ <script type="text/javascript">
+    $(document).ready(function(){
+		var $pic = $("#images a");
+		$pic.hide();
+		var imgcnt = $pic.length;
+		var nextimg;
+		for(i=0; i<imgcnt; i++) {
+			nextimg = $pic.eq(i);
+			nextimg.css({'position':'absolute', 'left':(160*i)+5});
+			nextimg.show();
+		}
+
+        // .length
+		// .length 속성은 선택한 엘리먼트의 갯수를 알려준다.
+
+		// .eq(index) 
+		// .eq()메소드는 선택한 엘리먼트에서 지정한 위치의 엘리먼트를 jQuery 객체 형태로 추출해서
+		// 반환해주는 필터링 메소드이다.
+    });
+
+ </script>
+ </head>
+
+<body>
+ <div id="images">
+	<a href="http://www.hanitour.com/"><img src="image/image1.jpg" width=150px height=100px/></a>
+	<a href="http://www.modetour.com/"><img src="image/image2.jpg" width=150px height=100px/></a>
+	<a href="http://www.ybtour.co.kr/"><img src="image/image3.jpg" width=150px height=100px/></a>
+	<a href="http://www.parantours.com/"><img src="image/image4.jpg" width=150px height=100px/></a>
+	<a href="http://www.hanitour.com/"><img src="image/image5.jpg" width=150px height=100px/></a>
+ </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>연예인 사진 보이기/감추기</title>
+<!-- 
+   맨처음에는 버튼3개(김태희, 아이유, 박보영)는 희미하게 보이고,
+   사진은 아예 안보인다.
+   
+   특정 버튼에 마우스가 올라가면 그 버튼만 원래광도로 띄면서 내용은 클릭하세요로 변경된다.
+   그리고 동시에 버튼아래에 그 사람의 사진만 희미하게 보인다.
+   
+   특정버튼을 클릭하면 그 사람의 큰사진이 원래광도로 띈다.
+   그리고 동시에 그 사람의 사진아래에 프로필 약력이 보이도록 한다. 
+-->
+<style type="text/css">
+
+div#container {
+      width: 80%;
+      margin: 0 auto;
+      /* border: 1px solid red; */
+}
+
+span.buttons {
+      display: inline-block;
+      border: 2px solid orange;
+      margin: 20px;
+      padding: 5px;
+      background-color: red;
+      color: yellow;
+      font-size: 15pt;
+      cursor: pointer;
+      width: 100px;
+      text-align: center;
+   }
+
+ul {
+   /* border: solid 1px gray; */
+   width: 25%;
+   font-size: 14pt;
+   text-align: left;
+   padding-left: 70px;
+   list-style-type: none;
+}
+
+li > label {
+   display: inline-block;
+   width: 80px;
+}
+
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+   $(document).ready(function(){
+      
+      var arrPerson = [{name:"김태희", filename:"kimth.jpg", filename2:"kimthLarge.jpg", address:"서울 강동구", email:"kimth@gmail.com"}
+                      ,{name:"아이유", filename:"iyou.jpg", filename2:"iyouLarge.jpg", address:"서울 강서구", email:"iyou@gmail.com"}
+                      ,{name:"박보영", filename:"parkby.jpg", filename2:"parkbyLarge.jpg", address:"서울 강남구", email:"parkby@gmail.com"}];
+      
+      var html = "";
+      
+      arrPerson.forEach(function(item){
+    	  html += "<span class='buttons'>"+item.name+"</span>";
+      });
+      
+      $("div#firstdiv").html(html);
+      
+      $(".buttons").css('opacity','0.2');
+      
+      $(".buttons").hover(function(){
+    	  $(this).css({'opacity':'1.0','background-color':'navy','color':'white', 'border-radius':'40%'}).text("클릭하세요");
+    	  var index = $(".buttons").index($(this));
+    	  html = "<img src='images/"+arrPerson[index].filename+"' />";
+    	  $("div#face").html(html).css('opacity','0.2');
+    	  
+      } , function(){
+    	  var index = $(".buttons").index($(this));
+    	  $(this).css({'opacity':'0.2','background-color':'red','color':'yellow', 'border-radius':'0'}).text(arrPerson[index].name);
+    	
+       // $("div#face").html("");
+       // 또는 
+          $("div#face").empty();
+       
+      });// end of $(".buttons").hover()-----------------------
+      
+      
+      $(".buttons").click(function(){
+    	  
+    	  var index = $(".buttons").index($(this));
+    	  $(this).css({'opacity':'1.0','background-color':'navy','color':'white', 'border-radius':'0'}).text(arrPerson[index].name);
+    	  
+    	  html = "<img src='images/"+arrPerson[index].filename2+"' style='border-radius:20%' />" + 
+    	         "<ul>" +
+    	         "<li><label>성명 :</label>"+arrPerson[index].name+"</li>"+
+    	         "<li><label>주소 :</label>"+arrPerson[index].address+"</li>"+
+    	         "<li><label>e메일 :</label>"+arrPerson[index].email+"</li>"+
+    	         "</ul>";
+    	  
+    	  $("div#face").html(html).css('opacity','1.0');       
+    	         
+      });// end of $(".buttons").click(function(){})--------------------
+      
+   }); // end of $(document).ready(function(){});--------------
+</script>
+</head>
+<body>
+   <div id="container" align="center">
+      <div id="firstdiv"></div>
+      <div id="face" style="margin-top: 50px;"></div>
+   </div>
+</body>
+</html>
+
+

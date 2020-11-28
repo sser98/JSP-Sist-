@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>타이머 로그아웃</title>
+
+<style type="text/css">
+
+	div#container {
+	 /* border: solid 1px gray; */
+		width: 90%;
+		margin: 0 auto;
+		padding: 2%;
+	}
+	
+	table, tr, td {
+		border: solid 1px gray;
+		border-collapse: collapse;
+	}
+	
+	td {
+		width: 200px;
+		height: 50px;
+		text-align: center; 
+	}
+
+</style>
+
+<script type="text/javascript">
+
+    var clock;
+    var start = 0; // 허용시간값(예: 5분)
+    var cnt = 0;   // 증가치 
+   
+	window.onload = function() {
+		
+    //	alert(299/100); // javascript => 2.99 , java => 2
+    	
+		func_loopTimer();
+    
+        var btnDelay = document.getElementById("btnDelay");
+        btnDelay.addEventListener('click', function(){
+        	if(start < 0) {
+        		alert("로그아웃 된 이후에는 시간연장이 불가합니다.");
+        	}
+        	else {
+        		cnt = 0;
+        	}
+        });
+		
+	}// end of window.onload = function() {}------------------------
+	
+	function func_timer(i) {
+		start = 5*60 - i; // 5분(== 5*60초)만들기 
+		
+	//	console.log("start : " + start + " , cnt : " + cnt);
+	/*
+		start : 300 , cnt : 1
+		start : 299 , cnt : 2
+		start : 298 , cnt : 3
+		start : 297 , cnt : 4
+		......................
+		
+		start : 0 , cnt : 301
+		start : -1 , cnt : 302
+		start : -2 , cnt : 303
+		start : -3 , cnt : 304
+	*/
+		if(start >= 0) {
+			
+			// 300초를 05:00 으로 만든다. 
+			// 299초를 04:59 으로 만든다. 
+			// 298초를 04:58 으로 만든다. 
+			// .....................
+			// 0초를    00:00 으로 만든다. 
+			
+			var minute = "";
+			
+			if(start < 600) { // 10분 미만인 경우 
+				minute = "0";
+			}
+			
+			minute += parseInt(start/60); // 300초를 05:00 으로 만든다. 
+			                              // 299초를 04:59 으로 만든다.
+			       // parseInt(4.983333333333333) ==> 4 
+			       
+			var second = start%60; // start 를 60으로 나눈 나머지 
+			second = (second < 10)?"0"+second:second;
+						
+			document.getElementById("timer").innerHTML = minute+" : "+second;           
+		}
+
+		else {
+			alert("시간종료로 로그아웃 되었습니다.");
+		//	clearTimeout(clock);
+			
+			return; // 함수의 종료 
+		}
+		
+	}// end of function func_timer(){}------------------------------
+	
+	
+	function func_loopTimer() {
+		
+		func_timer(cnt++); // func_timer(0); 호출하고 나서 cnt = 1;
+		                   // func_timer(1); 호출하고 나서 cnt = 2;
+		                   // func_timer(2); 호출하고 나서 cnt = 3;
+		                   // func_timer(3); 호출하고 나서 cnt = 4;
+		                   // .................................
+		                   // func_timer(300); 호출하고 나서 cnt = 301;
+		                   // func_timer(301); 호출하고 나서 cnt = 302;
+		 
+		 if(start >= 0) {                  
+			 clock = setTimeout('func_loopTimer()', 1000);
+		 }
+		 
+	}// end of function func_loopTimer() {}--------------------------
+	
+	
+	function func_Finish() {
+		
+		alert("강제 종료 합니다.");
+		clearTimeout(clock);
+		// setTimeout 메서드에서 지정한 일정한 밀리초값 시간 이후에 실행할 표현식 javascriptCode나 기능함수 functionName을 호출하는 것을 중단한다.
+		// 파라미터 clock 은 중단해야할 setTimeout 함수를 가리키는 것임.
+		
+	}// end of function func_Finish(){}------------------------------
+
+</script>
+
+</head>
+<body>
+
+	<div id="container">
+		<table>
+			<tr>
+				<td>남은시간</td>
+				<td>
+					<span id="timer"></span>   <!-- 05:00  04:59  04:58  04:57 ... 00:03  00:02  00:01  00:00 -->
+					<button type="button" id="btnDelay">연장</button>  <!-- 05:00 --> 
+				</td>
+			</tr>
+			
+			<tr>
+				<td>강제종료</td>
+				<td>
+					<button type="button" onclick="func_Finish()">종료</button>  <!-- 00:00 -->
+				</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 자바스크립트에서 정규식 표현 </title>
+<script type="text/javascript">
+   function regExpExec() {
+	   var pattern = /a/;
+	   var result = pattern.exec('abcdef');
+	   document.write(result);
+   }
+
+   function regExpTest() {
+	   var pattern = /a/;
+	   var result = pattern.test('abcdef');
+	   alert(result);
+   }
+
+   function StringMatch() {
+       var pattern = /s/;
+	   var result = 'abcdef'.match(pattern);
+	   document.write(result);
+   }
+
+   function StringReplace() {
+	   var pattern = /a/;
+	   var result = 'abcdef'.replace(pattern, 'A');
+	   document.write(result);
+   }
+
+
+   function StringMatchIncase() {
+	   var pattern = /a/i;
+	   var result = 'Abcdef'.match(pattern);
+	   document.write(result);
+   }
+
+   function StringMatchAll() {
+       var pattern = /a/ig;
+	   var result = 'Abacdefa'.match(pattern);
+	   document.write(result);
+   }
+
+   function StringSwitch() {
+		var pattern = /(\w+)\s(\w+)/;
+		var str = "coding everybody";
+		var result = str.replace(pattern, "$2, $1");
+		document.write(result);
+    }
+
+   function emailCk() {
+		var pattern = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/;
+		//var email = "hong@naver.com";
+		//var email = "@hongnaver.com";
+		//var email = "hongnaver.com@";
+		//var email = "hongnaver.com";
+		//var email = "hong@naver@.com";
+		//var email = "hong@navercom";
+        //var email = "hong@naver..com";
+		var email = "hong@naver.com";
+		var result = pattern.test(email);
+
+		if (!result) 
+	       alert("이메일 형식에 맞지 않습니다.");
+		else
+		   alert("이메일 형식에 맞습니다.");
+   }
+</script>
+</head>
+
+<body>
+<h2> 자바스크립트에서 정규식 표현 </h2>
+<p><h3>정규표현식 생성</h3></p>
+<p>
+정규표현식은 두가지 단계로 이루어진다. 
+<br>하나는 컴파일(compile) 다른 하나는 실행(execution)이다. 
+<br>우선 컴파일부터 알아보자.
+컴파일은 검출하고자 하는 패턴을 만드는 일이다. 
+<br>우선 정규표현식 객체를 만들어야 한다. 
+<br>객체를 만드는 방법은 두가지가 있는데 동일한 결과를 나타낸다. 
+<br>a라는 텍스트를 찾아내는 정규표현식을 만들어보자.
+<p>정규표현식 리터럴
+<br>var pattern = /a/;
+
+<p>정규표현식 객체 생성자
+<br>var pattern = new RegExp('a');
+
+<p>정규표현식을 컴파일해서 객체를 만들었다면 이제 문자열에서 원하는 문자를 찾아내야 한다.
+<br>
+<u>RegExp.exec()</u>
+<br>console.log(pattern.exec('abcdef')); // ["a"]
+<br>실행결과는 문자열 a를 값으로 하는 배열을 리턴한다.
+<br>console.log(pattern.exec('bcdefg')); // null
+<br>인자 'bcdef'에는 a가 없기 때문에 null을 리턴한다.
+<br><br>
+<u>RegExp.test()</u>
+<br>test는 인자 안에 패턴에 해당되는 문자열이 있으면 true, 없으면 false를 리턴한다.
+<br>console.log(pattern.test('abcdef')); // true
+<br>cnosole.log(pattern.test('bcdefg')); // false
+<p><u>String.match()</u>
+<br>RegExp.exec()와 비슷하다.
+<p><u>String.replace()</u>
+<br>문자열에서 패턴을 검색해서 이를 변경한 후에 변경된 값을 리턴한다.
+<br>console.log('abcdef'.replace(pattern, 'A'));
+
+<p>정규표현식 패턴을 만들 때 옵션을 설정할 수 있다. 
+<br>옵션에 따라서 검출되는 데이터가 달라진다.
+<br>i
+<br>i를 붙이면 대소문자를 구분하지 않는다.
+<br>var xi = /a/;
+<br>console.log("Abcde".match(xi)); // null
+<br>var oi = /a/i;
+<br>console.log("Abcde".match(oi)); // ["A"];
+<br><br>g
+<br>g를 붙이면 검색된 모든 결과를 리턴한다.
+
+<p>
+괄호안의 패턴은 마치 변수처럼 재사용할 수 있다. 
+<br>이 때 기호 $를 사용하는데 아래 코드는 coding과 everybody의 순서를 역전시킨다.
+
+<form name="myform">
+	<input type="button" value="추출1" onclick="regExpExec()">
+	<input type="button" value="존재유무" onclick="regExpTest()">
+	<input type="button" value="추출2" onclick="StringMatch()">
+    <input type="button" value="치환" onclick="StringReplace()">
+	<input type="button" value="추출3" onclick="StringMatchIncase()">
+	<input type="button" value="추출4" onclick="StringMatchAll()">
+	<input type="button" value="문자열교환" onclick="StringSwitch()">
+	<input type="button" value="이메일체크" onclick="emailCk()">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+with V as (
+                        select
+
+                                  department_id
+                                  , trunc (avg(nvl (salary +(salary*commission_pct) , salary) *12)) as avgsal                          
+                        from employees
+                        group by department_id
+                )
+                
+          select  E.department_id as  부서번호
+                     , D.department_name as 부서명
+                    , street_address || '  ' || city as 부서주소
+                    , E2.first_name || ' ' || E2.last_name as 부서장성명
+                     , E.employee_id as 사원번호
+                     , E.first_name || ' ' || E.last_name as 사원명
+                     , avgsal - trunc (nvl(E.salary + (E.salary*E.commission_pct), E.salary) * 12) as 부서내연봉평균차액
+                     , nvl(E.salary + (E.salary*E.commission_pct), E.salary) * 12 as 연봉
+                     , (nvl(E.salary + (E.salary*E.commission_pct), E.salary) * 12) * taxpercent as 연봉소득세액
+
+                     , rank() over (partition by E.department_id order by trunc (nvl(E.salary + (E.salary*E.commission_pct) , E.salary) * 12) desc)  as 부서내연봉등수
+          from employees E left join departments D
+          on E.department_id=D.department_id
+          left join locations L
+          on D.location_id = L.location_id
+          left join employees E2
+          on D.manager_id = E2.employee_id
+          left join tbl_taxindex T
+          on nvl (E.salary+ (E.salary*E.commission_pct), E.salary) *12 between lowerincome and highincome
+          left join V
+          on V.department_id= E.department_id

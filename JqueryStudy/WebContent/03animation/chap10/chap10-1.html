@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+ <meta charset="UTF-8">
+ <title>이미지를 수평으로 스크롤하기</title>
+ <!--
+	  가상 윈도우 내에서 여러 이미지가 오른쪽에서 왼쪽으로 스크롤 되게 하고 싶다.
+	  모든 이미지가 스크롤 되면 첫 번째 이미지가 다시 오른쪽에서 나와 왼쪽으로 스크롤이
+	  반복 되도록 한다.
+ -->
+ <link rel="stylesheet" type="text/css" href="styles/animation6.css">
+ <script type="text/javascript" src="/JqueryStudy/js/jquery-3.3.1.min.js"></script>
+
+ <script type="text/javascript">
+    $(document).ready(function(){
+    	var $wrapper = $("#scroller a img");
+		$wrapper.css({'left':0});
+
+		var animator =	function(imgblock){
+							imgblock.animate({'left':-800}, 15000,
+											   function(){
+												  imgblock.css({'left':480});
+												// $(this).css({'left':480});
+												  animator(imgblock); //재귀함수 호출 -> 반복효과
+												  // animator($(this));
+							                   }
+							                 );	
+		                } // 함수정의
+
+		animator($wrapper); // 함수호출
+	 });
+
+ </script>
+ 
+ </head>
+
+<body>
+	<div id="container">
+		<div id="header">Header</div>
+		<div id="content">Content</div>
+		<div id="sideinfo">Sideinfo</div>
+		<div id="footer"><br/>
+			<div style="font-size:10pt; color:bule; font-weight:bold; text-align:center;">여행상품사진보기</div>
+			<br/>
+			<div id="scroller">
+			<div id="images">
+			  <a href="http://www.hanatour.com/"><img src="image/image1.jpg" width=150px height=100px/></a>
+			  <a href="http://www.hanatour.com/"><img src="image/image2.jpg" width=150px height=100px/></a>
+			  <a href="http://www.hanatour.com/"><img src="image/image3.jpg" width=150px height=100px/></a>
+			  <a href="http://www.hanatour.com/"><img src="image/image4.jpg" width=150px height=100px/></a>
+			  <a href="http://www.hanatour.com/"><img src="image/image5.jpg" width=150px height=100px/></a>
+			</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<!--
+	 모든 앵커 엘리먼트는 image 클래스 이름을 할당하여 모든 이미지가 표시되어질 좌표는 
+	 절대치로 top:170px; left:940px; 로 동일하게 만든다.
+-->

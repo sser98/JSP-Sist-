@@ -1,0 +1,124 @@
+package member.model;
+
+public class MemberVO {
+	
+	
+	private String userid;
+	private String pwd;
+	private String email;
+	private String mobile;
+	private String postcode;
+	private String address;
+	private String detailaddress;
+	private String extraaddress;
+	private String gender;
+	private String birthday;
+	private int coin;
+	private int point;
+	private String registerday;
+	private String lastpwdchangedate;
+	private int status;
+	private int idle;
+	
+	
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public String getPostcode() {
+		return postcode;
+	}
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getDetailaddress() {
+		return detailaddress;
+	}
+	public void setDetailaddress(String detailaddress) {
+		this.detailaddress = detailaddress;
+	}
+	public String getExtraaddress() {
+		return extraaddress;
+	}
+	public void setExtraaddress(String extraaddress) {
+		this.extraaddress = extraaddress;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+	public int getCoin() {
+		return coin;
+	}
+	public void setCoin(int coin) {
+		this.coin = coin;
+	}
+	public int getPoint() {
+		return point;
+	}
+	public void setPoint(int point) {
+		this.point = point;
+	}
+	public String getRegisterday() {
+		return registerday;
+	}
+	public void setRegisterday(String registerday) {
+		this.registerday = registerday;
+	}
+	public String getLastpwdchangedate() {
+		return lastpwdchangedate;
+	}
+	public void setLastpwdchangedate(String lastpwdchangedate) {
+		this.lastpwdchangedate = lastpwdchangedate;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public int getIdle() {
+		return idle;
+	}
+	public void setIdle(int idle) {
+		this.idle = idle;
+	}
+	
+
+	
+	
+}

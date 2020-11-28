@@ -1,0 +1,44 @@
+#underline {text-decoration: underline;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  color: green;}
+
+#allChoice {font-size: 8pt;
+  font-weight: normal;
+  font-style: italic;
+  color: blue;}
+
+.title {width: 18%;
+background-color: ivory;
+font-weight: bold;
+text-align: right;
+color: #ff6600; }
+
+.data {padding-left: 2%;}        
+
+.bordernone {border: none;}
+
+.h2class {color: blue;}
+
+h2 {color: red;}
+
+table {width: 52%;
+border: 1px solid red;
+border-collapse: collapse;
+border: none; 
+}
+
+td {border: 1px solid gray;
+border-collapse: collapse; 
+padding: 1%;}
+   
+tr {line-height: 200%;} 
+
+input {line-height: 150%;} 
+
+button {width: 60px;
+height: 30px;
+font-size: 12pt;
+font-weight: bold; 
+margin-top: 5%;
+cursor: pointer;}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 버블링 막기(이벤트 버블링 문제발생 해결 하지 못한것)</title>
+<!-- 
+	 이벤트 버블링 문제가 있어서 예상치 못한 결과가 나온다.
+ -->
+
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script> 
+
+<script type="text/javascript">
+
+	$(document).ready(function() { 
+		
+		$("div").click(function() {
+			alert("div 엘리먼트를 클릭했습니다.");
+		});
+		
+		$("p").click(function() {
+			alert("p 엘리먼트를 클릭했습니다.");
+		});
+		
+		$("span").click(function() {
+			alert("span 엘리먼트를 클릭했습니다.");
+		});
+		
+	});
+
+	/*
+	   HTML 파일의 DOM(Document Object Model)에서
+	     가장 상위의 엘리먼트는 div 엘리먼트이고,
+	     그 아래에 문단(p) 엘리먼트(<p> 는 <div>의 자식 엘리먼트 ),
+	     그리고 마지막에 span 엘리먼트(<span> 는 <p>의 자식 엘리먼트 )가 
+	     나오고 있다.
+	*/
+	
+</script>
+
+</head>
+<body>
+	<div>
+		div엘리먼트
+		<p>
+			단락구분의 엘리먼트<br/>
+			<span>스팬태크의 엘리먼트</span>
+		</p>
+	</div>
+</body>
+</html>
+
+
+

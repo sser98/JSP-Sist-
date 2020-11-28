@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>그리드</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+[class*="col-"] {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background-color: #eee;
+	/* background-color: rgba(86, 61, 124, .15); */
+	border: 1px solid #999;
+	/* border: 1px solid rgba(86, 61, 124, .2); */
+}
+</style>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+<!-- 
+그리드 옵션들
+다양한 기기들을 넘나드는 부트스트랩 그리드 시스템
+----------------------------------------------------------------------------------------------------------------
+                 매우 작은 기기 모바일폰 (<768px)	  작은 기기 태블릿 (≥768px)	 중간 기기 데스크탑 (≥992px)	 큰 기기 데스크탑 (≥1200px)
+             Extra Small                 Small                   Medium                  Large          
+그리드 적용	      항상	                                     분기점보다 크면 적용
+container 
+클래스 최대너비	 None (auto)	              750px	                970px	                  1170px
+클래스 접두사	 .col-xs-	                 .col-sm-	           .col-md-	                 .col-lg-
+컬럼 수	     12
+컬럼 최대 너비	Auto	                     60px	               78px	                     95px
+사이 너비	    30px (컬럼의 양쪽에 15px 씩)
+중첩	           예
+오프셋	      없음	                                     예
+컬럼 순서	      없음	                                     예
+ 
+ ***  1 row에 12 column이 넘어가면 자동으로 다음 row로 처리된다.
+ ***  Mobile first 정책이므로, 아무것도 지정하지 않으면 .col-xs-12가 지정된다.
+
+ -->
+
+	<div class="container">
+		<h4>12개 컬럼</h4>
+		<div class="row">
+			<div class="col-md-1">.col-md-1<img src="images/Tulips_small.jpg"/></div>
+			<div class="col-md-1">.col-md-1<img src="images/Chrysanthemum_small.jpg"/></div>
+			<div class="col-md-1">.col-md-1<img src="images/Hydrangeas_small.jpg"/></div>
+			<div class="col-md-1">.col-md-1<img src="images/Tulips_small.jpg"/></div>
+			<div class="col-md-1">.col-md-1<img src="images/Chrysanthemum_small.jpg"/></div>
+			<div class="col-md-1">.col-md-1<img src="images/Hydrangeas_small.jpg"/></div>
+			<div class="col-md-1">.col-md-1<img src="images/Tulips_small.jpg"/></div>
+			<div class="col-md-1">.col-md-1<img src="images/Chrysanthemum_small.jpg"/></div>
+			<div class="col-md-1">.col-md-1<img src="images/Hydrangeas_small.jpg"/></div>
+			<div class="col-md-1">.col-md-1<img src="images/Tulips_small.jpg"/></div>
+			<div class="col-md-1">.col-md-1<img src="images/Chrysanthemum_small.jpg"/></div>
+			<div class="col-md-1">.col-md-1<img src="images/Hydrangeas_small.jpg"/></div>
+		</div>
+		<br/><br/>
+
+		<h4>2개 컬럼</h4>
+		<div class="row">
+			<div class="col-md-8">.col-md-8<img width="100%" src="images/Tulips_large.jpg"/></div>
+			<div class="col-md-4">.col-md-4<img width="100%" src="images/Chrysanthemum_large.jpg"/></div>
+		</div>
+		<br/><br/>
+
+		<h4>3개 컬럼</h4>
+		<div class="row">
+			<div class="col-md-4">.col-md-4<img width="100%" src="images/Tulips_large.jpg"/></div>
+			<div class="col-md-4">.col-md-4<img width="100%" src="images/Chrysanthemum_large.jpg"/></div>
+			<div class="col-md-4">.col-md-4<img width="100%" src="images/Hydrangeas_large.jpg"/></div>
+		</div>
+		<br/><br/>
+
+		<h4>3개 컬럼</h4>
+		<div class="row">
+			<div class="col-md-3">.col-md-3<img width="100%" src="images/Tulips_large.jpg"/></div>
+			<div class="col-md-6">.col-md-6<img width="100%" src="images/Chrysanthemum_large.jpg"/></div>
+			<div class="col-md-3">.col-md-3<img width="100%" src="images/Hydrangeas_large.jpg"/></div>
+		</div>
+		<br/><br/>
+
+		<h4>2개 컬럼</h4>
+		<div class="row">
+			<div class="col-md-6">.col-md-6<img width="100%" src="images/Tulips_large.jpg"/></div>
+			<div class="col-md-6">.col-md-6<img width="100%" src="images/Chrysanthemum_large.jpg"/></div>
+		</div>
+		<br/><br/>
+
+		<h4>모바일에서 컬럼들이 하나는 꽉찬 너비로, 다른 하나는 절반 너비로 쌓임</h4>
+		<div class="row">
+			<div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8<img width="100%" src="images/Tulips_large.jpg"/></div>
+			<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4<img width="100%" src="images/Chrysanthemum_large.jpg"/></div>
+		</div>
+		<br/><br/>
+
+		<h4>컬럼들은 모바일에서 50% 너비로 시작하고 데스크탑에서는 33.3% 너비가 됨</h4>
+		<div class="row">
+			<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4<img width="100%" src="images/Tulips_large.jpg"/></div>
+			<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4<img width="100%" src="images/Chrysanthemum_large.jpg"/></div>
+			<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4<img width="100%" src="images/Hydrangeas_large.jpg"/></div>
+		</div>
+		<br/><br/>
+
+		<h4>컬럼들은 모바일과 데스크탑에서 항상 50% 너비가 됨</h4>
+		<div class="row">
+			<div class="col-xs-6">.col-xs-6<img width="100%" src="images/Tulips_large.jpg"/></div>
+			<div class="col-xs-6">.col-xs-6<img width="100%" src="images/Chrysanthemum_large.jpg"/></div>
+		</div>
+		<br/><br/>
+
+		<h4>모바일에서는 .col-xs를 따로 지정하지 않았기 때문에 디폴트로 .col-xs-12가 적용</h4>
+		<h4>태블릿과 Medium 데스크탑에서는 .col-sm-6가 적용되며</h4>
+		<h4>Large 데스크탑에서는 .col-lg-3이 적용된다.</h4>
+		<div class="row">
+		    <div class="col-sm-6 col-lg-3">
+		        .col-sm-6 .col-lg-3<img width="100%" src="images/Tulips_large.jpg"/>
+		    </div>
+		    <div class="col-sm-6 col-lg-3">
+		        .col-sm-6 .col-lg-3<img width="100%" src="images/Chrysanthemum_large.jpg"/>
+		    </div>
+		    <div class="col-sm-6 col-lg-3">
+		        .col-sm-6 .col-lg-3<img width="100%" src="images/Hydrangeas_large.jpg"/>
+		    </div>
+		    <div class="col-sm-6 col-lg-3">
+		        .col-sm-6 .col-lg-3<img width="100%" src="images/Tulips_large.jpg"/>
+		    </div>
+		</div>
+		<br/><br/>
+		<!-- 
+		모바일에서는 .col-xs를 따로 지정하지 않았기 때문에 디폴트로 .col-xs-12가 적용되어
+			| column 1 |
+			| column 2 |
+			| column 3 |
+			| column 4 | 
+			
+		태블릿과 Medium 데스크탑에서는 .col-sm-6가 적용되며
+			| column 1 | column 2 |
+			| column 3 | column 4 |	
+			
+		Large 데스크탑에서는 .col-lg-3이 적용된다.
+			| column 1 | column 2 | column 3 | column 4 |	
+		-->
+
+		<h4>컬럼 중첩</h4>
+		<div class="row">
+			<div class="col-md-8">
+				.col-md-8<img width="100%" src="images/Tulips_large.jpg"/>
+				<div class="row">
+					<div class="col-md-6">.col-md-6<img width="100%" src="images/Chrysanthemum_large.jpg"/></div>
+					<div class="col-md-6">.col-md-6<img width="100%" src="images/Hydrangeas_large.jpg"/></div>
+				</div>
+			</div>
+			<div class="col-md-4">.col-md-4<img width="100%" src="images/Chrysanthemum_large.jpg"/></div>
+		</div>
+		<br/><br/>
+
+		<h4>컬럼 위치 이동</h4>
+		<!-- 
+		col-md-offset-* 클래스를 사용하여 컬럼을 우측으로 옮김. 
+		이 클래스들은 * 컬럼만큼 한 컬럼의 좌측마진을 증가하게 함. 
+		예를 들어, .col-md-offset-4 는 .col-md-4 를 4컬럼만큼 우측으로 이동시킴.
+		 -->
+		<div class="row">
+			<div class="col-md-4">.col-md-4<img width="100%" src="images/Tulips_large.jpg"/></div>
+			<div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4<img width="100%" src="images/Chrysanthemum_large.jpg"/></div>
+		</div>
+		<div class="row" style="margin-top: 5%; margin-bottom: 5%;">
+			<div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3<img width="100%" src="images/Tulips_large.jpg"/></div>
+			<div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3<img width="100%" src="images/Chrysanthemum_large.jpg"/></div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3<img width="100%" src="images/Tulips_large.jpg"/></div>
+		</div>
+	</div>
+</body>
+</html>

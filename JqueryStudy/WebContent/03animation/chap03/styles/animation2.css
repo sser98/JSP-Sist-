@@ -1,0 +1,9 @@
+.image {position:relative;}
+
+#scroller {
+    width:155px;
+    height:105px;
+    margin:auto;
+    overflow:hidden;
+    position:relative;
+}

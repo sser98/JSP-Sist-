@@ -1,0 +1,6 @@
+package common.controller;
+
+public class MainController extends AbstractController{
+	
+	
+}

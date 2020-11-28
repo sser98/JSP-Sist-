@@ -1,0 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+    <jsp:include page="header.jsp"/>
+    
+    	index.up 페이지의 내용물 
+    	html 문서를 떼어 놓아도 가능함 include를 쓰면.
+    <jsp:include page="footer.jsp"/>
+    

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	
+	img.fish {
+		display: inline-block;
+		margin-right: 5%;
+	}
+	
+	img.fish:hover {
+		opacity: 0.8;
+		cursor: pointer;
+	}
+
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+	
+	var arrImg = ["parkbyLarge.jpg","kimthLarge.jpg","iyouLarge.jpg"];
+	var arrNewImg = [];
+	
+	$(document).ready(function(){
+		/////////////////////////////////////////////////////////
+		/*
+		   == 0 부터 2까지 의 난수를 발생시키기 ==
+		      공식 :  Math.floor( Math.random()*(max-min+1) ) + min;
+		*/
+		var arrOld = [];  // 뽑은 난수번호를 기억시켜둘 장소 (동일한 난수를 뽑았는지 아닌지를 비교하려고) 
+		for(var i=0; i<2; i++) {
+			arrOld[i] = -1;
+		}
+		
+	  // console.log(arrOld.join(",")); // -1,-1 
+		
+		var arrRndIdex = [];
+		
+		for(var i=0; i<3; i++) {
+			var nRandom = Math.floor( Math.random()*(2-0+1) ) + 0; 
+			//  nRandom 은 0 ~ 2 까지 중 하나이다.
+			alert("nRandom : "+nRandom); // 1  1  0  1  2 
+			
+			var bFlag = false;
+			for(var j=0; j<arrOld.length; j++) {
+				if(arrOld[j] == nRandom) {  // arrOld[0] ==> 1 
+					bFlag = true;           // arrOld[1] ==> 0
+					break;
+				}	
+			}// end of for-----------------------------------------
+			
+			if(!bFlag) {
+				arrOld[i] = nRandom;      // arrOld[0] <== 1  arrOld[1] <== 0  arrOld[2] <== 2     
+				arrRndIdex[i] = nRandom;  // arrRndIdex[0]  <== 1 arrRndIdex[1] <== 0  arrRndIdex[2] <== 2       
+			}
+			else {
+				i--;
+				continue;
+			} 
+			
+		}// end of for---------------------------------------------
+		
+		alert(arrRndIdex.join(","));
+				
+		
+		for(var i=0; i<arrRndIdex.length; i++) {
+			var rndIndex = arrRndIdex[i];
+			arrNewImg[rndIndex] = arrImg[i];
+		}
+		
+		alert(arrNewImg.join(","));
+		
+		/////////////////////////////////////////////////////////
+		
+		var html = "";
+		for(var i=0; i<arrImg.length; i++) {
+			html += "<img class='fish who"+i+"' src='images/fish.jpg' />";
+		}
+		
+		$("#div1").html(html);
+		
+		
+		$(".fish").click(function(){
+		//	console.log( $(this).index() );  // 0 1 2
+			changeImg( $(this).index() );
+		});
+		
+	}); // end of $(document).ready(function(){ })----------------------
+	
+	
+	function changeImg(i) {
+		$(".who"+i+"").prop("src","images/"+arrNewImg[i]+"");
+		$(".who"+i+"").prop("width","150");  // 150px 하면 안됨
+		$(".who"+i+"").prop("height","120"); // 120px 하면 안됨
+	}// end of function changeImg(i)-----------------------------
+	
+</script>
+
+</head>
+<body>
+
+	<h2>김태희를 찾아라!!</h2>
+	<div id="div1"></div>
+	
+</body>
+</html>

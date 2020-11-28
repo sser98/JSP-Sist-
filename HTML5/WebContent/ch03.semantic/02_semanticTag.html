@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang ="ko"> <!-- 사용언어 지정 -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content= "width=device-width, initial-scale=1"> <!-- 반응형 웹을 위해 width 크기 지정 -->
+<title>Blog Site</title>
+</head>
+
+<link rel="stylesheet" href="css/style.css">
+<body>
+
+<div id = "wrap">
+	<header id = "page_header">
+	<h1>Star Blog</h1>
+	
+	<nav>
+		<ul>
+		<li><a href="sub/1.html">최근글</a></li>
+		<li><a href="sub/2.html">이전글</a></li>
+		<li><a href="sub/3.html">공헌자글</a></li>
+		<li><a href="sub/4.html">연락처</a></li>
+		</ul>
+
+	</nav>
+	</header> 
+	
+	<!-- <hr style="border : solid 1px blue;"> -->
+	<div id="line">&nbsp;</div>
+	
+	<!-- section 태그는 실제 문서 내용이 들어오는 부분이다. -->
+	<section id="posts">
+		<article>
+			<!-- header 태그는 내용의 소제목 -->
+			<header>
+				<h2> 얼마나 많이 기록해 둬야 되겠습니까 </h2>
+				<!-- p 태그는 문단을 나누는 태그이다. -->
+				<p> Posted by Brain on 2020.09.21 </p>
+			</header>
+			
+			<!-- aside 태그는 인용구, 덧붙이고 싶은 생각, 관련된 링크 등을 
+				문서의 주요 내용외의 내용들을 넣어 문서의 주영역 주변에 배치하여 사용한다.-->
+			<aside> 
+			 <p> &quot;"물건을 팔 때는 거절할 기회를 주어선 안 됩니다. 고객의 상황에 맞도록 최선을 다해야 합니다."&quot;</p>
+			</aside>
+			<p>물건을 팔 때의 대원칙은, 고객이 빈손으로 돌아가게 만들면 이미 글렀다는 겁니다. 다시 오려고 하지
+            않을테니까요. 따라서 고객을 대할 때는 적극적인 자세를 취해야 합니다. 그렇다고 너무 오버하면 고객이 겁을 먹고 돌아가
+            버릴 수도 있으니 조심해야 합니다.</p>
+            
+            <p>대화가 끊어지지 않게 이어 나가는 한 가지 요령을 알려드리죠. 네, 아뇨라고 대답할 수 있는 질문을 피하라는
+            겁니다. 예를 들어, 서비스 플랜을 판매중이라면, 절대 &quot; 3년 서비스 플랜과 5년 서비스 플랜이 있는데,
+            들어보시겠습니까?&quot; 하는 식으로 말문을 열어선 안 됩니다. 이런 식으로 해야죠. &quot;3년 서비스 플랜과
+            5년 서비스 플랜이 있는데, 그 중 어떤 것이 더 좋으십니까?&quot; 언뜻 보기엔 똑같은 질문으로 보이고, 고객이
+            거절할 수 있다는 점은 마찬가지지만, 두 번째 질문은 단순히 &quot;아뇨&quot;라고 말할 수 없기 때문에
+            거절하기가 더 힘듭니다.</p>
+		</article>
+	</section>
+	 
+	<section id="sidebar">
+		<nav>
+
+			<h3>이전 글</h3>
+				<div id ="first">
+					<ul>
+						<li><a href="2019.10.html">2019년 10월</a> </li>
+						<li><a href="2019.11.html">2019년 11월</a> </li>
+						<li><a href="2019.12.html">2019년 12월</a> </li>
+						<li><a href="2020.01.html">2020년 01월</a> </li>
+					
+						<div id="second"> 
+							<ul>
+								<li>첫째주</li>
+								<li>두째주</li>
+								<li>셋째주</li>
+								<li>넷째주</li>
+							</ul> 
+						</div>
+				
+						<li><a href="2020.02.html">2020년 02월</a> </li>
+						<li><a href="2020.03.html">2020년 03월</a> </li>
+					</ul>  
+				</div>
+		</nav>
+	</section>		
+		
+	
+	<!-- 작성자 정보나 저작권 정보, 또는 관련 문서 링크 등 부가 정보들을 담고 있음 주로 문서 하단에 배치 -->
+	<footer id="page_footer">
+		<p>&copy; 2020 Star Blog</p>
+		<nav>
+			<ul>
+			<li><a href="home.html">홈페이지</a></li>
+ 			<li><a href="about.html">회사소개</a></li>
+ 			<li><a href="address.html">오시는길</a></li>
+ 			<li><a href="board.html">게시판</a></li>
+		</ul>
+		</nav>
+		
+	</footer>
+	 
+</div>
+
+</body>
+</html>

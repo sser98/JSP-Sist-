@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>왼쪽으로 스크롤되는 이미지를 표시하고 클릭하면 사라지게 하기</title>
+<!--
+	이미지를 브라우저 왼쪽에 표시하고, 이미지를 클릭하면 왼쪽으로 스크롤 되면서 사라지게 한다.
+ -->
+ <link rel="stylesheet" type="text/css" href="styles/animation1.css">
+ 
+ <script type="text/javascript" src="/JqueryStudy/js/jquery-3.3.1.min.js"></script>
+
+ <script type="text/javascript">
+    $(document).ready(function(){
+		$(".image").click(function(event){
+			$(this).animate({'left':'-160px'},'slow');
+		});
+    });
+
+ </script>
+ </head>
+
+<body>
+	<img src="image/image1.jpg" width="150px" height="100px" class="image" />
+</body>
+</html>

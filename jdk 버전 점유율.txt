@@ -1,0 +1,15 @@
+구글에서 검색어로 "jdk 버전 점유율" 로 검색할 것
+
+JDK 버전별 설명이 잘나옴 ==>  https://namu.wiki/w/Java
+
+JDK 버전 점유율 잘 나옴 ==>   https://medium.com/@jyson88/2020-java-trend-9696c7321806
+
+JDK와 JRE의 차이점 설명 잘 나옴 ==> https://goodgid.github.io/Java-JDK-JRE/
+ JRE(Java Runtime Enviroment) : 컴파일된 자바 프로그램(.class)을 실행시킬 수 있는 자바 환경
+                                자바 프로그램(.class .jar)을 실행시키기 위해선 JRE를 반드시 설치해야한다.
+                                하지만 자바 프로그래밍 도구는 포함되어있지 않기 때문에 자바 프로그래밍을 하기 위해선 JDK가 필요하다.
+
+ JDK(Java Development kit) : 자바 프로그래밍시 필요한 컴파일러 등 포함
+                             JDK는 개발을 위해 필요한 도구(javac, java등)들을 포함한다.
+                             JDK를 설치하면 JRE도 같이 설치가 된다.
+                             즉 JDK = JRE + @ 라고 생각하면 된다.

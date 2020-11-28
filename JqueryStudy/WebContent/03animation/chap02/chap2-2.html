@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>수직 이미지 슬라이더 만들기(수직으로)</title>
+<!--
+	다섯 개의 이미지로 구성된 이미지 갤러리를 만들고 싶은데, 
+	처음에는 세 개의 이미지만 표시하고 수평 스크롤바를 이용하여 
+	나머지 이미지도 볼 수 있게 한다.
+ -->
+ <script type="text/javascript" src="/JqueryStudy/js/jquery-2.0.0.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+		$("#scroller").css({'margin':'auto','width':'170px','height':'320px','overflow':'scroll'});
+		$("#images").css({'height':'520px'});
+    });
+	/*
+		앞의 스타일 속성에서 width 와 height 속성을 수정하여 너비를 줄이고, 높이를 늘린 것이다.
+	*/
+ </script>
+ </head>
+
+<body>
+ <div id="scroller">
+   <div id="images">
+	  <a href="http://www.hanitour.com/"><img src="image/image1.jpg" width=150px height=100px/></a>
+	  <a href="http://www.modetour.com/"><img src="image/image2.jpg" width=150px height=100px/></a>
+	  <a href="http://www.ybtour.co.kr/"><img src="image/image3.jpg" width=150px height=100px/></a>
+	  <a href="http://www.parantours.com/"><img src="image/image4.jpg" width=150px height=100px/></a>
+	  <a href="http://www.hanitour.com/"><img src="image/image5.jpg" width=150px height=100px/></a>
+   </div>
+ </div>
+</body>
+</html>

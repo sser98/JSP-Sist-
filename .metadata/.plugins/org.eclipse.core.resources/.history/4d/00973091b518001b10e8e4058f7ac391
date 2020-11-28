@@ -1,0 +1,21 @@
+package myshop.model;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import common.controller.InterCommand;
+
+public class ProductDAO implements InterProductDAO {
+
+	@Override
+	public List<ImageVO> ImageSelectAll() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+}

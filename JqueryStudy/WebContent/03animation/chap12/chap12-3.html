@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+ <meta charset="UTF-8">
+ <title>마우스를 올리면 테이블의 오른쪽 위치에 확대된 이미지로 표시하기</title>
+ <!--
+	  마우스를 아이콘 위에 올리면 확대된 모습이 테이블의 오른쪽에 표시되도록 한다.
+ -->
+ <link rel="stylesheet" type="text/css" href="styles/animation9.css">
+ <script type="text/javascript" src="/JqueryStudy/js/jquery-3.3.1.min.js"></script>
+
+ <script type="text/javascript">
+ 	$(document).ready(function(){
+		$("td").find('p').css({'font-size':'12pt','font-weight':'bold'});
+
+		$(".small").hover(
+				function(){
+				   $(this).parent().addClass('hover');
+				// $(this)는 현재 마우스 포인터가 올라가 있는 <a> 엘리먼트인데
+				// $(this).parent() 메소드는 바로 현재 마우스 포인터가 올라가 있는 <td>를 가리킨다.
+				// 그러므로 특정 <a> 엘리먼트에 마우스 포인터가 올라가면 해당 <td>의 글자색과 배경색이 
+				// 변경되어진다.
+				
+				   var imgname = $(this).attr('href');
+				// 현재 마우스 포인터가 올라가 있는 <a> 엘리먼트의 href 값을 읽어와서 
+				// 변수 imgname에 저장해둔다. 즉, 이미지 파일의 경로 및 파일명을 imgname에 저장해두는 것이다.
+
+				   $(".large").fadeTo('fast',0,   
+				// 클래스 이름이 large인 것(화면에 크게 보여주는 이미지)을 빠르게 화면에서 사라지게 하고
+									  function() {	
+										  $(".large").attr('src',imgname);
+				                      } // 클래스 이름이 large인 것을 화면에서 사라지게 한 다음에 
+									    // 실행되어야 하는 콜백함수는 클래스 이름이 large인 것의 
+										// src 속성값을 위에서 변수 imgname 저장해둔 값으로 대체한다.
+				   ).fadeTo('fast',1);
+             // 클래스 이름이 large인 것(화면에 크게 보여주는 이미지)을 빠르게 자기의 색깔대로
+				// 화면에 나타나도록 한다.
+				},
+
+				function(){
+					// 마우스 포인터를 $(".small") (==>모든 <a> 엘리먼트) 위에서 다른 곳으로 옮기면
+					$(this).parent().removeClass('hover');
+					// 해당 <td>의 글자색과 배경색이 변경되어지도록 주었던 스타일시트 hover 클래스를 
+					// 제거하도록 하여 <td>의 글자색과 배경색이 원래 상태로 되돌아 오도록 한다.
+             }
+
+		);
+	 });
+	 /*
+		hover 이벤트를 클래스 이름이 small 인 내에 존재하는 모든 <a> 엘리먼트에 연결한다.
+		마우스 포인터가 해당 <a> 엘리먼트위에 올라가면 그 <a> 엘리먼트내에 존재하는 특정 태그를 
+		찾기 위해서 find()메소드를 사용하여 <img>태그를 찾아서 <img>태그에 css() 메소드를 사용하여
+		width 와 height 를 각각 200px로 주어서 이미지를 확대하도록 하고,
+		마우스 포인터가 해당 <a> 엘리먼트위에서 빠지면 width 와 height 값을 원래의 크기값대로 만든다.
+	 */
+
+ </script>
+ 
+ </head>
+
+<body>
+	<div id="container">
+		<div id="header">Header</div>
+
+		<div id="content">
+		<div align="center">
+		<br/>
+			<span style="font-size:12pt; font-weight:bold; color:red;">상품보기(작은이미지에 마우스를 올려보세요)</span>
+		</div>
+		<br/>
+			<table style="border:0px">
+				<tr>
+					<td width='150' align='center'>
+						<a href="image/samsung1.png" class="small"><img src="image/samsung1.png"/></a>
+						<p>"모델: 삼성 21x, 정가: 500원"
+					</td>
+					<td rowspan='4' width='400' align='center'><img src="image/samsung1.png" class="large" />
+					</td>
+				</tr>
+				<tr>
+					<td width='150' align='center'>
+						<a href="image/samsung2.png" class="small"><img src="image/samsung2.png"/></a>
+						<p>"모델: 삼성 NX mini, 정가: 350원"
+					</td>
+				</tr>
+				<tr>
+					<td width='150' align='center'>
+						<a href="image/canon1.png" class="small"><img src="image/canon1.png"/></a>
+						<p>"모델: 캐논 SX510HS, 정가: 400원"
+					</td>
+				</tr>
+				<tr>
+					<td width='150' align='center'>
+						<a href="image/nikon1.png" class="small"><img src="image/nikon1.png"/></a>
+						<p>"모델: 니콘 FusHD, 정가: 200원"
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="sideinfo">Sideinfo</div>
+		<div id="footer">Footer</div>
+	</div>
+</body>
+</html>
+<!-- 
+	 클래스 이름이 large인 <img>엘리먼트의 이미지는 마우스가 올라간 아이콘의 확대된 이미지를 
+	 나타내주는 곳이다.
+-->

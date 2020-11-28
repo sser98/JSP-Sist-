@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>each()를 활용하여 tab 메뉴를 작성해본다.</title>
+
+<style type="text/css">
+	body {
+		font-family: Arial;
+	}
+
+	div#container {
+		width: 80%;
+		margin: 0 auto;
+		padding: 20px;
+	}
+	
+	div#tab {
+	 /* border: 1px solid red; */ 
+	    border: 1px solid #ccc; 
+		background-color: #f1f1f1;
+	 
+	 /* overflow: visible; */
+	 	overflow: hidden; 
+	 /* overflow: scroll; */ 
+	 /* overflow: auto; */  
+	 /*
+		overflow 속성은 엘리먼트의 박스에 들어가는 내용이 많아서 내용물이 엘리먼트 밖으로 빠져나올때 어떻게 보일지 선택하는 속성이다. 
+
+		overflow:visible 은 엘리먼트의 박스의 기본값으로서 내용물이 더 길어도 내용물이 그대로 보인다. 그래서 내용물이 흘러넘쳐서 보여진다.
+		overflow:hidden 은 내용물이 넘친다면 넘치는 내용물은 자른다. 그래서 자른 부분은 보이지 않는다. 
+		overflow:scroll 은 무조건 엘리먼트에 수평스크롤바 및 수직스크롤바가 보이도록 한다. 그래서 내용물이 넘치지 않더라도 엘리먼트 박스에는 항상 수평스크롤바 및 수직스크롤바가 보인다. 
+		overflow:auto 은 내용물이 넘칠때만 엘리먼트 박스에 스크롤바가 생겨서 내용물을 스크롤바를 이용하여 모두 보이도록 한다. 
+	 */
+	}
+
+	div#tab > button {
+		width: 100px;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px; 
+		font-size: 17px;
+		float: left;   /* 여백없이 계속해서 붙여가면서 하려고 한 것임. */
+	}
+
+	div#tab button:hover {
+		background-color: #ddd;
+	}
+
+	.active {
+	 /*	background-color: blue; */
+	    background-color: #bbb;    
+	}
+
+	div.content {
+		display: none; 
+		padding: 6px 12px;
+		border: 1px solid #ccc;
+		border-top: none; 
+	} 
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script> 
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	
+		// >>> ==== 클릭한 탭(버튼)만 보이도록 하는 두번째 방법 ==== <<< // 
+		$("button.tablinks").click(function(event){
+		/*
+			var $target = $(event.target);
+			var index = $("button.tablinks").index($target);
+		*/	
+		//  또는 
+		    var selectedIndex = $("button.tablinks").index($(this));
+		//	console.log("확인용 index : " + selectedIndex);
+		
+		    $("div.content").each(function(index, item){
+		    	/*
+		    	   each 에서 첫번째 파라미터인 index 는 복수개의 선택자에 반복하면서 부여되어지는 index 번호이다.
+		    	   each 에서 두번째 파라미터인 item 은 해당 엘리먼트를 가리키는 것이다.
+		    	*/
+		    	
+		    	if(index == selectedIndex) {
+		    		$(item).css('display','block');
+		    	}
+		    	else {
+		    		$(item).css('display',''); // css 에서 적용된 값(즉, 'none')을 따라간다.
+		    	 // 또는 
+		    	 // $(item).css('display','none');
+		    	}
+
+		    });// end of $("div.content").each(function(index, item){})-------
+		    
+		    $("button.tablinks").each(function(index, item){
+		    	if(index == selectedIndex) {
+		    		$(item).addClass("active");
+		    	}
+		    	else {
+		    		$(item).removeClass("active");
+		    	}
+		    });// end of $("button.tablinks").each(function(index, item){})-----
+		    
+		});// end of $("button.tablinks").click(function(event){})------------
+		
+	}); // end of $(document).ready()---------------------------------
+</script>
+
+</head>
+<body>
+	<div id="container">
+		<p>탭 메뉴를 선택해 보세요</p>
+		
+		<div id="tab">
+			<button class="tablinks">런던</button>
+			<button class="tablinks">파리</button>
+			<button class="tablinks">앙카라</button>
+		</div>
+		
+		<div id="London" class="content">
+			<h3>런던</h3>
+			<p>런던 (영어: London)은 잉글랜드와 영국의 수도이다.</p>
+		</div>
+		
+		<div id="Paris" class="content">
+			<h3>파리</h3>
+			<p>파리(Paris)는 프랑스의 수도이다.</p>
+		</div>
+		
+		<div id="ankara" class="content">
+			<h3>앙카라</h3>
+			<p>터키의 수도이다.</p>
+		</div>
+		
+	</div>
+</body>
+</html>
+

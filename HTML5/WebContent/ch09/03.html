@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>positon 사용하기(absolute position)</title>
+<style type="text/css">
+
+    div#container {
+        border: green;
+        margin: 0 auto;
+        width: 80%
+        
+    }
+
+    div#parent, div#other {
+        border: solid green;
+        margin: 10px;
+    }
+
+    div#parent {
+        width: 50%;
+        background-color: #ffcccf;
+    }
+
+    
+
+	div.me {
+        position: relative;
+        top: -50px;
+        left: 200px;
+        background-color: yellow;
+        width: 100%;
+        /* postion : absolute; 이고 width를 정해주지 않으면 width 는 내용물의 크기만큼 잡힌다. */
+        /* postion : position이 absolute 이면 부모의 크기를 따라것이 아니라 모니터 크기의 80%만큼 따라간다.*/
+
+	}
+/*
+    엘리먼트에 CSS 속성으로 position을 지정하면 여러가지 방법으로 위치를 지정할 수 있다.
+
+  - 상대위치(relative positioning)
+     position: relative
+
+          자신의 위치를 기준으로 한 상대위치 값을 지정한다.
+          원래있던 자신의 위치를 기준으로 offset 값만큼 이동하는 것이다. 그 크기(width)는 원래있던 자신의 크기(width)를 그대로 유지한다. 
+          position: relative 인 경우, me의 속성으로 top과 left를 주었을 때 me의 좌측상단 꼭지점의 위치는 me의 원래 위치에서 200px 아래,
+          원래 위치의 왼쪽에서 부터 200px 에서 시작한다. 
+*/
+
+
+</style>
+</head>
+
+<body>
+    <div id="container">
+
+        <div id="parent">
+            parent(부모)<br>
+            parent(부모)<br>
+            parent(부모)<br>
+
+       
+
+            <div class="me">
+                첫번째 me(나)는 position: static;으로 했으므로  
+                top: 200px; left: 200px; 으로 위치값을 줘봐야 엘리먼트의 위치값은 변하지
+                않으며 크기(width)를 따로 지정하지 않았으므로 
+                부모 엘리먼트(요소)의 크기(width)를 따라간다.<br/>
+            </div>
+
+            <div class="parent">
+                두번째 me(나)는 position: static;으로 했으므로  
+                top: 200px; left: 200px; 으로 위치값을 줘봐야 엘리먼트의 위치값은 변하지
+                않으며 크기(width)를 따로 지정하지 않았으므로 
+                부모 엘리먼트(요소)의 크기(width)를 따라간다.<br/>
+            </div>
+
+
+            <div id ="other">
+                other(기타 다른것들) <br/>
+                other(기타 다른것들) <br/>
+                other(기타 다른것들) <br/>
+                other(기타 다른것들) <br/>
+                other(기타 다른것들) <br/>
+                other(기타 다른것들) <br/>
+                other(기타 다른것들) <br/>
+            </div>
+
+        </div>    
+
+        
+
+    </div>
+</body>
+</html>

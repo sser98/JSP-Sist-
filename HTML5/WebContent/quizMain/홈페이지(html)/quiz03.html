@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>퀴즈 메인페이지 만들기</title>
+</head>
+<style type="text/css">
+* {
+    position: relative;
+}
+  div#container {
+      margin: 2% 5%;
+      
+      height: 850pt;
+      
+      
+  }
+  div.height {
+      height: 100pt;
+      
+  }
+  span {
+      display: block;   
+  }
+  label {
+      width: 90pt;
+      height: 30pt;
+      font-size: 20pt;
+      font-weight: bold;
+      display: inline-block;
+      text-align: left;
+      
+  }
+  div.heightcenter {
+      height: 600pt;
+      
+  }
+  .heightbottom {
+      height: 100pt;
+      
+      font-size: 15pt;
+      font-weight: bold;
+      
+  }
+  div#headright {
+      width: 30%;
+      
+      display: inline-block;
+      
+      
+  }
+
+  div#headleft {
+      width: 67.33%;
+      
+      display: inline-block;
+      float : right;
+      text-align: right;
+      
+  }
+  img {
+      position: relative;
+      height: 100pt;
+      
+
+  }
+
+  div#centerleft {
+      width: 33%;
+      
+      display: inline-block;
+      background-color: rgb(145, 143, 143);
+      
+  }
+
+  div#centerright {
+      width: 64.33%;
+      
+      display: inline-block;
+      float: right;
+      background-color: rgb(37, 36, 36);
+  }
+
+  div#bottom {
+      
+      
+      display: table;
+      background-color: blanchedalmond;
+      width: 100%;  
+  }
+
+  div#botdiv {
+    text-align: center;
+    font-weight: bold;
+    color: rgb(145, 143, 143);
+    font-size: 30pt;
+    
+}
+
+div.very {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+  
+  .subtag {
+      font-size: 20pt;
+      color: white;
+      margin-left: 15pt;
+      list-style-type: none;
+      font-weight: bold;
+      margin-bottom: 20pt;
+  }
+  .headline {
+      font-size: 25pt;
+      color: white;
+      margin-left: 5pt;
+      list-style-type: none;
+      font-weight: bold;
+      margin-top: 10pt;
+      margin-bottom: 20pt;
+  }
+  .subline {
+    font-size: 15pt;
+      color: white;
+      margin-left: 5pt;
+      list-style-type: none;
+      font-weight: bold;
+      margin-top: 10pt;
+      margin-bottom: 20pt;
+  }
+ 
+input {
+    height: 15pt;
+}
+
+div#linebar {
+    padding-bottom: 20pt;
+}
+a {
+    display: inline-block;
+    width: 70pt;
+    font-size: 22pt;
+    margin-left: 30pt;
+    color: rgba(0, 0, 255, 0.979);
+    text-decoration: none;
+    font-family: '고딕';
+    font-weight: bolder;
+}
+
+label#adjust {
+    width: 175pt;
+    text-align: right;
+}
+
+
+</style>
+<body>
+    <div id="container">
+        <div id="head" class="height">
+           
+                
+            <div id="headright" class="height">
+                <img src="images/daum.png">
+            </div>
+        </div>
+        <div id=linebar>
+            <a href="http://top.cafe.daum.net/">카페</a>
+            <a href="http://top.cafe.daum.net/">메일</a>
+            <a href="http://top.cafe.daum.net/">뉴스</a>
+            <a href="http://top.cafe.daum.net/">지도</a>
+            <a href="http://top.cafe.daum.net/">증권</a>
+            <a href="http://top.cafe.daum.net/">블로그</a>
+            
+        </div>
+        <div id="centerleft" class="heightcenter">
+            <ul>
+                <div id="login" class="height"><span><label>아이디</label> <input type="text" required placeholder="아이디" ></span>
+                    <span><label>비밀번호</label> <input type="password" required placeholder="비밀번호" ></span>
+                    <span><label id=adjust><button>로그인</button>
+                     <button>취소</button></label></span>              
+                 </div>
+            </ul>
+             </div>
+        <div id="centerright" class="heightcenter">
+            <li class="headline">기사1 제목입력</li>
+            <li class="subline">"부동산거래 동맥경화 우려 금리인하 검토시기 왔다."</li>
+            <li class="headline">기사2 제목입력</li>
+            <li class="subline">" 예매창 지붕 뚫었다. '어벤져스&middot;엔드게임' 4DX, 예매 오픈 후 순삭 '매진' "</li>
+        </div>
+        <div id="bottom" class="heightbottom">
+                <div id=botdiv class="very">
+                    copyright &#169; Kakao Corp.All rights reserved.
+                </div>
+        </div>
+    </div>
+</body>
+</html>

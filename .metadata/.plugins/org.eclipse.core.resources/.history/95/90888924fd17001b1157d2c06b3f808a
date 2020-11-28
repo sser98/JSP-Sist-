@@ -1,0 +1,12 @@
+package common.controller;
+
+
+
+
+public class IndexController extends AbstractController {
+	
+	
+	
+
+
+}

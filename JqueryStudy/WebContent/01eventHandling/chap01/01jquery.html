@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 시작 1</title>
+
+<style type="text/css">
+
+	span#test {
+		color: red;
+	}
+
+	span.example {
+		color: blue;
+	}
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+    /*
+           웹브라우저에 HTML문서(documet)가 로드되고 나면 
+           자동적으로 실행할 내용이 있으면 그 내용은 아래와 같이 기술해주면 된다.
+    */
+	$(function(){
+		// alert("안녕하세요~~");
+		
+		// 팝업창 띄우기
+		window.open("popupContents.html", "myPopup",
+		   	        "left=100px, top=100px, width=400px, height=350px");
+		
+		$("span#test").html("안녕하세요?<br> jQuery~~~");
+		
+		$("span.example").html("반갑습니다^^<br> 제이쿼리~~");
+	});
+
+</script>
+
+</head>
+<body>
+	<span id="test"></span>
+	<br><br>
+	<span class="example"></span>
+	<br><br>
+	<span class="example"></span>
+</body>
+</html>
+
+
+
+

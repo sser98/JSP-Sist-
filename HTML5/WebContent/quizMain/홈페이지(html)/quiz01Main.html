@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>퀴즈1 메인페이지 만들기</title>
+<style type="text/css">
+* {
+	position: absolute;
+}
+body {
+	
+	margin: 0px 150px 0px 150px ;
+	
+}
+ header {
+	 padding: 0;
+	 margin: 0;
+ }
+
+label.title {
+    /* border: solid 1px blue; */
+    display: inline-block;
+    width: 100pt;
+    color: navy;
+    font-weight: bold;
+    margin-left: 0px;
+	margin-bottom: 10pt;
+	font-size: 20pt;
+    padding: 0;
+    
+}
+
+ul { 
+	list-style-type: none;
+	width: 1550px;
+	margin-top: 50px;
+	padding-left: 10pt;
+	padding-bottom: 0;
+
+}
+
+input.btn {
+    width: 90px;
+    height: 40px;
+    display: inline-block;
+    background-color: gray;
+    color: white;
+    font-size: 20pt;
+	padding: 0;
+}
+
+
+div#div1 {
+	float : left;
+	
+}
+
+div#div2 {
+	float : right;
+	
+	
+}
+
+ li#list {
+		margin-left: 100pt;
+		
+}  
+
+
+div#leftside {
+	width: 30%;
+	background-color: #888;
+	float: left;
+	margin-right: 10pt;
+	padding-left: 50pt;
+	
+	
+}
+
+div#rightside {
+	width: 64.8721%;
+	background-color: black;
+	margin: 0;
+	float: right;
+	color: aliceblue;
+	font-size: 35pt;
+	font-family: "고딕";
+	padding-left: 50pt;
+	padding-bottom: 0;
+	
+}
+
+
+.customDisplay {
+	display: inline-block;
+	height: 1400px;
+	margin: 0;
+}
+
+div#leftside > ul {
+	color: white;
+	width: 300px;
+	font-size: 35pt;
+	font-family: 견고딕;
+	font-weight : bold;
+	margin-top: 30px;
+	
+	
+}
+
+li.margin {
+	margin-bottom: 50px;
+}
+
+table {
+	background-color :silver;
+	height: 230px; 
+	width: 100%;
+	
+
+}
+ td {
+ 	text-align: center;
+	font-weight: bold;
+	font-size: 30pt;
+	font-family: Arial, Helvetica, sans-serif;
+	 
+ 	
+ }
+ 
+ td.mid {
+ 	vertical-align: middle;
+ }
+
+
+</style>
+</head>
+<body>
+<form action="action.jsp">
+	<header>
+	<div id="div1">
+		<ul>	
+			 
+			<li><label class="title">아이디</label> 
+			<input type="text" size="20" maxlength="20" required placeholder="아이디" class="line"
+			autofocus required />
+			
+			</li>
+			<li><label class="title">비밀번호</label> 
+			<input type="text" size="20" maxlength="20" required placeholder="비밀번호" 
+			autofocus required/>
+			</li>
+			
+			<li id="list">
+				<input type="submit" value="로그인" class="btn">
+				<input type="reset" value="취소" class="btn">
+			</li>
+	</ul>
+	</div>
+	<div id="dvi2">
+	<img src="images/daum.png" width="300px" height="200px"/>	
+	</div>
+	<br>
+	<br>	
+	
+	
+	<div id="leftside" class="customDisplay">
+
+		<ul>
+			<li class="margin">카페 </li>
+			<li class="margin">메일 </li>
+			<li class="margin">뉴스 </li>
+			<li class="margin">지도 </li>
+			<li class="margin">증권 </li>
+			<li class="margin">블로그 </li>
+		</ul>
+		
+	</div>
+	
+	<div id="rightside" class="customDisplay">
+	
+		<article>
+			<hgroup>
+			<h5>기사1 제목입력</h5>
+			<h6>"거래 동맥경화 우려.. 금리인하 검토시기 왔다"</h6>
+			</hgroup>
+			
+			<hgroup>
+			<h5>기사2 제목입력</h5>
+			<h6>"예매창 지붕 뚫었다".." '어벤져스:엔드게임' 4DX, 예매 오픈 후 순삭 '매진'[공식입장]</h6>
+			</hgroup>
+				
+			
+		</article>
+	</div>			
+	
+	
+	</header>
+	
+
+	</form>
+	
+		
+		<table>
+			<td>
+				copyright &#169; Kakao Corp.All rights reserved.
+			</td>
+		</table>
+			
+			
+		
+		
+
+		
+							
+</body>
+</html>

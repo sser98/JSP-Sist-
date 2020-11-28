@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>인물 사진 보이기/감추기( hover )</title>
+<!-- hover 는 이벤트가 아니라 jQuery 에서 제공해주는 함수(메소드)인데 mouseover 와 mouseout 을 합친것이다.  -->
+
+<style type="text/css">
+
+	div#container {
+		/* border: solid 1px gray; */
+		width: 80%;
+		margin: 0 auto;
+	}
+	
+	span.buttons {
+		display: inline-block;
+		width: 100px;
+		border: solid 2px orange;
+		margin: 20px;
+		padding: 5px;
+		background-color: yellow;
+		color: #ff0000;
+		font-size: 15pt;
+		cursor: pointer;
+	}
+
+	div#comment {
+		/* border: solid 1px gray; */
+		width: 250px;
+		margin-top: 10px;
+	}
+
+	div#face > img {
+		width: 119px;
+		height: 149px;
+		border-radius: 50%;
+	}
+	
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		
+		var arrPerson = [{name:"김태희", filename:"kimth.jpg", address:"서울 강동구", email:"kimth@gmail.com"}  
+                        ,{name:"아이유", filename:"iyou.jpg", address:"서울 강서구", email:"iyou@gmail.com"}
+                        ,{name:"박보영", filename:"parkby.jpg", address:"서울 강남구", email:"parkby@gmail.com"}];		
+		
+		var html = "";
+		
+		arrPerson.forEach(function(item, index){
+			
+		    // console.log(item.name);
+		    // console.log(index);
+		    html += "<span class='buttons'>"+item.name+"</span>";
+			
+		}); // end of arrPerson.forEach(function(item){});---------------------
+		
+		$("#firstdiv").html(html);
+		
+		
+		/*
+		      선택자.hover(function(){} , fuction(){}); 
+		   ==> 첫번째 function(){} 은 mouseover 에 해당하는 내용을 기재하는 것이고,
+		             두번째 fuction(){} 은 mouseout 에 해당하는 내용을 기재하는 것이다.
+		*/
+		
+	    /*	
+	       $(".buttons").bind("hover", function(event){}); 은 에러이다.
+	             왜냐하면 hover 는 이벤트가 아니라 jQuery 에서 제공해주는 함수(메소드)
+	    */    
+		
+		$(".buttons").hover(function(event){
+			
+				var $target = $(event.target);
+				
+				$("div#face").html("<img src='images/"+arrPerson[$target.index()].filename+"' />");
+				
+				html = "<ol>"+
+				          "<li>성명 :&nbsp;"+arrPerson[$target.index()].name+"</li>"+
+				          "<li>주소 :&nbsp;"+arrPerson[$target.index()].address+"</li>"+
+				          "<li>e메일 :&nbsp;"+arrPerson[$target.index()].email+"</li>"+
+				       "</ol>";
+				$("div#comment").html(html);
+				       
+				$target.css({'background-color':'navy', 'color':'white'});
+				
+				$("#seconddiv").show();
+				
+			} , 
+			function(event) {
+				var $target = $(event.target);
+				 $target.css({'background-color':'yellow', 'color':'#ff0000'});
+				 
+				 $("#seconddiv").hide();
+			}
+		); // end of $(".buttons").hover(function(event){} , function(event){});--------------
+		
+	});// end of $(document).ready(function(){});--------------------------------
+
+</script>
+
+</head>
+<body>
+
+	<div id="container" align="center">
+		<div id="firstdiv"></div>
+		
+		<div id="seconddiv">
+			<div id="face"></div>
+			<div id="comment" align="left"></div>
+		</div>
+	</div>	
+
+</body>
+</html>

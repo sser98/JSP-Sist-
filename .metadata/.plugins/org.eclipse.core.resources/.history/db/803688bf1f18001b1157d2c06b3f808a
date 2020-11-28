@@ -1,0 +1,8 @@
+package test.controller;
+
+import common.controller.AbstractController;
+
+public class TemplateController extends AbstractController {
+	
+	
+}

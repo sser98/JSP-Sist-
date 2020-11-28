@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form 에 대해서 알아봅니다.-1</title>
+
+<style type="text/css">
+
+	body{
+		background-color: #fff;
+	}
+	
+	#container {
+	/*	border: solid 1px gray; */
+		width: 80%;
+		margin: 0 auto;
+	}
+	
+	
+	form {
+		margin-top: 100px;
+	}
+	
+	legend {
+		font-size: 20pt;
+	}
+	
+	ul {
+	/*	border: solid 1px red; */
+		list-style-type: none;
+		padding: 0;
+	}
+	
+	label {
+	/*	border: solid 1px blue; */
+		display: inline-block; 
+		width: 150px;
+	}
+	
+	li {
+		line-height: 30px;
+	}
+
+</style>
+
+</head>
+<body>
+	<div id="container">
+	
+		<form action="register.do">
+			<!-- fieldset 태그는 폼을 그룹핑(묶어주는것)하는 역할  -->
+			<fieldset>
+			
+			    <!-- legend 태그는 fieldset 에 대한 제목을 지정하는 것이다. --> 
+				<legend>프로젝트 정보</legend>
+				
+				<ul>
+					<li>
+						<label for="prjname">프로젝트명</label>
+						<input type="text" id="prjname" size="20" maxlength="30" autofocus required placeholder="예: 인사관리프로젝트" /> 
+						<!--  autofocus : 페이지로드시 자동 포커스 지정
+						      required  : 입력 필수 지정
+						      placeholder="예: 인사관리프로젝트" 은 예시로 미리 적어주는 것
+						 -->
+					</li>
+					
+					<li>
+						<label for="priority">중요도</label>
+						<input type="range" id="priority" min="0" max="10" value="5" step="1" /> 
+						<!-- range : 슬라이드 막대로 표시하는 숫자 필드 --> 	
+					</li>
+					
+					<li>
+						<label for="estimatehours">완료예상시간</label>
+						<input type="number" id="estimatehours" min="1" max="1000" value="10" step="1" />        
+						<!-- number : 숫자필드 -->
+					</li>
+					
+		
+					<li>
+						<label for="startdate">시작날짜</label>
+						<input type="date" id="startdate"/>
+						<!-- date : 날짜필드 -->
+					</li>
+					
+					
+					<li>
+						<label for="month">월</label>
+						<input type="month" id="month"/>
+						<!-- month : 월단위 날짜필드 -->
+					</li>
+					
+					<li>
+						<label for="week">주</label>
+						<input type="week" id="week"/>
+						<!-- week : 주단위 날짜필드 -->
+					</li>
+					
+					<li>
+						<label for="starttime">시작시간</label>
+						<input type="time" id="starttime"/>
+						<!-- time : 시간필드 -->
+					</li>
+					
+					<li>
+						<label for="email">이메일</label>
+						<input type="email" id="email"/>
+						<!-- email : 이메일 필드 -->
+					</li>
+					
+					<li>
+						<label for="url">URL</label>
+						<input type="url" id="url"/>
+						<!-- url : URL 필드 -->
+					</li>
+					
+					<li>
+						<label for="search">검색</label>
+						<input type="search" id="search"/>
+						<!-- search : search 필드 -->
+					</li>
+					
+					<li>
+						<label for="projectcolor">프로젝트 색상</label>
+						<input type="color" id="projectcolor"/>
+						<!-- color : 색상지정 필드 -->
+					</li>
+					
+					<li>
+						<input type="submit" value="전송" />
+						<input type="reset" value="취소" />
+					</li>
+				</ul>
+				
+			</fieldset>
+		</form>
+	
+	</div>
+</body>
+</html>

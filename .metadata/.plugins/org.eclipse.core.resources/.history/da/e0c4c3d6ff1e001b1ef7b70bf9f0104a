@@ -1,0 +1,26 @@
+package member.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import common.controller.AbstractController;
+
+public class coinPurchaseTypeChoice extends AbstractController {
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		// 코인 충전을 하기 위한 전제조건은 먼저 로그인을 해야한다.
+		
+		if(super.checkLogin(request)) {
+			
+			// 로그인을 했으면  
+			 
+		} else {
+			// 로그인을 안 했으면
+			String message = "코인충전을 하기 위해서는 먼저 로그인을 하세요";
+			
+		}
+	}
+
+}

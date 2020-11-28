@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트에서 엘리먼트(태그, 요소)를 잡는 4가지 방법</title>
+
+<style type="text/css">
+
+</style>
+
+<script type="text/javascript">
+
+	window.onload = function() {
+		
+		// == 1. 자바스크립트에서 태그를 가지고 선택자를 잡는 방법 == 
+		/*
+		    document.getElementsByTagName("태그명"); 이다.
+		    
+		    document.getElementsByTagName("태그명"); 을 실행하면 리턴타입은 객체(object)배열 타입이다.
+		*/
+		
+		var arrDiv = document.getElementsByTagName("div"); 
+		// alert("배열 arrDiv 의 길이 => " + arrDiv.length);  //  배열 arrDiv 의 길이 => 3
+		
+		for(var i=0; i<arrDiv.length; i++) {
+		//	alert(arrDiv[i].innerText); // red  green  blue
+			arrDiv[i].style.width = "400px";
+			arrDiv[i].style.height = "200px";
+			arrDiv[i].style.border = "solid 1px gray";
+			arrDiv[i].style.margin = "20px";
+			arrDiv[i].style.backgroundColor = arrDiv[i].innerText;
+		//	arrDiv[i].style.color = "white";
+		}
+		
+		// == 2. 자바스크립트에서 클래스명을 가지고 선택자를 잡는 방법 == 
+		/*
+		    document.getElementsByClassName("클래스명"); 이다.
+		    
+		    document.getElementsByClassName("클래스명"); 을 실행하면 리턴타입은 객체(object)배열 타입이다.
+		*/
+		var arrBtn = document.getElementsByClassName("btn");
+		for(var i=0; i<arrBtn.length; i++) {
+			arrBtn[i].style.backgroundColor = "navy";
+			arrBtn[i].style.color = "white";
+		}    
+			
+		// == 3. 자바스크립트에서 name 속성을 가지고 선택자를 잡는 방법 == 
+		/*
+		    document.getElementsByName("name값"); 이다.
+		    
+		    document.getElementsByName("name값"); 을 실행하면 리턴타입은 객체(object)배열 타입이다.
+		*/
+		var arrHobby = document.getElementsByName("hobby");
+		
+		for(var i=0; i<arrHobby.length; i++) {
+			console.log(arrHobby[i].value);
+		}    
+		
+		var arrLabel = document.getElementsByTagName("label"); 
+		for(var i=0; i<arrLabel.length; i++) {
+			arrLabel[i].style.color = "red";
+		}
+		
+		// == 4. 자바스크립트에서 id 값을 가지고 선택자를 잡는 방법 == 
+		/*
+		    document.getElementById("id값"); 이다.
+		    
+		    document.getElementById("id값"); 을 실행하면 리턴타입은 객체(object) 타입이다.
+		*/
+		var btnOK = document.getElementById("btnOK");
+		    
+		// --- btnOK(확인버튼)을 클릭하면 alert("확인버튼을 클릭하셨군요"); 를 띄우고자 한다.
+		// === 엘리먼트(객체)를 클릭하면 발생하는 이벤트 핸들러 생성하기 === // 
+		btnOK.onclick = function() {
+			// btnOK 를 이벤트소스 라고 부른다.
+			// onclick 를 이벤트 라고 부른다. 지금은 클릭이벤트이다.
+			// function() { } 부분을 핸들러(처리) 라고 부른다. 
+			
+			alert("확인버튼을 클릭하셨군요");
+		};
+		
+		
+		var btnChkbox = document.getElementById("btnChkbox");
+		// --- btnChkbox(체크박스에 체크된것 알아오기)을 클릭하면 체크박스에 체크된것만의 value값 알아오기
+		// === 엘리먼트(객체)를 클릭하면 발생하는 이벤트 핸들러 생성하기 === // 
+		btnChkbox.addEventListener("click", function(){
+			// alert("체크박스에 체크된것 알아오기를 클릭하셨군요");
+			
+			var arrHobby = document.getElementsByName("hobby");
+			var result = "";
+			var cnt = 0;
+			for(var i=0; i<arrHobby.length; i++) {
+			   // console.log(arrHobby[i].value + "=> " + arrHobby[i].checked);
+			   // 체크박스의엘리먼트.checked ==> 체크가 되어져 있으면 true, 체크가 안되어져 있으면 false 
+			   
+			   if(arrHobby[i].checked) { // 체크박스에 체크가 되었더라면  
+				   cnt++;
+				   var sComma = (cnt == 1)?"":",";
+				   result += sComma + arrHobby[i].value;
+			   }
+			}// end of for--------------------------------------------------------------
+			
+			// 게임과 글쓰기와 음악감상을 체크를 했다라면 결과물은 콘솔창에 
+			// game,writing,music 와 같이 출력되어지도록 하세요. 
+			// console.log(result);
+			
+			document.getElementById("result").innerHTML = result;
+		});
+		
+	}
+
+</script>
+
+</head>
+<body>
+	<div>red</div>
+	<div>green</div>
+	<div>blue</div>
+	
+	<div>
+		<button type="button" class="btn">버튼1</button>
+		<button type="button">버튼2</button>
+		<button type="button" class="btn">버튼3</button>
+		<button type="button">버튼4</button>
+		<button type="button" class="btn">버튼5</button>
+		<button type="button">버튼6</button>
+	</div>
+	
+	<div>
+		<ul style="list-style-type: none;">
+			<li><label for="hobby1">게임</label><input type="checkbox" id="hobby1" name="hobby" value="game" /></li>
+			<li><label for="hobby2">영화감상</label><input type="checkbox" id="hobby2" name="hobby" value="movie" /></li>
+			<li><label for="hobby3">글쓰기</label><input type="checkbox" id="hobby3" name="hobby" value="writing" /></li>
+			<li><label for="hobby4">음악감상</label><input type="checkbox" id="hobby4" name="hobby" value="music"/></li>
+		</ul>
+		
+		<button type="button" id="btnOK">확인</button>
+		<button type="button" id="btnChkbox">체크박스에 체크된것 알아오기</button>
+		<br/>
+		
+		체크박스에 체크가 되어진 값 : <span id="result"></span>
+	</div>
+	
+</body>
+</html>
+
+
+
+

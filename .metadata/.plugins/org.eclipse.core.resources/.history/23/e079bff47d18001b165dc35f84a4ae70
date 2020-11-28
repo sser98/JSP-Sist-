@@ -1,0 +1,5 @@
+package common.controller2;
+
+public interface InterCommand2 {
+
+}

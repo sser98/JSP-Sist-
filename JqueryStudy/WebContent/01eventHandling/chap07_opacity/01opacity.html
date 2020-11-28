@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>마우스를 움직여 연예인 사진을 밝게 또는 흐리게 처리하기(opacity)</title>
+
+<style type="text/css">
+
+	div#container {
+		   width: 80%;
+		   margin: 0 auto;
+		/* border: 1px solid red; */
+	}
+	
+	img {margin: 20px;}
+
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("img").css('opacity','0.2');
+		/*
+		   'opacity' 는 광도(빛)값을 나타내어주는 것이다.
+		   'opacity' 의 값의 범위는 0.0 ~ 1.0 까지이다.
+		    0.0 은 완전투명(안보임)이고, 1.0 은 원본의 광도값이다.
+		*/
+		
+		$("img").hover(function(){
+			$(this).css({'opacity':'1.0', 'cursor':'pointer', 'border-radius':'50%'});
+		} , function(){
+			$(this).css({'opacity':'0.2', 'cursor':'default', 'border-radius':'0'});
+		});
+				
+	}); // end of $(document).ready(function(){});--------------
+</script>
+</head>
+<body>
+	<div id="container" align="center">
+		<div id="firstdiv">
+			<img src="images/kimth.jpg" alt="김태희" />
+			<img src="images/iyou.jpg" alt="아이유" />
+			<img src="images/parkby.jpg" alt="박보영" />
+		</div>
+	</div>
+</body>
+</html>
+
+

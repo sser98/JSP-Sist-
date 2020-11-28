@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>하위요소(하위태그)를 찾는 children(), find()에 대해서 알아봅니다.</title>
+
+<style type="text/css">
+	
+	#container {
+		width: 80%;
+		margin: 0 auto;
+		border: solid 2px gray;
+		padding: 10px;
+	}
+	
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("div#container").children().css({'border':'solid 1px red', 'margin':'20px'});     
+		// 선택자.children() 은 선택자의 자식(손자는 아님)태그(자식요소)만을 가리키는 것이다.
+		
+		$("div#container").find(".baseball").append("&nbsp;야구는 영어로 Baseball");
+		$("div#container").find("#football").prepend("축구는 영어로 football&nbsp;");
+		// 선택자1.find(선택자2)은 선택자1 안에 있는 선택자2를 가리키는 것이다.
+		
+		$("div#container2").find("*").css({'border':'solid 1px blue', 'margin':'20px'}); 
+		// find 를 응용한 선택자내에 있는 모든 하위요소(자식 뿐만 아니라 자손까지 포함)를 가리키는 것이다.
+	});
+</script>
+
+</head>
+<body>
+    <h1>children()</h1>
+    
+	<div id="container">
+		<h2>h2</h2>
+		<div id="mydiv">div 태그
+			<ul id="ul1">ul 태그
+				<li class="baseball">li태그 야구</li>
+				<li id="football">li태그 축구</li>
+				<li>li태그 농구</li>
+			</ul>
+			
+			<ul id="ul2">ul 태그2
+				<li>li태그 콜라</li>
+				<li>li태그 커피</li>
+				<li>li태그 사이다</li>
+			</ul>
+		</div>
+	</div>
+	
+	<hr style="border: solid 2px gold; margin-top: 30px;" />
+	
+	<h1>find()</h1>
+    
+	<div id="container2">
+		<h2>h2</h2>
+		<div>div 태그
+			<ul>ul 태그
+				<li class="baseball">li태그 야구</li>
+				<li id="football">li태그 축구</li>
+				<li>li태그 농구</li>
+			</ul>
+			
+			<ul>ul 태그2
+				<li>li태그 콜라</li>
+				<li>li태그 커피</li>
+				<li>li태그 사이다</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 폼 유효성 검사</title>
+
+<style type="text/css">
+
+   body {
+   /*   border: solid 1px gray; */
+      margin: 0;
+      padding: 0; 
+      font-family: Arial, "MS Trebuchet", sans-serif;
+      word-break: break-all; /* 공백없이 영어로만 되어질 경우 해당구역을 빠져나가므로 이것을 막기위해서 사용한다. */
+   }
+   
+   #container {
+   /*   border: solid 1px blue; */
+      width: 80%;
+      margin: 0 auto;
+   }
+   
+   legend {
+      font-size: 20pt;
+   }
+   
+   ul {
+   /*   border: solid 1px red; */ 
+      list-style-type: none;
+      padding: 0;
+   }
+   
+   ul > li {
+      line-height: 40px;
+   }
+   
+   label.title {
+   /*   border: solid 1px blue; */ 
+      display: inline-block;
+      width: 100px;
+      color: navy;
+      font-weight: bold;
+   }
+
+    input.myinput {
+       height: 20px;
+    }
+    
+    select {
+       width: 150px;
+    }
+    
+    select.myselect {
+       height: 25px; 
+    }
+    
+    input.btn {
+       width: 100px;
+       height: 40px;
+       background-color: #000;
+       color: #fff;
+       font-size: 16pt; 
+       border: none;
+       margin: 20px 0 0 40px; 
+    }
+    
+</style>
+
+<script type="text/javascript">
+  var now = new Date(); // 자바스크립트에서 현재날짜시각을 알려주는 것이다.
+	var currentYear = now.getFullYear();   // 현재년도
+	
+   window.onload = function() {
+      
+      var sOption = "<option>출생년도</option>";
+      for(var i=0; i<(currentYear-1950+1); i++) {
+         sOption += "<option>"+ (1950+i) +"</option>";
+      }// end of for---------------------
+      
+      document.getElementById("birthYear").innerHTML = sOption;
+      document.getElementById("birthYear2").innerHTML = sOption;
+      
+      
+      var select = document.getElementById("birthYear");
+      select.addEventListener("change", function(){
+         // alert(this.value);
+         // alert(typeof(this.value));  ==> string 
+         
+         var val = Number(this.value);
+         
+         var bool = isNaN(val);
+         // NaN ==> Not a Number 
+         /*
+            isNaN(값) ==> 값이 숫자가 아니라면 true
+            isNaN(값) ==> 값이 숫자 이라면 false
+         */
+         
+         if(bool) { // this.value 가 "출생년도"인 경우이다. 
+            alert("태어나신 년도를 선택하세요");
+            document.getElementById("age").innerHTML = "";
+         }
+         else { // this.value 가 올바른 숫자년도를 선택한 경우이다.
+            var age = currentYear - val + 1;
+            document.getElementById("age").innerHTML = age;
+         }   
+      });
+      
+   }// end of window.onload = function(){}-----------------------------
+
+	 function goAge() {
+		
+		var select1 = document.getElementById("birthYear2");
+         var val = Number(select1.value);
+         var bool = isNaN(val);
+
+         if(bool) { // this.value 가 "출생년도"인 경우이다. 
+            alert("태어나신 년도를 선택하세요");
+            document.getElementById("age").innerHTML = "";
+         }
+         else { // this.value 가 올바른 숫자년도를 선택한 경우이다.
+            var age = currentYear - val + 1;
+            document.getElementById("age").innerHTML = age;
+         }   
+     
+
+	}			
+   
+   function goSubmit() {
+
+      let registerFrm =document.registerFrm; // 문서에서 name의 값이 registerFrm 인 태그 (오브젝트)를 잡는것이다
+      let registerFrm2=document.getElementsByName("registerFrm");
+      // 1번은 object이고 다만 1개이상 이면 배열로 처리
+      // 2번은 배열임
+      console.log(registerFrm);
+      console.log(registerFrm2);
+
+      // 1.사용자 ID는 필수 입력사항이므로 반드시 값을 넣어주어야함
+      registerFrm.userid.value // frm 태그에서 name이 userid2인 input 태그이다.
+      // 폼테그에서 name이 userid2인것
+      
+
+      let useridVal=registerFrm.userid.value;
+
+      if(useridVal.trim().length != 0) { // 아이디 값이 글자가 없거나 공백만으로 이루어진 경우라면   
+         
+      
+      }  else {
+         alert("아이디는 필수 입력 사항입니다. 아이디를 입력하세요!!");
+         registerFrm.userid.value= "";
+         registerFrm.userid.focus();
+         
+      }
+
+
+
+      // alert(useridVal.trim().length)
+
+       
+      // 내가 입력한 값이 뜸 value라서
+      console.log("확인용 아이디 : " + useridVal);
+      // 배열로 저장은 안되는데 애 정체가 뭐냐....
+
+      // 2. 암호는 필수 입력사항이므로 반드시 값을 입력해야 한다.
+      let passwd=registerFrm.passwd.value;
+      
+      if( passwd.trim().length != 0) {
+          
+          }          
+         else {
+         alert("비밀번호는 필수 입력 사항입니다. 비밀번호를 입력하세요!!");
+         passwd= "";
+         registerFrm.passwd.focus();
+         return;
+         }
+
+      // 3. 암호 입력란과 암호확인 입력란의 데이터가 동일한지 아닌지 검사하기
+      if(document.getElementById("passwd2").value != passwd) {
+            alert("암호와 암호확인 값이 서로 다릅니다.");
+            passwd="";
+            document.getElementById("passwd2").value="";
+            registerFrm.passwd.focus();
+      }
+
+
+      // 4. 이메일
+      let email=registerFrm.email.value;
+      
+      if( email.trim().length != 0) {
+          
+          }          
+         else {
+         alert("e메일은 필수사항입니다!!");
+         email= "";
+         registerFrm.email.focus();
+         return;
+         }
+
+
+      // 코드의 중복 어떻게 해결하지??
+
+      // 6. 성별 유효성검사
+
+         let cnt =0;
+      let gender=document.getElementsByName("gender");
+         for(let i=0; i<gender.length; i++) {
+            let bool = gender[i].checked;
+
+            if(!bool) { // 라디오를 선택하지 않았으면 
+               cnt++;         
+            }
+         } // end of for -----------------
+
+         if(cnt!=2) {
+            
+         } else {
+            alert("성별을 체크해 주세요")
+            gender.forEach( item=> {
+               item.checked==false;
+            })
+            
+         }
+
+      
+
+      // / 2번째 방법 /// 
+      // foreach는 break가 없다라는것
+
+      // let gender=document.getElementsByName("gender");
+      // let bFlag = false;
+
+      //    for(let i=0; i<gender.length; i++) {
+      //       let bool = gender[i].checked;
+
+      //       if(bool) { // 라디오를 선택 했다라면
+      //          bFlag=true;
+      //          break;      
+      //          }
+      //    } // end of for -----------------
+
+      //    if(!bFlag) {
+      //       alert("성별을 선택하세요 !!!")
+      //    }
+
+         // 7. 취미를 2개 선택했는지 검사하기(라디오에서 선택했는지 안했는지 검사하는것임)
+         
+         let arrhobby=document.getElementsByName("hobby");
+
+         
+         arrhobby.forEach( item => {
+            if (item.checked == true) {cnt++;}
+         });
+
+         console.log(cnt);
+
+
+         if(cnt>1) { // 대입연산자가 아닌 ==써야함
+               
+            } else {
+               alert("취미를 2개이상 입력하세요")
+               arrhobby.forEach(item => {
+                  item.checked=false;
+               }); 
+            }
+
+     
+         // 8. 출생년도를 2개 선택했는지 검사하기(라디오에서 선택했는지 안했는지 검사하는것임)
+            
+         let birthYear = document.getElementById("birthYear").value;
+
+         if(isNaN(birthYear)) {
+            alert("출생년도를 올바르게 선택하세요!!");
+         } // goSubmit() 함수안에있는데도 실행이되는 이유는??
+
+         // 9. 최종학력을 선택했는지 검사하기
+         let school = document.getElementsByName("school").value;
+
+         // isNaN 숫자 모양이 아니라면
+         if(!isNaN(school)) {
+            alert("최종학력을 올바르게 선택하세요!!");
+         } else {
+            
+         }
+         
+
+         // 10. 가입인사말을 입력했는지 검사하기
+         let registerCommentVal=registerFrm.registerComment.value;
+
+         if(registerCommentVal.trim() == "") {
+            alert("가입인사말을 입력하세요!!")
+            registerFrm.registerComment.value="";
+            registerFrm.registerComment.focus();
+         }
+         
+         registerFrm.action ="register.do" // form 태그에 담겨진 데이터를 전송하면 받아서 처리해주는 URL 주소
+
+         registerFrm.method ="post"; // form 태그에서 method를 지정하지 않으면 즉, 생략하면 기본은"GET"방식이다.
+
+   // == !!! 중요 !!! ==
+   // 파일첨부가 있을 경우에는
+   // form name="registerFrm" action="register.do" method="post" 와 같이해주면 
+   // 파일은 절대로 전송이 안되어진다.
+   // form name="registerFrm" action="register.do" method="post" enctype="multipart/form-data" 로 
+   // 해야만 파일이 전송 되어진다. 
+   // 또한 파일을 첨부하려면 반드시 method="post" 이어야만 한다.!!!
+         registerFrm.submit();       // 전송하기
+
+         
+/*     get/post의 차이 
+
+   form 태그에서 사용하는  method 는 2가지가 있는데 get 과 post 가 있다.
+   get 은 전송하고자 하는 데이터를 웹브라우저 주소창에 실어서 보내는 방식이고,
+   post 는 전송하고자 하는 데이터를 본문속에 감추어서 보내는 방식이다.
+   그래서 get 은 보안성이 떨어지는 반면에 속도는 post 보다 빠르다.
+   post는 보안성은 좋지만 속도는 get 보다는 느린편이다.
+   그러므로 외부에 공개해서는 안되는 작업인 회원가입, 물품구매, 회원수정 등 DML(insert, update, delete)작업은 
+   일반적으로 post 방식으로 하고, 
+   외부에 공개하더라도 전혀 무관한 데이터 검색(예: 물품조회, 게시판글 검색)인 select 작업은
+   일반적으로 get 방식으로 한다.
+   method 를 기재하지 않으면 get 방식이다. 
+  
+
+  
+
+*/          
+   } // end of function goSubmit() {}-------------------------
+   
+   
+</script>
+
+
+</head>
+<body>
+   <div id="container">
+
+      <!-- 가장상위 태그를 잡으면 태그별로 배열로 정리되어 들어간다. -->
+      <form name="registerFrm" enctype="multipart/form-data">
+         <!-- enctype="multipart/form-data" 이렇게 해야만 파일첨부가 되어짐 -->
+         
+      <fieldset>
+         <legend>회원가입정보</legend>
+         
+         <ul>
+            <li>
+               <label for="userid" class="title">아이디</label>
+               <input type="text" name="userid" id="userid" class="myinput" size="20" maxlength="20" autofocus required />
+            </li>
+            
+            <li>
+               <label for="passwd1" class="title">암호</label>
+               <input type="password" name="passwd" id="passwd1" class="myinput" size="20" maxlength="20" required />
+            </li>
+            
+            <li>
+               <label for="passwd2" class="title">암호확인</label>
+               <input type="password" id="passwd2" class="myinput" size="20" maxlength="20" required />
+            </li>
+            
+            <li>
+               <label for="name" class="title">성명</label>
+               <input type="text" name="name" id="name" class="myinput" size="20" maxlength="20" required />
+            </li>
+            
+            <li>
+               <label for="email" class="title">이메일</label>
+               <input type="email" name="email" id="email" class="myinput" size="20" maxlength="40" required placeholder="예: hongkd@gmail.com" />        
+            </li>
+            
+            <li>
+               <label class="title">성별</label>
+               <label for="male">남자</label>
+               <input type="radio" name="gender" id="male" value="1" />
+               <label for="female">여자</label>
+               <input type="radio" name="gender" id="female" value="2"/>
+               
+            </li>
+            
+            <li>
+               <label class="title">취미</label>
+               <label for="hobby1">게임</label><input type="checkbox" name="hobby" id="hobby1" value="1" />&nbsp;&nbsp;
+               <label for="hobby2">영화감상</label><input type="checkbox" name="hobby" id="hobby2" value="2" />&nbsp;&nbsp;
+               <label for="hobby3">글쓰기</label><input type="checkbox" name="hobby" id="hobby3" value="3" />&nbsp;&nbsp;
+               <label for="hobby4">음악감상</label><input type="checkbox" name="hobby" id="hobby4" value="4"/>
+            </li>
+            
+            <li>
+               <label class="title">출생년도</label>
+               <select class="myselect" name="birthYear" id="birthYear"></select>
+               <select class="myselect" name="birthYear" id="birthYear2" onchange="goAge(this)"></select>
+            </li>
+            
+            <li>
+               <label class="title">현재나이</label>
+               <span id="age" style="font-size: 12pt; color: red;"></span>세
+            </li>
+            
+            <li>
+               <label class="title">최종학력</label>
+               <select class="myselect" name="school">
+                  <option selected>최종학력</option>
+                  <option value="1">고졸</option>
+                  <option value="2">초대졸</option>
+                  <option value="3">대졸</option>
+                  <option value="4">대학원졸</option>
+               </select>
+            </li>
+            
+            <li>
+               <label for="addFile" class="title">파일첨부</label>
+               <input type="file" name="addFile" id="addFile"/>
+            </li>
+            
+            <li>
+               <label for="registerComment" class="title">가입인사말</label>
+               <textarea rows="5" cols="30" id="registerComment" name="registerComment"></textarea>
+            </li>
+            
+            <li>
+               <input type="button" class="btn" value="확인" onclick="goSubmit()"/>
+               <!-- submit은 까다로움 -->
+               <input type="reset"  class="btn" value="취소" />
+            </li>
+            
+         </ul>
+         
+      </fieldset>
+      </form>
+   
+   </div>
+</body>
+</html>
+
+
+
+

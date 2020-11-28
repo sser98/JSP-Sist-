@@ -1,0 +1,111 @@
+※ JSON(JavaScript Object Notation) 이란?
+
+- Ajax 를 사용한 웹어플리케이션 개발시 서버와 통신하며 데이터를 보내기도 하고 데이터를 받을때도 있다.
+이때 데이터 전송을 위한 포맷방법은 특정 프로그래밍 언어에 국한되지 않고 독립적으로 사용되도록 만들어야 좋을 것이다.
+이러한 데이터 전송을 위한 포맷방법으로 XML 을 많이 사용하였다. 
+하지만 XML은 다소 복잡하고 어렵고 XML에 에러가 있으면 페이지 전체가 멈추게 되는 단점이 있다.  
+그래서 데이터 전송을 위한 포맷방법으로 XML 보다 좀 더 쉽게 나타내고 조작할 수 있도록 만든것이 JSON 이다. 
+
+JSON(JavaScript Object Notation 자바스크립트 객체 표기법) 은 말그대로 자바스크립트 객체 표기법인 것으로
+
+JSON 을 사용하여 서버와 주고 받을 수 있는 데이터형은 숫자, 문자열, boolean, 배열, 객체 이다.
+{ 으로 시작하여 } 으로 끝나며 그 속에 데이터를 표기하는데 key:값 쌍으로 구성된다. 
+key 는 문자열로 표현하므로 반드시 쌍따옴표를 해야하고, 값은 기본자료형이나 문자열, 배열, 객체가 되어진다.
+ 예를 들면 {"key1":90, "key2":"이순신", "key3":true} 형태로 되어지며 각쌍의 순서는 의미가 없다.
+ 즉, {"key2":"이순신", "key1":90, "key3":true} 형태로 되어도 괜찮다는 말이다.
+ 순서는 의미가 없고 오로지 key:값 쌍이 올바르게 매핑만 되어있으면 된다.
+
+ - JSON 형태의 객체 생성은 JSONObject 클래스를  사용하여 객체를 만든다.
+ - JSONArray 는  JSONObject 형태의 객체들을 받아들이는 List 계열의 타입 이다.
+  
+ 어떤 직원의 신상 정보를 나타내면 아래와 같이 표현할 수 있다. 
+ 
+{
+    "name" : "이순신",
+    "age" : 27,
+    "birth" : "1990-01-01",
+    "gender" : "남",
+    "marry" : true,
+    "address" : "서울특별시 강남구 역삼동 1번지",
+    "family" : {"father"  : "이아빠", 
+                "mother   : "김엄마", 
+                "brother" : "이동생"}
+ }
+ 
+ 
+ 자바, JSP, 서블릿, 스프링에서 JSON 사용한 데이터 전송을 하려면 
+ 먼저 JSON 데이터 포맷을 위한 라이브러리가  존재해야 한다.
+  
+>>> JSON 관련 라이브러리를 다운 받는 URL주소 <<<
+https://mvnrepository.com
+검색어로 JSON 이라고 검색을 한다. 
+구글아이콘으로 되어진 곳에서 JSON.simple 에 클릭한다.
+Version 에서 1.1.1 을 클릭한다.
+Files 에서 bundle (23 KB)을 클릭하여 json-simple-1.1.1.jar 파일을 다운을 받는다.   
+다운받은 json-simple-1.1.1.jar 파일을 /MyMVC/WebContent/WEB-INF/lib/밑에 저장시킨다.
+
+https://mvnrepository.com
+검색어로 JSON 이라고 검색을 한다.
+1. JSON In Java 에 클릭한다.
+Version 에서 20180813 에 클릭한다.
+Files 에서  bundle (63 KB) 클릭하여 json-20180813.jar 파일을 다운을 받는다.   
+다운받은 json-20180813.jar 파일을 /MyMVC/WebContent/WEB-INF/lib/밑에 저장시킨다.
+ 
+ 
+ ==== JSP 에서의 JSON 형태로 데이터 표현하기 예제 ====
+
+ personInfo.jsp 파일
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="org.json.simple.JSONObject" %>
+
+<%
+	JSONObject personObj = new JSONObject();
+
+	personObj.put("name", "이순신");
+	personObj.put("age", new Integer(27));
+	personObj.put("height", new Double(171.5));
+	personObj.put("phone", "010-345-6789");
+	personObj.put("email", "leess@naver.com");
+	personObj.put("address", "서울시 강남구 역삼동 1번지");
+	
+	out.println(personObj);
+	out.flush();
+%>
+
+>>>> personInfo.jsp 파일을 톰캣서버에서 실행하여 웹브라우저에 나타난 결과는 아래와 같이 나온다. <<<<
+
+{"phone":"010-345-6789","height":171.5,"address":"서울시 강남구 역삼동 1번지","email":"leess@naver.com","age":27,"name":"이순신"}
+
+
+
+==== 스프링이나 서블릿 에서의 JSON 형태로 데이터 표현하기 예제 ====
+
+public ModelAndView data(HttpServletRequest request, 
+        HttpServletResponse response) throws Exception{
+        
+    PrintWriter out = response.getWriter();
+    
+    JSONObject personObj = new JSONObject();
+    
+    personObj.put("name", "이순신");
+	personObj.put("age", new Integer(27));
+	personObj.put("height", new Double(171.5));
+	personObj.put("phone", "010-345-6789");
+	personObj.put("email", "leess@naver.com");
+	personObj.put("address", "서울시 강남구 역삼동 1번지");
+    
+    out.print(personObj);
+    out.flush();
+    out.close();    
+     
+    return null;
+    
+}
+
+ 
+  
+ 
+ 
+ 

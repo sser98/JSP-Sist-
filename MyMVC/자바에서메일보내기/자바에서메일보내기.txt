@@ -1,0 +1,29 @@
+1. 자바에서 메일보내기를 하려면 관련 jar 파일을 
+   다운받아서 올려두어야 한다.
+   
+   1). jaf-1_1_1 jar 파일
+   http://www.oracle.com/technetwork/java/jaf11-139815.html 
+   jaf-1_1_1_zip 파일을 다운을 받아서 압축을 푼 후 activation.jar 파일을 
+   /MyMVC/WebContent/WEB-INF/lib 에 복사해둔다.
+   
+   
+   2). javamail-1.4.7 jar 파일   
+   http://www.oracle.com/technetwork/java/javamail/javamail145-1904579.html 
+   Download JavaMail 1.4.7 를 클릭하여 javamail1_4_7.zip 파일을 다운을 받아서 압축을 푼 후 mail.jar 파일을 
+   /MyMVC/WebContent/WEB-INF/lib 에 복사해둔다.
+   
+
+2. Google Mail(Gmail) 사용자 계정으로 
+   Google SMTP(메일을 보내주는 서버) 사용이 
+   가능하도록 인증받기
+   1). Google Mail(Gmail) 사용자 계정으로 로그인한다.
+   2). Google계정을 클릭한다.
+   3). 왼쪽 사이드바에서 보안을 클릭한다.
+   4). 보안 수준이 낮은 앱의 액세스: 사용으로 변경한다.
+        
+   
+   
+   
+   
+   
+   

@@ -1,0 +1,22 @@
+
+insert into jdbc_member(userseq, userid, passwd, name, mobile)
+values(userseq.nextval, 'youjs', '1234', '유재석', '010-2343-8877');
+
+insert into jdbc_member(userseq, userid, passwd, name, mobile)
+values(userseq.nextval, 'leehl', '1234', '이혜리', '010-9755-7342'); 
+
+commit;
+
+insert into jdbc_board(boardno, fk_userid, subject, contents, boardpasswd)
+values(board_seq.nextval, 'youjs', '짜장면' , '맛있어요~!!', '1234');
+
+insert into jdbc_board(boardno, fk_userid, subject, contents, boardpasswd)
+values(board_seq.nextval, 'leehl', '돈까스' , '좋아해요~!!', '1234');
+
+insert into jdbc_board(boardno, fk_userid, subject, contents, boardpasswd)
+values(board_seq.nextval, 'leehl', '치킨' , '맛좋아요~!!', '1234');
+
+insert into jdbc_board(boardno, fk_userid, subject, contents, boardpasswd)
+values(board_seq.nextval, 'youjs', '피자' , '아주 좋아해요~!!', '1234');
+
+commit;

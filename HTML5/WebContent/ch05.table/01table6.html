@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>테이블 6[colspan, rowspan, : first-child, : last-child, ~, +]에 대해서 알아보자</title>
+<style type="text/css">
+
+table, th, td {
+	border: solid 1px blue;
+	border-collapse: collapse;
+	
+}
+
+	th {
+		background-color: #ccc;
+		height: 60px;
+		width: auto;
+	}
+	
+	td.mid {
+		text-align: center; 
+	}
+	
+	td.right {
+		text-align:  right;
+	}
+	
+	td.rightside {
+		vertical-align : middle;
+		
+	}
+	
+	td.bottom {
+		vertical-align: bottom;
+		
+	}
+	
+	td.top {
+		vertical-align: top;
+		
+	}
+	table {
+	margin-bottom: 50px; 
+}
+
+	caption {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+	tr#jumper {
+		height: 100px;
+	}
+	
+	th#titleFirst ~ th{
+		background-color: yellow;
+		/* titleFirst 다음에 오는 모든 형제노드(태그) 중에 th 모두가 선택대상이다.
+			선택자1(th#titleFirst) ~선택자2(th)은
+			선택자 1 다음에 오는 모든 형재태그(노드)중에 선택자2만 모두 말하는것이다.
+		*/
+	}
+	
+	th#titleFirst ~ th:hover {
+	color: red;
+	}
+
+	tr#mytr > td:first-child {
+		 	text-align : left;
+			color: blue;
+	}
+	
+	tr#mytr > td:last-child {
+		 	text-align : right;
+			color: red;
+	}
+	
+	td#pants ~ td {
+		background-color: silver;
+	} 
+	
+	tr#sum > td:first-child > span:first-child + span {
+		font-weight: bold;
+		color: red;
+	}
+	
+	/* 선택자1 + 선택자2은 선택자1
+	선택자1 (tr#sum > td:first-child > span:first-child)
+	선택자2 (span) */
+	
+	tr#sum > td:nth-child(1) > span:nth-child(3){
+		font-weight: bold;
+		color: green;
+	}
+	
+	
+	
+	
+</style>
+
+</head>
+
+<body>
+	
+	<table> 
+	<!-- thead 태그와  tfoot 태그는 테이블에서 오로지 1번만 사용한다.
+       thead 태그는 표의 타이틀 용도로 쓰이고,
+       tfoot 태그는 표의 마지막에 요약데이터나 총계등을 보여줄 때 사용한다.
+       tbody 태그는 표의 데이터를 표시하는 용도로 쓰인다. -->
+	
+		
+				
+				<tr> 
+					<th rowspan ="3" id="titleFirst" > 봄맞이 바겐세일 </th> <!-- rowspan은 행병합인데 rowspan="3"은 3개행을 하나로 병합한다. -->
+					<th>제품이름과 실명</th>
+					<th>개당가격</th>
+					<th>박스당개수</th>
+				</tr>
+				
+				
+				<tr id="mytr">
+					<td class="mid">블라우스 - 붉은색 실크</td>
+					<td class="right">20,000원</td>
+					<td class="mid">150</td>
+				</tr>
+				
+				<tr>
+					<td class="mid" id="pants">바지 - 검은색원단</td>
+					<td class="right">4,000원</td>
+					<td class="mid">300</td>
+				</tr>
+				
+			 <tr id="sum">
+			 	<td colspan="2" class ="mid"> 
+			 		<span>총액</span> 
+			 		<span>및</span> 
+			 		<span>총박스<span/>
+			 		</span>개수</span>
+			 		 </td>
+			 	<!-- 두개의 컬럼을 하나로 합친다. -->
+			 	<td class="right"> 24,000원</td>
+			 	<td class="mid">450 </td>
+			 </tr> 
+			 
+		</thead>
+	</table>	
+		
+			
+</body>
+</html>

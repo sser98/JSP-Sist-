@@ -1,0 +1,43 @@
+package cs.controller;
+
+import java.util.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import common.controller.AbstractController;
+import member.model.*;
+
+
+public class OqModifyAction extends AbstractController {
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+		
+		String category = request.getParameter("category");
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		String anform = request.getParameter("anform");
+		String seq_oq = request.getParameter("seq_oq");
+		
+		
+		Map<String, String> paraMap = new HashMap<>();
+		
+		paraMap.put("category", category);
+		paraMap.put("title", title);
+		paraMap.put("content", content);
+		paraMap.put("anform", anform);
+		paraMap.put("seq_oq", seq_oq);
+		
+		InterMemberDAO mdao = new MemberDAO();
+		
+		OneQueryVO oqvo=mdao.modifyoq(paraMap);
+		
+		
+		
+		
+		
+		
+	}
+
+}

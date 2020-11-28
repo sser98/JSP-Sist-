@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>입력된 문자열을 배열로 바꾸고 중복된 요소 제거하기 -1</title>
+
+<style type="text/css">
+
+	div#container {
+		border: solid 1px gray;
+		width: 90%;
+		margin: 0 auto;
+		padding: 2%; 
+	}
+	
+	input[type=text] {  /* input 태그중 type이 text인 엘리먼트를 말한다. */
+		width: 250px;
+		height: 25px;
+		font-size: 12pt; 
+	}
+	
+	input[type=button] { /* input 태그중 type이 button인 엘리먼트를 말한다. */
+		width: 100px;
+		height: 30px;
+		font-size: 12pt;
+		background-color: black;
+		color: white; 
+		border: none;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	window.onload = function() {
+		
+		var btnOK = document.getElementById("btnOK"); 
+		
+		btnOK.addEventListener("click", function(){
+			
+			var sDuplicateVal = document.getElementById("duplicate").value;
+			
+			// console.log(sDuplicateVal);
+			// "10,1,2,3,4,5,2,6,7,2,3,4,5,6,9"
+			
+			var arrDuplicateVal = sDuplicateVal.split(",");  
+			// 문자열인 sDuplicateVal 을 콤마(",")를 구분자로 사용하여 배열로 변환해주는 것이다. 
+			
+		/*	
+			for(var i=0; i<arrDuplicateVal.length; i++) {
+				console.log(arrDuplicateVal[i]);
+			}
+		*/	
+		    var arrResult = new Array();
+			var bFlag = false; 
+			
+			for(var i=0; i<arrDuplicateVal.length; i++) {
+				
+				for(var j=i+1; j<arrDuplicateVal.length; j++) {
+					if(arrDuplicateVal[i] == arrDuplicateVal[j] ) {
+						bFlag = true;
+						break;
+					}
+				}// end of for---------------------------
+				
+				if(!bFlag) {
+					arrResult.push(arrDuplicateVal[i]);	 
+				 // 10 1 7 2 3 4 5 6 9  
+				}
+				
+				bFlag = false; // 초기화 시키기 
+			}// end of for-------------------------------
+			
+			var sResult = arrResult.join(); //  "10,1,7,2,3,4,5,6,9"
+			
+			document.getElementById("result").value = sResult;
+			
+		});
+		
+		
+		var btnClear = document.getElementById("btnClear");
+		
+		btnClear.addEventListener("click", function(){
+			document.getElementById("result").value = "";
+		});
+		
+	}
+
+</script>
+
+</head>
+<body>
+
+	<div id="container">
+		<table>
+		    <tr>
+		    	<td colspan="2" style="font-size: 16pt; text-align: center;" >중복된 요소값 제거하기-1</td>
+		    </tr>
+			<tr>
+				<td><input type="text" id="duplicate" value="10,1,2,3,4,5,2,6,7,2,3,4,5,6,9" /></td> 
+				<td><input type="button" id="btnOK" value="확인"/></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="result" /></td>
+				<td><input type="button" id="btnClear" value="다시" /></td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>

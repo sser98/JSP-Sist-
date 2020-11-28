@@ -1,0 +1,66 @@
+package common.controller2;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ *  맨 처음 응답해주는 서블릿.
+ */
+@WebServlet(
+		name = "FrontController2", 
+		description = "FrontController2", 
+		urlPatterns = { "*.up" }, 
+		initParams = { 
+				@WebInitParam(name = "propertyConfig1", value = "*.up", description = "사용자가 웹에서")
+		})
+public class FrontController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+
+	
+	@SuppressWarnings("resource")
+	public void init(ServletConfig config) throws ServletException {
+		
+	Properties pr = new Properties();
+	/* Properties 는 Collection 중 HashMap 계열중의  하나로써
+    "key","value"으로 이루어져 있는것이다.
+    그런데 중요한 것은 Properties 는 key도 String 타입이고, value도 String 타입만 가능하다는 것이다.
+    key는 중복을 허락하지 않는다. value 값을 얻어오기 위해서는 key값만 알면 된다.
+	*/
+	
+	try {
+		FileInputStream fis = null;
+		
+		String props=config.getInitParameter("propertyConfig");
+		
+		System.out.println(props);
+		fis= new FileInputStream(props);
+		
+	} catch (Exception e) {
+		
+	}
+		
+	
+	}
+	
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		doGet(request, response);
+	}
+
+}

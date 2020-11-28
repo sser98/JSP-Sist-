@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>overflow 속성에 대해서 알아본다</title>
+
+<style type="text/css">
+
+	#visible, #hidden, #scroll, #auto {
+		width: 400px;
+		height: 100px;
+		background-color:#ffffcc;
+	 }
+	 
+	#visible { overflow: visible; }
+	#hidden	 { overflow: hidden; }
+	#scroll	 { overflow: scroll; }
+	#auto    { overflow: auto;	}
+	
+	/*
+		overflow 속성은 엘리먼트의 박스에 들어가는 내용이 많아서 내용물이 엘리먼트 밖으로 빠져나올때 어떻게 보일지 선택하는 속성이다. 
+
+		overflow:visible 은 엘리먼트의 박스의 기본값으로서 내용물이 더 길어도 내용물이 그대로 보인다. 그래서 내용물이 흘러넘쳐서 보여진다.
+	    overflow:hidden 은 내용물이 넘친다면 넘치는 내용물은 자른다. 그래서 자른 부분은 보이지 않는다. 
+		overflow:scroll 은 무조건 엘리먼트에 수평스크롤바 및 수직스크롤바가 보이도록 한다. 그래서 내용물이 넘치지 않더라도 엘리먼트 박스에는 항상 수평스크롤바 및 수직스크롤바가 보인다. 
+		overflow:auto 은 내용물이 넘칠때만 엘리먼트 박스에 스크롤바가 생겨서 내용물을 스크롤바를 이용하여 모두 보이도록 한다. 
+	 */
+	
+</style>
+</head>
+<body>
+
+<div id="visible">
+<h1>1. overflow: visible</h1>
+CSS (Cascading Style Sheets)는 마크 업 언어로 작성된 문서의 모양과 서식을 설명하는 데 사용되는 스타일 시트 언어입니다. 
+HTML 및 XHTML로 작성된 웹 페이지 및 인터페이스의 스타일을 지정하는 데 가장 많이 사용되지만,
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<div id="hidden">
+<h1>2. overflow: hidden</h1>
+CSS (Cascading Style Sheets)는 마크 업 언어로 작성된 문서의 모양과 서식을 설명하는 데 사용되는 스타일 시트 언어입니다. 
+HTML 및 XHTML로 작성된 웹 페이지 및 인터페이스의 스타일을 지정하는 데 가장 많이 사용되지만,
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<div id="scroll">
+<h1>3. overflow: scroll</h1>
+CSS (Cascading Style Sheets)는  
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<div id="auto">
+<h1>4. overflow: auto</h1>
+CSS (Cascading Style Sheets)는 마크 업 언어로 작성된 문서의 모양과 서식을 설명하는 데 사용되는 스타일 시트 언어입니다. 
+HTML 및 XHTML로 작성된 웹 페이지 및 인터페이스의 스타일을 지정하는 데 가장 많이 사용되지만,
+</div>
+
+</body>
+</html>
+

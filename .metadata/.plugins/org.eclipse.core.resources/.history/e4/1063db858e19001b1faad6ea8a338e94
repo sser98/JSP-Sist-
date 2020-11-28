@@ -1,0 +1,16 @@
+package member.model;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import myshop.model.ImageVO;
+
+public interface InterMemberDAO {
+
+	// 회원가입을 해주는 메소드 (tbl_member 테이블에 insert)
+	
+	int registerMember(MemberVO member) throws SQLException;
+		
+	
+
+}

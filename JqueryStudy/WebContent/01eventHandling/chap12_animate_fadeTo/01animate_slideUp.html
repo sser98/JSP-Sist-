@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지 스크롤하기 [ animate(), slideUp() ]</title>
+<!-- 이미지를 클릭하면 왼쪽에서 오른쪽으로 스크롤 되게 하고 싶다.
+         이미지를 slideUp() 메소드를 사용하여 이미지를 보이지 않게 하고 싶다. -->
+
+<style type="text/css">
+	#fish1 {position: relative;} /* 태그를 이동 시키려면 반드시 position 은 relative; 또는 absolute; 로 설정되어 있어야 한다. */            
+	#fish2 {position: absolute;}  
+</style>
+
+
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#fish1").click(function(){ 
+			$(this).animate({left:600, top:500}, 5000).slideUp(3000);
+		});
+		/*
+			선택자인 이미지를 position(relative, absolute)에 따라
+			왼쪽에서 부터 600px(left:600), 위에서 부터 500px(top:500) 떨어진 위치로
+			5000 밀리초(== 5초) 동안 옮겨라는 말이다.
+			5000 대신에 'slow'(==600), 'normal'(==400), 'fast'(==200)를 사용할 수 있다.
+		*/
+		
+		$("#fish2").click(function(){ 
+			$(this).animate({left:600, top:500}, 5000).slideUp(3000);
+		});
+		/*
+			선택자인 이미지를 position(relative, absolute)에 따라
+			왼쪽에서 부터 600px(left:600), 위에서 부터 500px(top:500) 떨어진 위치로
+			5000 밀리초(== 5초) 동안 옮겨라는 말이다.
+			5000 대신에 'slow'(==600), 'normal'(==400), 'fast'(==200)를 사용할 수 있다.
+		*/
+       
+	});// end of $(document).ready(function(){})------------------
+</script>
+</head>
+<body>
+	1. position relative<br/>
+	<img id="fish1" src="images/fish.jpg" />
+	<br/><br/><br/><br/><br/>
+	2. position absolute<br/>
+	<img id="fish2" src="images/fish.jpg" />
+</body>
+</html>
+
+
+
+

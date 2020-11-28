@@ -1,0 +1,55 @@
+애니메이션 효과를 처리하다 보면 .stop() 을 참 많이 씁니다.
+그런데 이 .stop()이란 녀석이 jQuery 체인에 걸려 있는 모든 효과들을 멈추는 것이 아니라 현재 수행중인 것만 멈추더군요~
+전 이 사실을 최근에야 알게 되었습니다. 여지껏 복합적으로 효과를 적용할 일이 없었던거죠~
+
+$('div')
+    .hover(function() {
+            $(this).stop().animate({'opacity':1},500);
+        }, function() {
+            $(this).stop().fadeOut(2000);
+        })
+    .fadeIn(500).delay(5000).fadeOut(2000);
+
+
+이런 코드가 있습니다.
+마지막에 사라질 때 쯤에 마우스를 올리면 제대로 작동하지만, 나타날 때나 Delay되는 중에 마우스를 올리면 이상하게 동작합니다. 이는 fadeIn이나 delay에 대해서 .stop() 명령이 먹히기 때문입니다.
+그럼 방법은 무엇인고 하니
+
+$('div')
+    .hover(function() {
+            $(this).stop().stop().stop().animate({'opacity':1},500);
+        }, function() {
+            $(this).stop().stop().stop().fadeOut(2000);
+        })
+    .fadeIn(500).delay(5000).fadeOut(2000);
+
+
+이렇게 .stop() 을 세번 이상 적용하는 것입니다. fadeIn(), delay(), fadeOut() 이렇게 세 가지 효과가 적용됐으니까요~
+근데 뭔가 찜찜합니다. stop()을 두번, 또는 한번 돌릴 상황에도 세번씩 돌리는 꼴이니까요~
+
+그래서 다음과 같은 코드를 작성했습니다.
+.queue('fx').length 를 통해서 현재 적용된 효과가 몇개인지를 알 수 있습니다.
+
+$('div')
+    .hover(function() {
+            var eventCnt = $(this).queue('fx').length;
+            for(var i=0; i<eventCnt; i++) {
+                $(this).stop();
+            }
+            $(this).animate({'opacity':1},500);
+        }, function() {
+            var eventCnt = $(this).queue('fx').length;
+            for(var i=0; i<eventCnt; i++) {
+                $(this).stop();
+            }
+            $(this).fadeOut(2000);
+        })
+    .fadeIn(500).delay(5000).fadeOut(2000);
+
+
+이렇게 작성하고 나니 잘 작동하는군요~
+
+아!!!
+.queue('fx',[]).stop();
+이렇게 하면 효과를 한번에 모두 날릴 수도 있더군요~
+마지막의 stop()은 현재 수행중인 효과를 멈추기 위해 필요합니다~

@@ -1,0 +1,23 @@
+package member.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import common.controller.AbstractController;
+import member.model.InterMemberDAO;
+import member.model.MemberDAO;
+
+public class IdDuplicateCheckAction extends AbstractController {
+	
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+		String userid = request.getParameter("userid");
+		System.out.println("확인용 userid =>" + userid);
+		
+		InterMemberDAO mdao = new MemberDAO();
+		
+		mdao.idDuplicateCheck(userid);
+	}
+	
+}

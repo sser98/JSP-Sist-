@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>어느 버튼이 클릭되었는지 확인하기2 (bind, forEach)</title>
+<!-- 
+	웹페이지에 버튼이 여러개 있고 각각의 버튼은 서로 다른일을 한다.
+	버튼에 대한 이벤트를 올바르게 처리하려면 어떤 버튼을 클릭했는지 알아야 한다.
+	
+	반복을 나타내어주는 forEach 에 대해서 알아본다.
+ -->
+ 
+<style type="text/css">
+	
+	div#firstdiv, div#result {
+		/* border: solid 1px gray;  */
+		
+		width: 80%;
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	div#result {
+		margin: 20px 0 0 0;
+		padding-left: 100px;
+		font-size: 16pt;
+	}
+	
+
+	span.buttons {
+		display: inline-block;
+		border: solid 2px orange;
+		width: 100px;
+		margin: 20px;
+		padding: 5px;
+		background-color: yellow;
+		color: #ff0000;
+		font-size: 15pt;
+		cursor: pointer;
+	}	
+	
+	ol {
+		/* border: solid 1px gray; */
+		padding-left: 10px; 
+	}
+	
+	li {
+		/* border: solid 1px red;  */
+		width: 100px; 
+		text-align: left;
+	}
+	
+</style> 
+ 
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script> 
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		
+		var man = "박보검,강산애,이제훈,강동원,유승호";
+		var woman = "김태리,배수지,아이유,김연아,박보영";
+		
+		$(".man").bind("click", function(){
+			$("#result").html( func_friend(man.split(",")) );
+		});
+		
+		$(".woman").bind("click", function(){
+			$("#result").html( func_friend(woman.split(",")) );
+		});
+		
+		$(".clear").bind('click', function(){ 
+			$("#result").html("");
+		});
+		
+	});// end of $(document).ready()-----------------------------
+	
+	
+	function func_friend(arr) {
+		var html = "<ol>";
+		
+		arr.forEach(function(item){
+			html += "<li>"+item+"</li>";
+		});
+		
+		html += "</ol>";
+		
+		return html;
+	}// end of function func_friend(arr)---------------------------- 
+	
+</script>
+ 
+</head>
+<body>
+	<div id="firstDiv">
+		<span class="buttons man">남자친구</span>
+		<span class="buttons woman">여자친구</span>
+		<span class="buttons clear">지우기</span>
+	</div>
+	<div id="result"></div>
+</body>
+</html>
+

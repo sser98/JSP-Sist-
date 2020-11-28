@@ -1,0 +1,7 @@
+package member.controller;
+
+import common.controller.AbstractController;
+
+public class memberRegisterAction extends AbstractController {
+
+}

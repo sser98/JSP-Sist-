@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>선택자.eq(index값); 와 자동적으로 선택자에 event종류가 동작하도록 실행하는 trigger 에 대해서 알아본다.</title>
+
+<style type="text/css">
+
+	div#container {
+		/* border: solid 1px gray; */
+		width: 80%;
+		margin: 0 auto;
+	}
+	
+	span.buttons {
+		display: inline-block;
+		width: 100px;
+		border: solid 2px orange;
+		margin: 20px;
+		padding: 5px;
+		background-color: yellow;
+		color: #ff0000;
+		font-size: 15pt;
+		cursor: pointer;
+	}
+
+	div#comment {
+		/* border: solid 1px gray; */
+		width: 250px;
+		margin-top: 10px;
+	}
+
+	div#face > img {
+		width: 119px;
+		height: 149px;
+		border-radius: 50%;
+	}
+	
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		
+		var arrPerson = [{name:"김태희", filename:"kimth.jpg", address:"서울 강동구", email:"kimth@gmail.com"}  
+                        ,{name:"아이유", filename:"iyou.jpg", address:"서울 강서구", email:"iyou@gmail.com"}
+                        ,{name:"박보영", filename:"parkby.jpg", address:"서울 강남구", email:"parkby@gmail.com"}];		
+		
+		var html = "";
+		
+		arrPerson.forEach(function(item, index){
+			
+		    // console.log(item.name);
+		    // console.log(index);
+		    html += "<span class='buttons'>"+item.name+"</span>";
+			
+		}); // end of arrPerson.forEach(function(item){});---------------------
+		
+		$("#firstdiv").html(html);
+		
+		
+		$(".buttons").click(function(event){
+			
+			// 선택자.click(function(event){}); 은 선택자에서 마우스 왼쪽버튼을 클릭하면 발생되는 이벤트이다. 
+			var $target = $(event.target);
+			// console.log("확인용 : " + $target.text());
+			
+		//	console.log('$(".buttons").length => ' + $(".buttons").length);
+			// $(".buttons").length => 3  --> $(".buttons")을 배열이라고 생각을 하자.
+			
+		//	console.log($target.index());
+			// $target.index() 은 $(".buttons") 중에서 현재 마우스가 올라간 곳의 배열요소의 인덱스값이라고 보면 된다. 
+			// 김태희가 0, 아이유가 1, 박보영이 2 
+			
+		//	console.log("확인용 이미지파일명 : " + arrPerson[$target.index()].filename);
+			// 확인용 이미지파일명 : kimth.jpg
+			// 확인용 이미지파일명 : iyou.jpg
+			// 확인용 이미지파일명 : parkby.jpg
+			
+			$("div#face").html("<img src='images/"+arrPerson[$target.index()].filename+"' />");
+			
+			html = "<ol>"+
+			          "<li>성명 :&nbsp;"+arrPerson[$target.index()].name+"</li>"+
+			          "<li>주소 :&nbsp;"+arrPerson[$target.index()].address+"</li>"+
+			          "<li>e메일 :&nbsp;"+arrPerson[$target.index()].email+"</li>"+
+			       "</ol>";
+			$("div#comment").html(html);
+			       
+			$(".buttons").css({'background-color':'yellow', 'color':'#ff0000'});
+			$target.css({'background-color':'navy', 'color':'white'});
+			
+			$("#seconddiv").show();
+			
+		}); // end of $(".buttons").click(function(event){});--------------
+		
+		
+		/*
+			선택자.trigger(event종류);
+		    ==> 문서가 로드되어진 다음에는 자동적으로 선택자에 event종류가 동작하도록 실행하는 것이다. 
+		*/
+		/*
+		       선택자.eq(index값); 은 선택자(배열)중에서 index값에 해당하는 요소(선택자)를 얻어오는 것이다.
+		       마치 배열에서 특정 index에 해당하는 배열요소를 얻어오는 것과 같은 의미이다.
+		*/
+	//	console.log( $(".buttons").eq(0).text() );    // 김태희 
+		       
+		$(".buttons").eq(0).trigger("click"); 
+	//  문서가 로딩 되어진 다음에 여러개의 버튼중 첫번째 버튼(김태희 버튼)을 자동적으로 클릭해라는 말이다.
+		
+		
+	});// end of $(document).ready(function(){});--------------------------------
+
+</script>
+
+</head>
+<body>
+
+	<div id="container" align="center">
+		<div id="firstdiv"></div>
+		
+		<div id="seconddiv">
+			<div id="face"></div>
+			<div id="comment" align="left"></div>
+		</div>
+	</div>	
+
+</body>
+</html>

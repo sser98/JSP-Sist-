@@ -1,0 +1,44 @@
+
+package myshop.model;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import myshop.model.InterProductDAO;
+import myshop.model.ProductDAO;
+
+public class IndexController extends AbstractController {
+	
+	@Override
+	public String toString() {
+		
+		return "@@@클래스 IndexController의 인스턴스 메소드 toString() 호출함@@@";
+	}
+	
+	
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		
+		InterProductDAO pdao = new ProductDAO();
+		List<ImageVo> imgList = pdao.ImageSelectAll();
+		
+		request.setAttribute("imgList", imgList);
+		
+		
+		// System.out.println("@@@ 확인용 IndexController의 인스턴스 메소드 execute가 호출됨 @@@");
+		
+		// super.setRedirect(false);
+		// this.setRedirect(false);
+		// setRedirect(false);
+		// request.setAttribute("name", "이순신");
+		
+		setViewPage("/WEB-INF/index.jsp");
+		
+		
+	}
+
+
+}

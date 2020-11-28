@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+
+
+<h2>회원정보/멤버십FAQ(1건) </h2>
+<div id="accordion">
+	
+  <h3>Section 1</h3>
+  <div>
+    <p>
+    	1
+    </p>
+  </div>
+  <h3>Section 2</h3>
+  <div>
+    <p>
+    	2
+    </p>
+  </div>
+  
+</div>
+ <br>
+ <br>
+ <br>
+ 

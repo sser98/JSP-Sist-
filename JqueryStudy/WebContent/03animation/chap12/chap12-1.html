@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+ <meta charset="UTF-8">
+ <title>마우스를 올리면 확대된 이미지 표시하기</title>
+ <!--
+	  웹페이지에서 상품을 파는데, 공간을 효율적으로 활용하기 위해 일단 아이콘 형태로 표시하고,
+	  마우스 포인터를 아이콘 위에 올리면 확대된 상품 이미지를 표시하여 방문자들이 상품을
+	  자세히 볼 수 있도록 한다.
+ -->
+ <link rel="stylesheet" type="text/css" href="styles/animation8.css">
+ <script type="text/javascript" src="/JqueryStudy/js/jquery-3.3.1.min.js"></script>
+
+ <script type="text/javascript">
+ 	$(document).ready(function(){
+		$(".small a").hover(
+		     function(){
+            var imgname = $(this).attr('href');
+			   $(".large").fadeTo('fast', 0,
+			                       function(){
+								    $(".large").attr('src',imgname);
+									}
+								  ).fadeTo('fast',1);
+          },
+			 function(){}
+		);
+	 });
+	 /*
+     	클래스 이름이 small인 것(아이콘) 내에 존재하는 모든 <a> 엘리먼트에 대해 hover 이벤트를 만들었다.
+		해당 <a>엘리먼트에 마우스 포인터가 올라가면 
+		1. 마우스 포인터가 올라가 있는 <a>엘리먼트에 대해 href 속성값을 읽어서 imgname에 저장시켜둔다. 
+		   즉, 각 아이콘의 이미지 파일의 경로 및 파일명은 변수 imgname에 저장한다. 
+		2. 현재 웹페이지상에서 클래스 이름 large 로 보여지는 큰 이미지는 fadeTo()메소드를 사용하여 
+		   값을 0을 주어서 빨리 사라지게 하고, 
+		3. 사라진 이후에는 화면에 보여지는 클래스 이름 large인 곳의 src 속성 값을 
+		   imgname 에 저장해두었던 아이콘의 이미지 파일 경로 및 파일명으로 대체한다.
+     	4. 그런 다음에 클래스 이름 large인 것을 fadeTO()메소드를 사용하여 빠르게 자기 원래 색깔로 
+		   화면에 나오도록 한다.
+     	5. 마우스 포인터가 <a> 엘리먼트에서 벗어나면 동작해야할 함수는 아무것도 기재하지 않았으므로
+		   아무런 동작도 발생하지 않으므로 웹페이지의 화면 변화는 없다.
+	 */
+
+ </script>
+ 
+ </head>
+
+<body>
+	<div id="container">
+		<div id="header">Header</div>
+
+		<div id="content">
+			<br/>상품보기(작은이미지에 마우스를 올려보세요)<br/>
+			<div class="small">
+			  <a href="image/samsung1.png"><img src="image/samsung1.png"/></a>
+			  <a href="image/samsung2.png"><img src="image/samsung2.png"/></a>
+			  <a href="image/canon1.png"><img src="image/canon1.png"/></a>
+			  <a href="image/nikon1.png"><img src="image/nikon1.png"/></a>
+			</div>
+			<img src="image/samsung1.png" class="large"/>
+		</div>
+
+		<div id="sideinfo">Sideinfo</div>
+		<div id="footer">Footer</div>
+	</div>
+</body>
+</html>
+<!-- 
+	<a> 엘리먼트와 <img>엘리먼트는 모두 같은 이미지 파일을 가리킨다.
+	그러나 <img>엘리먼트는 스타일시트를 적용하여 크기가 작은 아이콘 형태로 표시하고, 
+	<a>엘리먼트는 확대된 실제크기의 형태로 표시한다.
+	웹사용자는 아이콘을 클릭하면 아이콘의 확대된 이미지를 표시해주는 웹페이지로 이동하도록 한다.
+-->

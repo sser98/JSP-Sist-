@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html oncontextmenu="return false">
+<!-- 
+     === >>> 소스보기 금지 <<< === 
+	 oncontextmenu="return false" : 마우스 오른쪽 메뉴 금지
+     ondragstart="return false"   : 드래그 금지
+     onselectstart="return false" : 선택복사 금지
+ -->
+<head>
+<meta charset="UTF-8">
+<title>event.target 및 unbind에 대해서 알아봅니다</title>
+
+<style type="text/css">
+	
+	div#firstdiv, div#result {
+		/* border: solid 1px gray;  */
+		
+		width: 80%;
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	div#result {
+		margin: 20px 0 0 0;
+		padding-left: 100px;
+		font-size: 16pt;
+	}
+	
+
+	span.buttons {
+		display: inline-block;
+		border: solid 2px orange;
+		width: 100px;
+		margin: 20px;
+		padding: 5px;
+		background-color: yellow;
+		color: #ff0000;
+		font-size: 15pt;
+		cursor: pointer;
+	}	
+	
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		
+		$("#result").hide();
+		
+		$(".buttons").bind("click", function(event){
+			var $target = $(event.target);
+			// 이벤트(지금은 click)가 발생되어진 엘리먼트를 말한다.
+			
+			if( $target.is(".lucky") ) {
+				// 엘리먼트와 엘리먼트가 같은지 다른지 비교할때 is 를 사용한다.
+				// 선택자1.is(선택자2) 은 선택자1과 선택자2가 동일한 엘리먼트를 가리키는 것이라면 true 이고, 
+				// 선택자1.is(선택자2) 은 선택자1과 선택자2가 동일한 엘리먼트를 가리키는 것이 아니라면 false 이다
+			
+				var html = "<span style='color: blue;'>당첨!! 축하합니다~~~</span>";
+				$("#result").html(html);
+			}
+			
+			$("#result").show();
+			
+			$(".buttons").unbind("click");
+			// 선택자 $(".buttons") 에 대해 click 이벤트가 발생하지 않도록 한다.
+			
+		});// end of $(".buttons").bind("click", function(event){});------------
+		
+	});// end of $(document).ready(function(){});----------------------------
+
+</script>
+
+</head>
+<body>
+	<h2>행운의 숫자를 클릭하세요~~(오로지 기회는 1번만!!)</h2>
+	<div id="firstdiv">
+		<span class="buttons">1</span>
+		<span class="buttons">2</span>
+		<span class="buttons">3</span>
+		<span class="buttons lucky">4</span>
+		<span class="buttons">5</span>
+	</div>
+	<div id="result">다음기회에...</div>	
+</body>
+</html>

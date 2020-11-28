@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지 스크롤하기 [ animate(), fadeTo() ]</title>
+<!-- 이미지를 클릭하면 왼쪽에서 오른쪽으로 스크롤 되게 하고 싶다.
+         이미지를 fadeTo() 메소드를 사용하여 이미지를 희미하게 한 후에 특정함수를 실행하고 싶다. -->
+
+<style type="text/css">
+	#fish1 {position: relative;}
+</style>
+
+
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#fish1").click(function(){ 
+			$(this).animate({left:600, top:400}, 3000).fadeTo(3000, 0.1, myCallBack); 
+			                                                          // 콜백함수   
+		});
+		/*                                                                             
+			선택자인 이미지를 position(relative, absolute)에 따라
+			왼쪽에서 부터 600px(left:600), 위에서 부터 400px(top:400) 떨어진 위치로
+			3000 밀리초(== 3초) 동안 옮겨라는 말이다.
+			3000 대신에 'slow'(==600), 'normal'(==400), 'fast'(==200)를 사용할 수 있다.
+			
+			선택자.fadeTo(3000, 0.1, 함수이름만) 는 선택자를  2000 밀리초(== 2초) 동안 opacity(투명도)를 0.1로 만든 후 함수이름에 해당 하는 함수를 실행시켜라는 말이다.
+			함수이름에 해당 하는 함수를 콜백함수(callback function)라고 부른다.
+		*/
+       
+	});// end of $(document).ready(function(){})------------------
+	
+	function myCallBack() {
+		$("#div1").html("<img src='images/kimthLarge.jpg' />");	
+	}
+		
+</script>
+</head>
+<body>
+	1. position relative<br/>
+	<div id="div1">
+		<img id="fish1" src="images/fish.jpg" />
+	</div>
+	<br/><br/>
+	
+</body>
+</html>
+
+
+
+

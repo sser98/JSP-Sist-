@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>버튼을 클릭하면 색상이 나오는 것</title>
+
+<style type="text/css">
+
+	div#container {
+		/* border: solid 1px gray; */
+		
+		width: 90%;
+		margin: 0 auto;
+		padding: 2%;
+	}
+
+	span#notice {
+		font-size: 20pt; 
+		background-color: navy; 
+		color: white; 
+		margin-right: 60px;
+	}
+
+	button.btns {
+		margin-right: 20px;
+		width: 100px;
+		height: 50px;
+		font-size: 20pt;
+	}
+
+	div.answer {
+		display: inline-block;
+	}
+
+	div#hangulDiv {
+		font-size: 60pt;
+	}
+
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		
+		var arrBtn = [{color:"red", hangul:"빨강"}
+		             ,{color:"orange", hangul:"주황"}
+		             ,{color:"yellow", hangul:"노랑"}
+		             ,{color:"green", hangul:"초록"}
+		             ,{color:"blue", hangul:"파랑"}
+		             ,{color:"navy", hangul:"남색"}
+		             ,{color:"purple", hangul:"보라"}
+		             ];
+		
+		var html = "<span id='notice'>버튼을 눌러보세요</span>";
+		
+		arrBtn.forEach(function(item){
+			html += "<button type='button' class='btns'>"+item.color+"</button>";
+		});
+		
+		$("#btnsDiv").html(html);
+		
+		$("button").click(function(event){
+			// alert("버튼을 클릭하셨군요");
+			
+			// === 7개 버튼중에서 클릭한 버튼의 index 값을 알아오고자 한다 === //
+		//	var $target = $(event.target);
+		//	var index = $("button").index($target);
+			
+			var index = $("button").index($(this)); 
+		//  선택자.index(특정엘리먼트); ==> 선택자가 복수개 엘리먼트를 가리키는 것일때 특정엘리먼트가 복수개 엘리먼트중 몇번째 index 값을 가지는지를 알려주는 것이다. 
+		//	alert("클릭한 버튼의 index : " + index);
+		
+			var btn = arrBtn[index];
+			var color = btn.color;
+			var hangul = btn.hangul;
+						
+			$("#colorDiv").css({'width':'200px', 'height':'200px', 'background-color':color});  
+			
+		//	$("#hangulDiv").html(hangul).css({'color':color});
+		//  css 에서 주어야할 속성값이 1개 뿐이라면 아래와 같이 해도 된다.
+			$("#hangulDiv").html(hangul).css('color',color);
+			
+		});// end of $("button").click(function(event){})-------------------------
+		
+		$("button").eq(0).trigger("click");
+		
+	}); // end of $(document).ready(function(){ })-------------------
+	
+</script>
+
+</head>
+<body>
+
+	<div id="container">
+		<div id="btnsDiv"></div>
+	    <div id="colorDiv" class="answer"></div>
+	    <div id="hangulDiv" class="answer"></div>
+	</div>
+
+</body>
+</html>
+
+

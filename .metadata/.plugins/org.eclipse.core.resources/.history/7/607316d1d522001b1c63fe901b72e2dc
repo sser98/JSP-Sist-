@@ -1,0 +1,81 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+    <%
+	String ctxPath = request.getContextPath();
+	%>
+ <script type="text/javascript">
+	// 마우스를 올렸을때 호버로 어떤 row위에 있는지 알수있도록.
+	$(".serch-result").hover( function () {
+		
+		// alert($(this)); 확인용
+		$(this).toggleClass("active");
+		
+	});
+</script>
+<style>
+	
+	.table-hover {
+	
+		
+	}
+	
+	
+	td {
+		text-align: center;
+	}
+	
+	
+	th.hd {
+		text-align: center;
+	}
+	
+	 
+</style>
+
+<jsp:include page="header.jsp" />
+<div class="container">
+  <h2>내 문의 내역보기</h2>
+  
+  <p>최근 6개월 동안 접수하신 1:1문의내역 및 답변 내용을 확인하실 수 있습니다.</p>
+   
+   <hr>      
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th class="hd">번호</th>
+        <th class="hd">제목</th>
+        <th class="hd">날짜</th>
+        <th class="hd">처리상태</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="thing">
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td>john@example.com</td>
+      </tr>
+      
+      <tr class="thing">
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+        <td>john@example.com</td>
+      </tr>
+      
+      <tr class="thing">
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+        <td>john@example.com</td>
+      </tr>
+      
+      <tr  class="none">
+      	<td colspan="4" >최근 문의하신 내역이 없습니다. </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<jsp:include page="footer.jsp" />

@@ -1,0 +1,12 @@
+package member.model;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import myshop.model.ImageVO;
+
+public interface InterMemberDAO {
+
+	
+
+}

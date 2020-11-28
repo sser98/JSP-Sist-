@@ -1,0 +1,11 @@
+package common.controller2;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public interface InterCommand2 {
+	
+	public void excute (HttpServletRequest request, HttpServletResponse response) {
+		
+	}
+}

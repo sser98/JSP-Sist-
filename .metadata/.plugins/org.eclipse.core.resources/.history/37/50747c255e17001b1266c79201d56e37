@@ -1,0 +1,6 @@
+package common.controller;
+
+public interface InterCommand {
+	
+	void execute(HttpServletRequest request, HttpServletResponse response) throws Exception;
+}

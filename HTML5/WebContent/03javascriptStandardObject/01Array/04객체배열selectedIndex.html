@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>select 태그를 이용해 선택한 인물의 이미지 및 정보가 화면에 나타나도록 한다</title>
+
+<style type="text/css">
+	
+	div#container {
+		width: 80%;
+		margin: 0px auto;
+	}
+	
+	div#person {
+		/* border: solid 1px red;  */
+		margin-top: 20px;
+		min-height: 50px;
+		overflow: hidden; 
+	}
+	
+	img {
+		display: block;
+		/* border: solid 1px blue;  */
+		width: 119px;
+		height: 149px; 
+		float: left;
+	}
+	
+	div#information {
+		float: left; 
+	}
+	
+	select {
+		height: 30px;
+	}
+	
+	ul {
+		/* border: solid 1px gray; */
+		padding-left: 0px;
+		margin-left: 20px;
+	}
+	
+	li {
+		list-style-type: none;
+		line-height: 35px;
+	}
+	
+	label {
+		display: inline-block;
+		width: 70px;
+		font-weight: bold;
+		color: blue;
+	}
+	
+</style>
+
+<script type="text/javascript">
+
+	window.onload = function(){
+		
+		var person = document.getElementById("person");
+		person.style.display = "none";
+		
+		var arrPerson = [{name:"아이유", photo:"iyou.jpg",   age:20, address:"서울시 강동구", special:"가수 겸 탤런트 팬들이 많음"}         
+				        ,{name:"김태희", photo:"kimth.jpg",  age:30, address:"서울시 강서구", special:"탤런트 팬들이 많음"}
+				        ,{name:"박보영", photo:"parkby.jpg", age:40, address:"서울시 강남구", special:"탤런트 팬들이 많음"}];		
+		
+		var select = document.getElementById("select"); 
+		
+		var html = "<option>선택하세요</option>";
+		
+		arrPerson.forEach(function(item){
+			html += "<option>"+item.name+"</option>";
+		});
+		
+		select.innerHTML = html;
+		
+		var img = document.getElementById("img");
+		var information = document.getElementById("information");
+		
+		// !!! select 태그의 이벤트는 click 이 아니라 change 이다. !!!
+		select.addEventListener('change', function(){
+			// alert("이벤트 발생함");
+			var nSelectedIndex = this.selectedIndex;   
+			// this 는 이벤트소스 자기자신을 가리키는 것이다.
+			// this.selectedIndex 은 <option>태그의 index 번호를 말한다.
+			// 즉, 첫번째 <option>태그는 0이고, 두번째 <option>태그는 1, 두번째 <option>태그는 2 ..... 으로 되어진다.
+			
+			// alert(nSelectedIndex);  
+			/*
+			   <option>선택하세요</option>는 nSelectedIndex가 0
+			   <option>아이유</option>는 nSelectedIndex가 1
+			   <option>김태희</option>는 nSelectedIndex가 2
+			   <option>박보영</option>는 nSelectedIndex가 3 이 된다. 
+			*/
+			
+			// 참고 : 배열명.forEach()는 break; 가 없으므로 배열명.forEach(function(item,index,array)) + break; 기능을 가지는 배열명.some(function(item,index))을 사용한다.
+		    //      배열명.some(function(item,index))은 조건이 true가 되는 순간 반복을 멈추어 버린다.
+			arrPerson.some(function(item, index){
+				/* item => {name:"아이유",...} 일때 index 는 0 이다.
+				   item => {name:"김태희",...} 일때 index 는 1 이다.
+				   item => {name:"박보영",...} 일때 index 는 2 이다.
+				*/
+				if(nSelectedIndex == 0) {
+					// <option>선택하세요</option> 을 선택한 경우
+					person.style.display = "none";
+				}
+				else if(nSelectedIndex-1 == index) {
+					img.src = "images/"+item.photo;
+					
+					html = "<ul>" +
+					          "<li><label>성명</label>"+item.name+"</li>"+
+					          "<li><label>나이</label>"+item.age+"</li>"+
+					          "<li><label>주소</label>"+item.address+"</li>"+
+					          "<li><label>특이사항</label>"+item.special+"</li>"+
+					       "</ul>";
+					
+					information.innerHTML = html;       
+					       
+				//	person.style.display = "block";
+					person.style.display = "";
+				}   
+				
+			});// end of arrPerson.some(function(item, index){})-------------
+
+		});// end of select.addEventListener('change', function(){})----------
+		
+	}
+
+</script>
+
+</head>
+<body>
+
+	<div id="container">
+		<h2>인물소개</h2>
+		<select id="select"></select>
+		<div id="person">
+			<img id="img"/>
+			<div id="information"></div>
+		</div>
+	</div>
+
+</body>
+</html>

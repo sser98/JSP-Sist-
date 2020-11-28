@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>스크롤 되는 이미지를 브라우저 윈도우의 중앙에 표시하기</title>
+<!--
+	앞에서는 이미지가 브라우저 윈도의 왼쪽에 나왔다. 
+	이제 이미지를 브라우저 윈도우의 중앙에 표시해 본다.
+	이미지가 가상 윈도우에 싸여 있고 이미지를 클릭하면 왼쪽으로 스크롤되어
+	서서히 보이지 않게 하고자 한다.
+ -->
+ <link rel="stylesheet" type="text/css" href="styles/animation2.css">
+ 
+ <script type="text/javascript" src="/JqueryStudy/js/jquery-3.3.1.min.js"></script>
+
+ <script type="text/javascript">
+    $(document).ready(function(){
+		$(".image").click(function(event){
+			$(this).animate({'left':'-160px'},'slow');
+		});
+    });
+/*
+   animation2.css 파일에서
+   
+   아이디 선택자 #scroller는 width 와 height 속성을 155px 로 하여 
+   이미지를 둘러싼 가상 윈도우의 너비와 높이를 정한다.
+   margin 속성을 auto 로 하여 가상 윈도우가 브라우저 윈도우의 중앙에 위치하도록 한다.
+   overflow 속성을 hidden으로 하여 윈도우의 경계를 벗어나는 영역은 보이지 않게 한다.
+   position 속성을 relative로 하여 이미지가 감싸진 윈도우에 대해 스크롤 되도록 한다.
+   
+   클래스 선택자 .image는 position 속성을 relative로 하여 현재의 위치에서 스크롤 되게 한다.
+   
+   처음에는 이미지가 브라우저의 중앙에 표시되고, 이미지를 클릭하면 서서히 왼쪽으로 사라진다.
+*/
+ </script>
+ </head>
+
+<body>
+   <div id="scroller">	
+	 <img src="image/image1.jpg" width="150px" height="100px" class="image" />
+   </div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+# index Mapping Information
+/index.up=common.controller.IndexController
+/index.up=common.controller.MainController

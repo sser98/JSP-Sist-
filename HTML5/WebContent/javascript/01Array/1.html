@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 배열</title>
+
+<style type="text/css">
+   body {
+      padding: 20px;
+   }
+   
+   div.display {
+      display: inline-block;
+      border: solid 1px gray;
+      width: 15%;
+      margin: 10px;
+   }
+</style>
+
+<script type="text/javascript">
+
+	window.onload = function() {
+	// 1. 자바 스크릅트에서 배열은 아래와 같이 나타난다 
+	let arrFruit1 = new Array();
+	arrFruit1.push("사과");
+	arrFruit1.push("딸기");
+	arrFruit1.push("참외");
+	arrFruit1.push("메론");
+	
+	console.log(arrFruit1);
+	console.log(arrFruit1[1]);
+	let arrFruit2 = ["1", "2", "3", "4"];
+
+	let arrFruit1_length = arrFruit1.push("호박");
+
+	
+	console.log(arrFruit1.length);
+	console.log(arrFruit1_length);
+	console.log(arrFruit2);
+
+	let html = "<ol>";
+	
+	for (let index = 0; index < arrFruit1.length; index++) {
+		html += "<li>" + arrFruit1[index]; + "</li>";
+	}
+	html += "</ol>";
+	document.getElementById("fruitDisplay1").innerHTML = html;
+
+
+
+
+	// == 배열에 있는 내용을 특정 엘리먼트속에 보여주는 함수 만들기 끝 ==
+
+
+	// ===== 배열의 맨 마지막에 과일을 추가하기 시작 ===== //
+
+	let btnFirstAdd = document.getElementById("btnFirstAdd")
+	btnFirstAdd.addEventListener('click', function() {
+		let addVal = document.getElementById('addVal').value;
+	
+	if(addVal.trim() == '') {
+		alert("과일명을 입력하세요 !!")
+		return;
+	}
+	else {
+		// alert(addVal+"를 입력하셨군요")
+		arrFruit1.push(addVal.trim());
+		func_display1(arrFruit1, document.getElementById("fruitDisplay1"))
+	}
+	});
+
+	// ===== 배열의 맨 마지막 요소인 과일을 삭제하기 시작 ===== //	
+		document.getElementById("btndelete").addEventListener("click", function() {
+		let delFruitName=arrFruit1.pop();
+		alert(delFruitName+"을 삭제했습니다.");
+		func_display1(arrFruit1, document.getElementById("fruitDisplay1"));
+	});
+
+	// ===== 배열의 맨 첫번째에 과일 추가하기===== //	
+		document.getElementById("firstAdd").addEventListener("click", function() {
+
+			let addVal = document.getElementById("addVal").value;
+
+			if(addVal.trim() == "") {
+				alert("과일명을 입력하세요!!")
+				return;
+			} else {
+				arrFruit1.unshift(addVal.trim());
+				func_display1(arrFruit1, document.getElementById("fruitDisplay1"));
+			}
+		});
+	// ===== 배열의 맨 처음 요소인 과일을 삭제하기 시작 ===== //	
+	document.getElementById("firstDelte").addEventListener("click", function() {
+		let firstDelteName=arrFruit1.shift();
+		alert(firstDelteName+ "가 삭제되었습니다.");
+		func_display1(arrFruit1, document.getElementById("fruitDisplay1") );
+	});
+
+
+	let NumberArray = [1004, 109, 50, 20, 11, 10, 1];
+
+
+
+	// ===== 배열의 특정 위치에 과일 추가하기 시작 ===== //
+	
+		document.getElementById("btnAdd2").addEventListener("click", function() {
+			let selectIndex = document.getElementById("selectIndex").value;
+		  let addVal = document.getElementById("addVal").value;
+			let name = arrFruit1.splice(selectIndex, 0, addVal);
+
+			alert(name + "해당과일을 대체하였습니다.")
+			console.log(selectIndex);
+			console.log(addVal);
+			func_display1(arrFruit1, document.getElementById("fruitDisplay1"));
+		})	
+	// ===== 배열의 특정 위치에 있는 과일 삭제하기 시작 ===== //	
+		
+		document.getElementById("selectDelect").addEventListener("click", function() {
+			let selectIndex=document.getElementById("selectIndex").value;
+			let deleteName=arrFruit1.splice((selectIndex-1),1);
+			alert(deleteName+"해당 값을 삭제하였습니다.")
+			
+			func_display1(arrFruit1, document.getElementById("fruitDisplay1"));
+		})
+	
+	// ===== 배열의 요소를 역순으로 만들기 시작 ===== //
+		
+		document.getElementById("reverse").addEventListener("click", function() {
+			arrFruit1.reverse();
+			func_display1(arrFruit1, document.getElementById("fruitDisplay1"));
+		})
+
+	// ===== 배열의 요소를 오름차순 정렬하기 시작 ===== //
+	
+		document.getElementById("upsort").addEventListener("click", function() {
+			arrFruit1.sort();
+			func_display1(arrFruit1, document.getElementById("fruitDisplay1"));
+		})	
+		
+	// ===== 배열의 요소를 내림차순 정렬하기 시작 ===== //
+		document.getElementById("downsort").addEventListener("click", function() {
+			arrFruit1.sort().reverse();
+			func_display1(arrFruit1, document.getElementById("fruitDisplay1"));
+		})
+	///////////////////////////////////////////////////////////////////////////////////////
+		
+		var arrNum = [10, 1, 50, 11, 109, 1004, 20];
+		var sNum = arrNum.join("/");
+		
+		console.log(sNum);
+		
+
+
+
+
+	} // end of window
+
+	function func_display1(arr, displayid) {
+		let html = "<ol>";
+		for (let index = 0; index<arr.length; index++)	{
+			html += "<li>" + arr[index] + "</li>";
+
+			}
+			html +="</ol>";
+			displayid.innerHTML = html;
+
+	} // end of func_display1
+
+
+
+
+
+
+
+	
+		
+	
+	
+
+
+
+
+</script>
+
+</head>
+<body>
+	<DIV id="container">
+		<div id ="fruitDisplay1"></div>
+	</DIV>
+	<div>추가할 과일명 : <input id="addVal" type="text"></div>
+	<button id="btnFirstAdd">과일명 추가하기</button>
+	<button id="btndelete">마지막 과일 삭제하기</button>
+	<button id="firstAdd">처음에 과일 추가하기</button>
+	<button id="firstDelte">처음에 과일 삭제하기</button>
+	<button id="btnAdd2">특정위치에 과일삽입하기</button>
+	<button id="selectDelect">특정위치에 과일삭제하기</button>
+	<button id="reverse">순서를 거꾸로만들기</button>
+	<button id="upsort">오름차순으로 정렬하기</button>
+	<button id="downsort">내림차순으로 정렬하기</button>
+	<div>특정 배열의 위치 : <input id="selectIndex"type="text"></div>
+
+	
+
+	
+</body>
+</html>
+
+
+

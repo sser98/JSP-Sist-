@@ -1,0 +1,7 @@
+JSP 파일을 실행시켰을 때 IP 주소가 제대로 출력되어 보이기 위해서는
+
+이클립스 메뉴에서 
+Run -> Run Configuration -> Tomcat v8.5 Server at localhost -> Arguments -> VM arguments뒤에
+
+한칸 띄우고 -Djava.net.preferIPv4Stack=true 을 추가한후 이클립스를 종료했다가 다시 시작하면 된다.
+

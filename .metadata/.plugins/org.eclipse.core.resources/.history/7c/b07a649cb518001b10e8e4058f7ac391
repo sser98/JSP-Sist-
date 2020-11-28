@@ -1,0 +1,28 @@
+package myshop.model;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import common.controller.InterCommand;
+
+public class ProductDAO implements InterProductDAO {
+	
+	
+	
+	private DataSource ds;
+	private Connection conn;
+	// DataSource ds 는 아파치톰캣이 제공하는 DBCP(DB Connection Pool) 이다.
+	
+	
+	@Override
+	public List<ImageVO> ImageSelectAll() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+}

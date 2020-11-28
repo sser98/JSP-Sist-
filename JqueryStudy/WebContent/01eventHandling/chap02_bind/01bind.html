@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>어느 버튼이 클릭되었는지 확인하기1 (bind)</title>
+<!-- 
+	웹페이지에 버튼이 여러개 있고 각각의 버튼은 서로 다른일을 한다.
+	버튼에 대한 이벤트를 올바르게 처리하려면 어떤 버튼을 클릭했는지 알아야 한다.
+ -->
+ 
+<style type="text/css">
+	
+	div#firstdiv, div#result {
+		/* border: solid 1px gray;  */
+		
+		width: 80%;
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	div#result {
+		margin: 20px 0 0 0;
+		padding-left: 100px;
+		font-size: 16pt;
+	}
+	
+
+	span.buttons {
+		display: inline-block;
+		border: solid 2px orange;
+		width: 100px;
+		margin: 20px;
+		padding: 5px;
+		background-color: yellow;
+		color: #ff0000;
+		font-size: 15pt;
+		cursor: pointer;
+	}	
+	
+	span.bold , span#resultBold {
+		font-weight: bold;
+	}
+	
+	span.italic , span#resultItalic {
+		font-style: italic;
+	}
+
+</style> 
+ 
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script> 
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		
+		$(".bold").bind("click", function(){
+			$("#result").html("<span id='resultBold'>"+$(this).text()+"버튼을 클릭하셨군요</span>");
+		});
+		
+		$(".italic").click(function(){
+			$("#result").html("<span id='resultItalic'>"+$(this).text()+"버튼을 클릭하셨군요</span>");
+		});
+		
+		$(".clear").bind('click', function(){ 
+			$("#result").html("");
+		});
+		
+	});
+</script>
+ 
+</head>
+<body>
+	<div id="firstDiv">
+		<span class="buttons bold">굵게</span>
+		<span class="buttons italic">기울임꼴</span>
+		<span class="buttons clear">지우기</span>
+	</div>
+	<div id="result"></div>
+</body>
+</html>
+

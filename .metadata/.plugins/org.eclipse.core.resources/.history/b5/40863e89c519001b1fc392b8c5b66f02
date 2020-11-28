@@ -1,0 +1,58 @@
+package member.controller;
+
+import java.sql.SQLException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONObject;
+
+import common.controller.AbstractController;
+import member.model.InterMemberDAO;
+import member.model.MemberDAO;
+
+public class EmailDuplicateCheckAction extends AbstractController {
+	
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+
+		String email = request.getParameter("email");
+		System.out.println("확인용 email =>" + email);
+		
+		// isExistEmailCheck() 함수 호출로
+		// view단에서 넘겨준 data:{"email":$("input#email").val()}을 request 담아온다.
+		// 받아온 값을 DAO를 거쳐 DB에서 확인하고 그 결과를 isemailExists가 받고.
+		
+		// jsonObj 객체에 그 값을 맵핑한다.
+		// jsonObj.put("isemailExists", isemailExists);
+		// 위와같이 메소드를 호출하면 {"isemailExists":true} 또는 {"isemailExists":false} 형태로 알아서 들어간다.
+		
+		// json의 형태를 request객체에 다시 담아서 넘겨준다.
+		
+		
+		
+		
+		InterMemberDAO mdao = new MemberDAO();
+		
+		boolean isemailExists =mdao.emailDuplicateCheck(email);
+		
+		JSONObject jsonObj = new JSONObject();
+		
+		jsonObj.put("isemailExists", isemailExists); 
+		// 자동적으로 자바스립트 표준 객체 방법으로 변환시킨다.
+		// {"isemailExists":true} 또는 {"isemailExists":false}
+		
+		
+		String json=jsonObj.toString(); 
+		// 문자열 형태인 이것으로 만들어줌.
+		
+		// System.out.println("확인용 json은?" + json);
+		
+		
+		request.setAttribute("json", json);
+		System.out.println(0);
+		super.setViewPage("/WEB-INF/jsonview2.jsp");
+	}
+	
+	
+}

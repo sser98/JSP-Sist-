@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>width/min-width/max-width</title>
+
+<style type="text/css">
+
+	body {
+		width: 90%;
+		margin: 0 auto;
+	}
+	
+	div.screen {
+		display: inline-block;
+	}
+
+	div#screen1 {
+		width: 40%;  /* width: 40%; 고정 */
+		border: solid 2px red;
+	}
+	
+	div#screen2 {
+		min-width: 40%;  /* 최소 width 가 40%이고 그 속에 들어오는 내용물의 크기가 40% 보다 크면 자동적으로 width가 내용물의 width 크기만큼 증가 되어진다. */
+		border: solid 2px red;
+	}
+	
+	div#screen3 {
+		max-width: 40%;  /* 초기 width의 크기는 내용물의 크기만큼 잡혔다가 그 속에 들어오는 내용물의 크기만큼 width의 크기는 증가하다가 40% 보다 더 커지면 최대 크기는 더이상 증가하지 않고 40% 가 마지막이 된다. */        
+		overflow: auto;  /* max-width 크기보다 더 커져버리면 자동적으로 수평스크롤바를 생성해라는 말이다. */ 
+		border: solid 2px red;
+	}
+
+</style>
+
+</head>
+<body>
+	<h2>1.width</h2>
+	<div id="screen1" class="screen">
+		<img src="images/상어큰사진.jpg"/>
+	</div>
+	<div class="screen">
+		<img src="images/tiger.jpg"/>
+	</div>
+	<br/><br/>
+	
+	<h2>2.min-width</h2>
+	<div id="screen2" class="screen">
+		<img src="images/상어큰사진.jpg"/>
+	</div>
+	<div class="screen">
+		<img src="images/tiger.jpg"/>
+	</div>
+	<br/><br/>
+	
+	<h2>3.max-width</h2>
+	<div id="screen3" class="screen">
+		<img src="images/상어큰사진.jpg"/>
+	</div>
+	<div class="screen">
+		<img src="images/tiger.jpg"/>
+	</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+# customCenter main
+/customCenter.sg=cs.controller.CustomCenter
+/oneQueryForm.sg=cs.controller.OneQueryForm
+/oneQueryView.sg=cs.controller.OneQueryView
+/oqViewOne.sg=cs.controller.OneQueryViewOne
+/oneQueryExcute.sg=cs.controller.OneQueryExcute
+/faqSearch.sg=cs.controller.FaqSearchAction
+/oqModify.sg=cs.controller.OqModifyAction
+/oqDelete.sg=cs.controller.OqDelete
+/goOqList.sg=cs.controller.GoOqList
+/faqSearch.sg=cs.controller.FaqSearch
+
+# subin
+# only eng, no spacebar
+
+# index Mapping Information
+/=common.controller.IndexController
+/index.sg=common.controller.IndexController
+/main.sg=common.controller.MainController
+/companyInfo.sg=common.controller.CompanyInfoController
+
+# member Mapping Information
+/member/memberRegisterAgree.sg=member.controller.MemberRegisterAgreeAction
+/member/memberRegister.sg=member.controller.MemberRegisterAction
+/member/memberRegisterDB.sg=member.controller.MemberRegisterDBAction
+/member/useridDuplicateCheck.sg=member.controller.UseridDuplicateCheckAction
+/member/emailDuplicateCheck.sg=member.controller.EmailDuplicateCheckAction
+/member/login.sg=member.controller.LoginAction
+/member/logout.sg=member.controller.LogoutAction
+/member/idFind.sg=member.controller.IdFindAction
+
+# product Mapping Information
+/product/searchProduct.sg=product.controller.SearchProductAction
+
+
+

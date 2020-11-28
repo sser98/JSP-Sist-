@@ -1,0 +1,218 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+    String ctxPath = request.getContextPath();
+    
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>주변기기 쇼핑몰</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<%= ctxPath%>/css/style.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<%= ctxPath%>/jquery-ui-1.11.4.custom/jquery-ui.css" />
+<script type="text/javascript" src="<%= ctxPath%>/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+
+// console.log("좀 되자 ");
+// alert("확인용");
+
+	
+	$(document).ready(function () {
+		
+		
+
+	
+		  
+
+		///////////////////////// SideBar 버튼함수 /////////////////////////
+
+			  $("button.dropdown-btn").click(function (e) { 
+					
+					var dropdownContent=$("button.dropdown-btn").children()
+
+					$(this).toggleClass("active");
+
+					if($(".dropdown-container").css('display') === "block") {
+
+						$(".dropdown-container").css('display', 'none');
+						dropdownContent.css('display', 'none');
+						$("i.fa-caret-down").show();
+
+						
+						// 애니메이션 효과로 천천히 올라갔다가 내려갔다 주고싶음.
+					}
+
+					else {
+						
+						$(".dropdown-container").css('display', 'block');
+						dropdownContent.css('display', 'block');
+						// 애니메이션 효과로 천천히 올라갔다가 내려갔다 주고싶음.
+					}
+				});
+		
+		///////////////////////// SideBar 버튼함수 /////////////////////////	
+		
+		
+		
+
+		
+		
+		
+		// 마우스를 올렸을때 호버로 어떤 row위에 있는지 알수있도록.
+		$(".serch-result").hover( function () {
+			
+			// alert($(this)); 확인용
+			$(this).toggleClass("active");
+			
+		});
+		
+		
+
+		
+		
+		
+});
+	
+
+
+</script>
+
+<script>
+
+</script>
+
+
+<style type="text/css">
+
+	body{
+		border: solid 0px red;
+		margin: 0;
+		padding: 0;
+		
+		font-family: Arial, "MS Trebuchet", sans-serif;
+		word-break: break-all;
+	}
+	
+	div#wrap{
+		border: solid 0px blue;
+		width: 1150px;
+		margin: 0 auto;
+	}
+	
+	header#page_header{
+		border: solid 0px orange;
+		padding-bottom: 50px;
+		overflow: hidden;
+	}
+	
+	div#logo{
+		border: solid 0px black;
+		float: left;
+		display: inline-block;
+	}
+	
+	div#logo{
+		border: solid 0px blue;
+		margin-top: 10px;
+	}
+	
+	ul{
+		border: solid 0px red;
+		list-style-type: none;
+		margin-top: 50px;
+		margin-right: 10px;
+		float: left;
+	}
+	
+	ul li{
+		border: solid 0px blue;
+		display: inline-block;
+		padding: 0 36px;
+		
+	}
+	
+	ul li a{
+		text-decoration: none;
+		color: navy;
+		font-weight: bold;
+		font-size: 15pt;
+	}
+	
+	div#loginBtn{
+		border: solid 0px yellow;
+		margin-top: 10px;
+		float: right;
+	}
+	
+	div#search{
+		margin-top: 50px;
+	}
+	
+	footer#page_footer{
+		background-color: #cccccc;
+		
+		clear: both;
+		height: 80px;
+	}
+	
+	footer#page_footer p{
+		border: solid 0px yellow;
+		padding-top: 25px;
+		text-align: center;
+		font-size: 9pt;
+		line-height: 0px;
+	}
+
+</style>
+
+
+
+</head>
+<body>
+
+<div id="wrap">
+	
+		
+	<!-- 시작: page_header ------------------------------------------------ -->
+	<header id="page_header">
+		<div id="logo">
+			<img alt="daum" src="<%= ctxPath %>/images/daum.png" width="170px">
+		</div>
+		
+		<ul id="menu">
+			<li><a href="mouse.html">마우스</a></li>
+			<li><a href="keyboard.html">키보드</a></li>
+			<li><a href="headset.html">헤드셋</a></li>
+			<li><a href="speaker.html">스피커</a></li>
+			<li><a href="service.html">고객센터</a></li>
+		</ul>
+		
+		<div id="loginBtn">
+				<button type="button">로그인</button>
+				<button type="button">회원가입</button>
+		</div>
+		
+		<div id="search">
+			
+			<input type="text" placeholder="검색" style="width: 230px; height: 30px;" />
+		</div>
+	</header>

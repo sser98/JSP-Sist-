@@ -1,0 +1,631 @@
+@charset "UTF-8";
+/*!
+ _ _  _
+| | || | Shopping Desktop
+| | || | INTERPARK UI Development Team
+`___'|_| v1.8.11
+
+*/
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+#intFooter {
+  width: 100%;
+  min-width: 980px;
+  overflow: hidden;
+  border-top: 1px solid #999;
+  background-color: #fff;
+  font-family: "Malgun Gothic", "맑은 고딕", "Nanum Gothic", "돋움", dotum, sans-serif;
+  letter-spacing: 0;
+}
+
+#intFooter h1,
+#intFooter h2,
+#intFooter div,
+#intFooter ul,
+#intFooter li,
+#intFooter dl,
+#intFooter dt,
+#intFooter dd,
+#intFooter a,
+#intFooter div,
+#intFooter span,
+#intFooter address {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0;
+  font-family: "Malgun Gothic", "맑은 고딕", "Nanum Gothic", "돋움", dotum, sans-serif;
+  color: #666;
+  list-style: none;
+  font-weight: 300;
+  font-style: normal;
+  text-decoration: none;
+  text-align: left;
+}
+
+#intFooter .footerBlind {
+  position: absolute;
+  left: -9999px;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  font-size: 0;
+  line-height: 0;
+}
+
+#intFooter a,
+#intFooter a:link,
+#intFooter a:hover,
+#intFooter a:active {
+  font-style: normal;
+  text-decoration: none;
+  font-weight: 300;
+  color: inherit;
+}
+
+#intFooter .intFooterInner {
+  width: 980px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-size: 0;
+  line-height: 0;
+}
+
+#intFooter.container1280 .intFooterInner {
+  width: 1280px;
+}
+
+#intFooter.container1280 .intFooterInfoWrap {
+  height: 150px;
+}
+
+#intFooter.container1280 .intFooterInfoWrap .intFooterInterpark,
+#intFooter.container1280 .intFooterInfoWrap .intFooterCustomer,
+#intFooter.container1280 .intFooterInfoWrap .intFooterSolution {
+  width: 426px;
+}
+
+#intFooter.container1280 .intFooterInfoWrap .intFooterCustomer {
+  padding-right: 25px;
+}
+
+#intFooter.container1280 .intFooterInfoWrap .intFooterSolution {
+  padding-right: 150px;
+}
+
+#intFooter.container1280 .intFooterInfoWrap .intFooterInterpark .intLicensee,
+#intFooter.container1280 .intFooterInfoWrap .intFooterInterpark .intOrderBusiness {
+  display: inline-block;
+}
+
+#intFooter.container1280 .intFooterInfoWrap .intFooterInterpark .intLicensee {
+  position: relative;
+  margin-right: 18px;
+}
+
+#intFooter.container1280 .intFooterInfoWrap .intFooterInterpark .intLicensee:after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  right: -9px;
+  width: 1px;
+  height: 11px;
+  background-color: #7a7a7a;
+}
+
+#intFooter.container1280 .intFooterAwardWrap li {
+  margin-left: 60px;
+}
+
+#intFooter.container1280.shoppingFooter .intFooterLinks li, #intFooter.container1280.interparkFooter .intFooterLinks li {
+  padding: 0 45px;
+}
+
+#intFooter.container1280.tourFooter .intFooterLinks li {
+  padding: 0 58px;
+}
+
+#intFooter.container1280.bookFooter .intFooterLinks li {
+  padding: 0 46px;
+}
+
+#intFooter.container1280.ticketFooter .intFooterLinks li {
+  padding: 0 60px;
+}
+
+#intFooter .intFooterPartnerWrap {
+  height: 40px;
+  padding-top: 7px;
+  box-sizing: border-box;
+  background-color: #fafafa;
+  font-size: 0;
+  line-height: 0;
+}
+
+#intFooter .intFooterPartner {
+  display: inline-block;
+}
+
+#intFooter .intFooterSelect {
+  position: relative;
+}
+
+#intFooter .intFooterSelect > button {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+  width: 130px;
+  height: 26px;
+  box-sizing: border-box;
+  padding: 0 20px 0 10px;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  line-height: 14px;
+  font-family: "Malgun Gothic", "맑은 고딕", "Nanum Gothic", "돋움", dotum, sans-serif;
+  color: #555;
+  background: transparent;
+  text-align: left;
+}
+
+#intFooter .intFooterSelect > button:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 11px;
+  width: 9px;
+  height: 5px;
+  background: url("../../openimage.interpark.com/.ui/interparkMain/2019/common/footer/select_arrow.png") no-repeat 0 0;
+}
+
+#intFooter .intFooterSelect ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 25px;
+  width: 100%;
+  padding: 10px;
+  background-color: #fafafa;
+  z-index: 1;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+}
+
+#intFooter .intFooterSelect li a {
+  font-family: "Malgun Gothic", "맑은 고딕", "Nanum Gothic", "돋움", dotum, sans-serif;
+  font-size: 12px;
+  line-height: 20px;
+  color: #555;
+}
+
+#intFooter .intFooterSelect.active > a:before {
+  background-position: 0 100%;
+}
+
+#intFooter .intFooterSelect.active ul {
+  display: block;
+}
+
+#intFooter .intFooterInfoWrap {
+  height: 170px;
+  font-size: 0;
+  line-height: 0;
+}
+
+#intFooter .intFooterInfoWrap .intFooterInterpark,
+#intFooter .intFooterInfoWrap .intFooterCustomer,
+#intFooter .intFooterInfoWrap .intFooterSolution {
+  display: inline-block;
+  padding-left: 10px;
+  box-sizing: border-box;
+  vertical-align: top;
+  font-size: 0;
+  line-height: 0;
+}
+
+#intFooter .intFooterInfoWrap .intFooterInterpark {
+  width: 365px;
+}
+
+#intFooter .intFooterInfoWrap .intFooterInterpark .intFooterContact {
+  display: block;
+}
+
+#intFooter .intFooterInfoWrap .intFooterCustomer {
+  width: 375px;
+}
+
+#intFooter .intFooterInfoWrap .intFooterSolution {
+  width: 240px;
+  padding-right: 0;
+}
+
+#intFooter .intFooterInfoWrap .intFooterTel {
+  font-size: 0;
+  line-height: 0;
+  margin-right: 15px;
+}
+
+#intFooter .intFooterInfoWrap .intFooterTel:before {
+  left: -7px;
+}
+
+#intFooter .intFooterLinks {
+  display: inline-block;
+  padding-top: 7px;
+  vertical-align: top;
+  font-size: 0;
+  letter-spacing: 0;
+}
+
+#intFooter .intFooterLinks ul {
+  font-size: 0;
+  letter-spacing: 0;
+}
+
+#intFooter .intFooterLinks li {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  padding: 0 25px;
+}
+
+#intFooter .intFooterLinks li a {
+  font-family: "Malgun Gothic", "맑은 고딕", "Nanum Gothic", "돋움", dotum, sans-serif;
+  font-size: 12px;
+  color: #666;
+  line-height: 14px;
+  letter-spacing: 0;
+}
+
+#intFooter .intFooterLinks li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 12px;
+  background-color: #aaa;
+}
+
+#intFooter .intFooterLinks li:first-child:before {
+  display: none;
+}
+
+#intFooter .intFooterLinks .privacyLink a {
+  font-weight: 600;
+  color: #333;
+}
+
+#intFooter .intFooterInfoWrap {
+  padding-top: 27px;
+  border-top: 1px solid #ebebeb;
+  box-sizing: border-box;
+  font-size: 0;
+  line-height: 0;
+}
+
+#intFooter .intFooterInfoWrap address,
+#intFooter .intFooterInfoWrap dt,
+#intFooter .intFooterInfoWrap dd {
+  font-family: "Malgun Gothic", "맑은 고딕", "Nanum Gothic", "돋움", dotum, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: #666;
+}
+
+#intFooter .intFooterInfoWrap address a,
+#intFooter .intFooterInfoWrap dt a,
+#intFooter .intFooterInfoWrap dd a {
+  font-family: "Malgun Gothic", "맑은 고딕", "Nanum Gothic", "돋움", dotum, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: #666;
+}
+
+#intFooter .intFooterInfoWrap address {
+  font-style: normal;
+  line-height: 18px;
+}
+
+#intFooter .intFooterInfoWrap dl {
+  font-size: 0;
+  line-height: 0;
+  margin-top: 5px;
+}
+
+#intFooter .intFooterInfoWrap dt,
+#intFooter .intFooterInfoWrap dd {
+  display: inline-block;
+}
+
+#intFooter .intFooterInfoWrap dt {
+  margin-right: 5px;
+}
+
+#intFooter .intFooterInfoWrap .intFooterTel {
+  display: inline-block;
+  position: relative;
+}
+
+#intFooter .intFooterInfoWrap .intFooterTel:after {
+  content: "";
+  position: absolute;
+  right: -9px;
+  top: 1px;
+  width: 1px;
+  height: 11px;
+  background-color: #7a7a7a;
+}
+
+#intFooter .intFooterInfoTitle {
+  font-size: 0;
+  line-height: 0;
+  margin-bottom: 10px;
+}
+
+#intFooter .intFooterInfoTitle > h2 {
+  display: inline-block;
+  font-family: "Malgun Gothic", "맑은 고딕", "Nanum Gothic", "돋움", dotum, sans-serif;
+  font-size: 14px;
+  color: #000;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+#intFooter .intFooterInfoTitle > a {
+  position: relative;
+  margin-left: 10px;
+  padding-right: 7px;
+  color: #666;
+  font-family: "Malgun Gothic", "맑은 고딕", "Nanum Gothic", "돋움", dotum, sans-serif;
+  font-size: 12px;
+}
+
+#intFooter .intFooterInfoTitle > a:before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -5px;
+  width: 100%;
+  height: 100%;
+  padding: 1px 5px 3px 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#intFooter .intFooterInfoTitle > a:after {
+  content: "";
+  position: absolute;
+  top: 30%;
+  right: 0;
+  width: 4px;
+  height: 7px;
+  background: url("../../openimage.interpark.com/.ui/interparkMain/2019/common/footer/button_arrow_right.png") no-repeat 0 0;
+}
+
+#intFooter .intFooterInfoTitle > a.intLinkInquiry {
+  margin-left: 14px;
+}
+
+#intFooter .intFooterCustomer {
+  padding-right: 48px;
+}
+
+#intFooter .intFooterCustomer .intFooterInfoTitle > a {
+  color: #333;
+}
+
+#intFooter .intFooterCustomer .intFooterInfoTitle > a:before {
+  border-color: #666;
+}
+
+#intFooter .intFooterCustomer address {
+  margin-top: 5px;
+  word-break: keep-all;
+}
+
+#intFooter .intFooterCustomer .intTicketTel:after,
+#intFooter .intFooterCustomer .intPetTel:after {
+  display: none;
+}
+
+#intFooter .intFooterSolution .intBookTel:after,
+#intFooter .intFooterSolution .intFax:after {
+  display: none;
+}
+
+#intFooter .intFooterAwardWrap {
+  border: 1px solid #ebebeb;
+  border-left: none;
+  border-right: none;
+  height: 50px;
+  padding-top: 5px;
+  box-sizing: border-box;
+}
+
+#intFooter .intFooterAwardWrap .intFooterInner {
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+#intFooter .intFooterAwardWrap ul {
+  font-size: 0;
+  line-height: 0;
+}
+
+#intFooter .intFooterAwardWrap li {
+  display: inline-block;
+  height: 40px;
+  text-indent: -9999px;
+  margin-left: 23px;
+  background: url("../../openimage.interpark.com/.ui/interparkMain/2019/common/footer/footer_mark_ver1.jpg") no-repeat 0 0;
+}
+
+#intFooter .intFooterAwardWrap li.intFooterAwrad1 {
+  width: 76px;
+  margin-left: 0;
+  background-position: 0 0;
+}
+
+#intFooter .intFooterAwardWrap li.intFooterAwrad2 {
+  width: 122px;
+  background-position: -136px 0;
+}
+
+#intFooter .intFooterAwardWrap li.intFooterAwrad3 {
+  width: 92px;
+  background-position: -318px 0;
+}
+
+#intFooter .intFooterAwardWrap li.intFooterAwrad4 {
+  width: 66px;
+  background-position: -470px 0;
+}
+
+#intFooter .intFooterAwardWrap li.intFooterAwrad5 {
+  width: 104px;
+  background-position: -596px 0;
+}
+
+#intFooter .intFooterAwardWrap li.intFooterAwrad6 {
+  width: 77px;
+  background-position: -760px 0;
+}
+
+#intFooter .intFooterAwardWrap li.intFooterAwrad7 {
+  width: 93px;
+  background-position: -897px 0;
+}
+
+#intFooter .intFooterAwardWrap li.intFooterAwrad8 {
+  width: 96px;
+  background-position: -1050px 0;
+}
+
+#intFooter .intFooterAwardWrap li.intFooterAwrad9 {
+  width: 50px;
+  background-position: -1206px 0;
+}
+
+#intFooter .intFooterAwardWrap li:first-child {
+  margin-left: 0;
+}
+
+#intFooter .intFooterAwardWrap li a {
+  display: block;
+  height: 40px;
+}
+
+#intFooter .intFooterNoticeWrap {
+  height: 128px;
+  box-sizing: border-box;
+  font-size: 0;
+  line-height: 0;
+}
+
+#intFooter .intFooterNoticeWrap .intFooterInner {
+  padding: 30px 10px 0 10px;
+}
+
+#intFooter .intFooterNoticeWrap .intFooterCaution {
+  margin-bottom: 5px;
+  font-family: "Malgun Gothic", "맑은 고딕", "Nanum Gothic", "돋움", dotum, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: #666;
+}
+
+#intFooter .intFooterNoticeWrap .intFooterCopyright {
+  font-family: "Malgun Gothic", "맑은 고딕", "Nanum Gothic", "돋움", dotum, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: #666;
+}
+
+#intFooter.shoppingFooter .intFooterLinks li, #intFooter.interparkFooter .intFooterLinks li {
+  padding: 0 24px;
+}
+
+#intFooter.tourFooter .intFooterLinks li {
+  padding: 0 33px;
+}
+
+#intFooter.bookFooter .intFooterLinks li {
+  padding: 0 25px;
+}
+
+#intFooter.ticketFooter .intFooterLinks li {
+  padding: 0 35px;
+}
+
+#intFooter.tourFooter .intAllFax {
+  display: inline-block;
+  position: relative;
+}
+
+#intFooter.tourFooter .intAllFax:before {
+  content: "";
+  position: absolute;
+  right: -9px;
+  left: -7px;
+  width: 1px;
+  height: 11px;
+  background-color: #7a7a7a;
+}
+
+@media all and (max-width: 1280px) {
+  #intFooter.container1280 {
+    min-width: 980px;
+  }
+  #intFooter.container1280 .intFooterInner {
+    width: 980px;
+  }
+  #intFooter.container1280 .intFooterInfoWrap {
+    height: 170px;
+  }
+  #intFooter.container1280 .intFooterInfoWrap .intFooterInterpark {
+    width: 365px;
+  }
+  #intFooter.container1280 .intFooterInfoWrap .intFooterInterpark .intLicensee {
+    display: block;
+  }
+  #intFooter.container1280 .intFooterInfoWrap .intFooterInterpark .intLicensee {
+    margin-right: 0;
+  }
+  #intFooter.container1280 .intFooterInfoWrap .intFooterInterpark .intLicensee:after {
+    display: none;
+  }
+  #intFooter.container1280 .intFooterInfoWrap .intFooterCustomer {
+    width: 375px;
+    padding-right: 48px;
+  }
+  #intFooter.container1280 .intFooterInfoWrap .intFooterSolution {
+    width: 240px;
+    padding-right: 0;
+  }
+  #intFooter.container1280 .intFooterAwardWrap li {
+    margin-left: 23px;
+  }
+  #intFooter.container1280 .intFooterAwardWrap li.intFooterAwrad1 {
+    margin-left: 0;
+  }
+  #intFooter.container1280.shoppingFooter .intFooterLinks li, #intFooter.container1280.interparkFooter .intFooterLinks li {
+    padding: 0 24px;
+  }
+  #intFooter.container1280.tourFooter .intFooterLinks li {
+    padding: 0 33px;
+  }
+  #intFooter.container1280.bookFooter .intFooterLinks li {
+    padding: 0 25px;
+  }
+  #intFooter.container1280.ticketFooter .intFooterLinks li {
+    padding: 0 35px;
+  }
+}

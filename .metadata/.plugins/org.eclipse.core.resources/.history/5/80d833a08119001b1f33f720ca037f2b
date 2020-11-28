@@ -1,0 +1,12 @@
+# index Mapping Information
+/=common.controller.IndexController
+/index.up=common.controller.IndexController
+/main.up=common.controller.MainController
+
+
+/test1.up=test.controller.Test1Controller
+/test2.up=test.controller.Test2Controller
+/template.up=test.controller.TemplateController
+
+# member Mapping Information
+/member/memberRegister.up=member.controller.memberRegisterAction

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select 태그를 이용해 선택한 인물의 이미지 및 정보가 화면에 나타나도록 한다</title>
+
+    <style>
+
+    </style>
+    
+    <script type="text/javascript"> 
+        window.onload = function() {
+            var person = document.getElementById("person");
+
+            var arrPerson = [{name:"아이유", photo:"1.jpg", age:20, address:"서울시 강동구", special:"가수 겸 탤런트 팬들이 많음"}         
+		                ,{name:"김태희", photo:"2.jpg", age:30, address:"서울시 강서구", special:"탤런트 팬들이 많음"}
+                        ,{name:"박보영", photo:"3.jpg", age:40, address:"서울시 강남구", special:"탤런트 팬들이 많음"}];
+                        
+
+            var select = document.getElementById("select")
+            var img = 
+            var html = "<option> 선택하세요 </option>";
+            
+            arrPerson.forEach(function(item) {
+                html += "<option>" + item.name + "</option>";
+            });
+
+            // !!! select 태그의 이벤트는 click이 아니라 change 이다. !!!
+            select.addEventListener('change', function() {
+                //alert('이벤트 발생함');
+                var nSelectedIndex = this.selectedIndex;  
+                // this는 이벤트 소스 자기자신을 가리키는 것이다.
+                // this.selectedIndex은 <option>태그의 index 번호를 말한다.
+                // 즉, 첫번째<option> 태그는 0이고 두번째 <option> 태그는 1, 두번째 <option>태그는 2 .... 으로 되어진다.
+                // alert(nSelectedIndex); 
+
+                arrPerson.some(function(item, index){
+                    // item = > {name:"아이유",...} 일때 index는 0이다.
+                    // item = > {name:"김태희",...} 일때 index는 1이다.
+                    // item = > {name:"박보영",...} 일때 index는 2이다.
+
+                    if(nSelectedIndex == 0) {
+                        // <option> 선택하세요을 선택한 경우
+                        person.style.display = "none";    
+                    }
+                    else if(nSelectedIndex-1 == index) {
+                        img.src="images/" + item.photo;
+
+                        html ="<ul>" +
+                                "<li><label>성명<label>" + item.name + "<li>" +
+                                "<li><label>나이<label>" + item.age + "<li>"+
+                                "<li><label>특이사항<label>" + item.special + "<li>"+
+                              "</ul>";
+                        person.style.display = "";
+
+                        
+
+
+
+
+                    }
+                });
+
+            });
+
+        }
+
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h2>인물소개</h2>
+        <select id="select">
+            <option>선택하세요</option> 
+            <option>아이유</option>    
+            <option>김태희</option>    
+            <option>박보영</option>    
+        </select>
+        <div id="person"> 
+            <img id="img" />
+            <div id="information"></div>
+
+        </div>
+    </div>
+</body>
+</html>

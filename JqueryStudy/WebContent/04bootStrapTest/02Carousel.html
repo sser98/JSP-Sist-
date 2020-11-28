@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>부트스트랩 Carousel 만들기 연습 - 2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <style type="text/css">
+  	
+  	.mycontainer {
+  		/* border: solid 1px red; */
+  		margin: 0 auto;
+  	}
+  	
+  	#myCarousel {
+  		/* border: solid 1px blue; */
+  		width: 40%;
+  	}
+  	
+  </style>	
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+  
+  	$(document).ready(function(){
+  		
+  		var arrPicture = [ {fileName:"image1.jpg", comment:"야외 풀장"}
+				          ,{fileName:"image2.jpg", comment:"디럭스룸"}
+				          ,{fileName:"image3.jpg", comment:"레스토랑"}
+				          ,{fileName:"image4.jpg", comment:"야외 숲"}
+				          ,{fileName:"image5.jpg", comment:"중국집목욕탕"} ];
+  		
+  		var html = "";
+  		var html2 = "";
+  		
+  		arrPicture.forEach(function(item, index){
+  			if(index == 0) {
+  				html += "<li data-target='#myCarousel' data-slide-to='"+index+"' class='active'></li>";  
+  			
+  				html2 += "<div class='item active'>" + 
+  		                 "<img src='image/"+arrPicture[index].fileName+"' alt='"+arrPicture[index].comment+"' style='width:100%;'>" + 
+  		                 "</div>";
+  			}
+  			else {
+  				html += "<li data-target='#myCarousel' data-slide-to='"+index+"'></li>";
+  			
+  			    html2 += "<div class='item'>" + 
+  		                 "<img src='image/"+arrPicture[index].fileName+"' alt='"+arrPicture[index].comment+"' style='width:100%;'>" + 
+  		                 "</div>";
+  			}
+  		});// end of arrPicture.forEach(function(item, index){})------------
+  		
+  		
+  		$("ol.carousel-indicators").html(html);
+  		$("div.carousel-inner").html(html2);
+  		
+  	});// end of $(document).ready()-------------------------------
+  
+  </script>	
+
+</head>
+<body>
+
+<div class="container mycontainer" align="center">
+  <h2>Carousel Example - 1</h2>  
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators"></ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner"></div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

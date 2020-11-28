@@ -1,0 +1,8 @@
+package myshop.model;
+
+public class ImageVO {
+	
+	
+	private String imgno;
+	private String imgfilename;
+}

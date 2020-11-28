@@ -1,0 +1,36 @@
+
+9월 21, 2020 18:06:47.254 NEW SESSION
+9월 21, 2020 18:06:47.254 [19432:2720:0921/180647.252:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 21, 2020 18:13:38.111 [7640:6556:0921/181338.110:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 21, 2020 18:13:45.390 [7640:1160:0921/181345.390:ERROR:device_event_log_impl.cc(208)] [18:13:45.390] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+9월 21, 2020 19:12:31.747 [18484:8792:0921/191231.746:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 21, 2020 19:12:45.78 [18484:17712:0921/191245.078:ERROR:device_event_log_impl.cc(208)] [19:12:45.077] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+
+9월 22, 2020 09:12:27.26 NEW SESSION
+9월 22, 2020 09:12:27.26 [14544:17508:0922/091227.025:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 22, 2020 09:12:28.392 [14544:14516:0922/091228.391:ERROR:device_event_log_impl.cc(208)] [09:12:28.392] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+9월 22, 2020 10:32:55.166 [14544:14516:0922/103255.166:ERROR:CONSOLE(0)] "TypeError: Cannot read property 'isAnonymousInlineStyleSheet' of null", source:  (0)
+9월 22, 2020 10:35:43.161 [14544:14516:0922/103543.161:ERROR:CONSOLE(0)] "TypeError: Cannot read property 'isAnonymousInlineStyleSheet' of null", source:  (0)
+9월 22, 2020 10:35:44.165 [14544:14516:0922/103544.164:ERROR:CONSOLE(0)] "TypeError: Cannot read property 'isAnonymousInlineStyleSheet' of null", source:  (0)
+9월 22, 2020 10:36:11.159 [14544:14516:0922/103611.158:ERROR:CONSOLE(0)] "TypeError: Cannot read property 'isAnonymousInlineStyleSheet' of null", source:  (0)
+9월 22, 2020 10:36:13.163 [14544:14516:0922/103613.162:ERROR:CONSOLE(0)] "TypeError: Cannot read property 'isAnonymousInlineStyleSheet' of null", source:  (0)
+9월 22, 2020 10:42:17.158 [14544:14516:0922/104217.157:ERROR:CONSOLE(0)] "TypeError: Cannot read property 'isAnonymousInlineStyleSheet' of null", source:  (0)
+9월 22, 2020 10:42:19.157 [14544:14516:0922/104219.156:ERROR:CONSOLE(0)] "TypeError: Cannot read property 'isAnonymousInlineStyleSheet' of null", source:  (0)
+9월 22, 2020 10:42:20.158 [14544:14516:0922/104220.158:ERROR:CONSOLE(0)] "TypeError: Cannot read property 'isAnonymousInlineStyleSheet' of null", source:  (0)
+9월 22, 2020 10:42:21.163 [14544:14516:0922/104221.162:ERROR:CONSOLE(0)] "TypeError: Cannot read property 'isAnonymousInlineStyleSheet' of null", source:  (0)
+9월 22, 2020 10:42:22.159 [14544:14516:0922/104222.158:ERROR:CONSOLE(0)] "TypeError: Cannot read property 'isAnonymousInlineStyleSheet' of null", source:  (0)
+9월 22, 2020 10:42:24.160 [14544:14516:0922/104224.160:ERROR:CONSOLE(0)] "TypeError: Cannot read property 'isAnonymousInlineStyleSheet' of null", source:  (0)
+9월 22, 2020 10:42:25.156 [14544:14516:0922/104225.156:ERROR:CONSOLE(0)] "TypeError: Cannot read property 'isAnonymousInlineStyleSheet' of null", source:  (0)
+9월 22, 2020 14:04:45.704 [8100:14368:0922/140445.703:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 22, 2020 14:04:49.638 [8100:19232:0922/140449.637:ERROR:device_event_log_impl.cc(208)] [14:04:49.637] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+9월 22, 2020 14:06:54.919 [8028:17712:0922/140654.919:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 22, 2020 14:07:04.194 [8028:7548:0922/140704.194:ERROR:device_event_log_impl.cc(208)] [14:07:04.194] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+9월 22, 2020 15:06:24.947 [8028:7744:0922/150624.946:ERROR:mcs_client.cc(755)] Received close command, resetting connection.
+9월 22, 2020 17:25:54.28 [8764:13448:0922/172554.027:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 22, 2020 17:25:55.415 [8764:13568:0922/172555.415:ERROR:device_event_log_impl.cc(208)] [17:25:55.415] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+
+11월 10, 2020 06:09:23.877 NEW SESSION
+11월 10, 2020 06:09:23.877 [9428:2352:1110/060923.876:ERROR:device_event_log_impl.cc(208)] [06:09:23.877] Bluetooth: bluetooth_adapter_winrt.cc:1076 Getting Default Adapter failed.
+11월 10, 2020 06:15:59.963 [10384:9624:1110/061559.963:ERROR:device_event_log_impl.cc(208)] [06:15:59.962] Bluetooth: bluetooth_adapter_winrt.cc:1076 Getting Default Adapter failed.
+11월 10, 2020 06:17:54.344 [6892:4908:1110/061754.344:ERROR:device_event_log_impl.cc(208)] [06:17:54.343] Bluetooth: bluetooth_adapter_winrt.cc:1076 Getting Default Adapter failed.
+11월 10, 2020 06:27:42.796 [1110/062742.796:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)

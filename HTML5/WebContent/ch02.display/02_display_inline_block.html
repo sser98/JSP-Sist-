@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>display 에 대해서 알아본다. CSS를 임베디드로 나타내어본다.</title>
+
+<style type="text/css">
+
+	div#div1 {
+		border: solid 2px green;
+		width: 100px;
+		height: 300px;
+	}
+	
+	
+	div#div2 {
+		border: solid 5px #b30086;  /* 적포도주색 */
+		width: 50%;
+		height: 500px;
+	}
+	
+/*	
+	#div2 {
+		border: solid 5px #b30086;  
+		width: 50%;
+		height: 500px;
+	}
+*/	
+
+	.foodName {
+		display: block;
+		border: solid 4px yellow;
+	}
+	
+	/*
+	   === CCS 우선순위 ===
+	   
+	     아이디(#) > 클래스(.) > 태그
+	*/
+	#myid {
+		font-weight: bold; /* 굵게 */
+		color: red; /* 글자색 */
+	}
+	
+	.myclass {
+		background-color: #ccffe6; /* 배경색  연한초록색*/
+		color: blue; /* 글자색 */
+		font-size: 24pt; /* 글자크기 */
+		background-color: #ffffcc; /* 배경색  연한노랑색*/
+		/*
+		=== CCS 우선순위 ===
+		동일한 태그 또는 동일한 클래스 또는 동일한 아이디에서는 
+		맨 마지막에 기술된 css 내용이 더 우선한다.(즉, 덮어씌운다.)
+		*/
+	}
+
+</style>
+
+</head>
+<body>
+
+	<h1>▷ block 방식 - 세로로 떨어지는 방식 ◁</h1>
+
+	<h1>h1은 display의 기본값은 block 방식이다</h1>
+	<h2>h2은 display의 기본값은 block 방식이다</h2>
+	<h3>h3은 display의 기본값은 block 방식이다</h3>
+	<h4>h4은 display의 기본값은 block 방식이다</h4>
+	<h5>h5은 display의 기본값은 block 방식이다</h5>
+	<h6>h6은 display의 기본값은 block 방식이다</h6>
+	
+	<br> <!-- 줄바꿈 -->
+	
+	<div>div는 display가 block 방식이다.	</div>
+	<div>div는 display가 block 방식이다.	</div>
+	
+	<hr> <!-- 수평선 -->
+	
+	<h2>▷ inline 방식 - 가로로 표현되어진 방식 ◁</h2>
+	<div>
+		inline 방식의 태그는 &lt;a&gt;, &lt;label&gt;, &lt;span&gt; 이 있다. 
+		<!-- 
+		     &lt;    부등호(<)
+		     
+		     &gt;    부등호(>)
+		     
+		     &nbsp;  " " 공백(스페이스)1개를 의미한다.
+		     
+		     &amp;   앰퍼샌드(&)기호
+		     
+		     &quot;  쌍따옴표(")
+		     
+		     &#039;  홑따옴표(')
+		     
+		     &#035;  sharp(#)
+		 -->
+		 <br/>
+		 JSP&amp;Servlet, &quot;ORACLE&quot;, He&#039;s
+	</div>
+	<a href="http://www.naver.com">네이버</a>
+	<a href="http://www.daum.net">다음</a>
+	<a href="http://www.nate.com">네이트</a>
+	
+	<br> <!-- 줄바꿈 -->
+	
+	<label>레이블1 label 태그는 display가 inline 방식이다.</label>
+	<label>레이블2 label 태그는 display가 inline 방식이다.</label>
+	<label>레이블3 label 태그는 display가 inline 방식이다.</label>
+	
+	<br/> <!-- 줄바꿈 -->
+	
+	<span>스팬1 span 태그는 display가 inline 방식이다.</span>
+	<span>스팬2 span 태그는 display가 inline 방식이다.</span>
+	<span>스팬3 span 태그는 display가 inline 방식이다.</span>
+	
+	<hr> <!-- 수평선 -->
+	
+	<div id="div1">DIV 1 블럭요소(block element)은 width 및 height 가 적용된다.</div>
+	<div id="div2">DIV 2 블럭요소(block element)은 width 및 height 가 적용된다.</div>
+	
+	<br/><br/>
+
+	<span style="border: solid 1px red; width: 150px; height: 150px;">span1 인라인요소(inline element)는 width 및 height 가 적용이 안된다</span>
+	<span style="border: solid 1px red; width: 200px; height: 150px;">span2 인라인요소(inline element)는 width 및 height 가 적용이 안된다</span>
+	<span style="border: solid 1px red; width: 250px; height: 150px;">span3 인라인요소(inline element)는 width 및 height 가 적용이 안된다</span>
+
+    <br/><br/>
+    <hr> <!-- 수평선 -->
+    
+    <span style="display: inline; border: solid 1px red; width: 150px; height: 100px;">짜장면1</span>
+    <span style="display: inline; border: solid 1px red; width: 200px; height: 150px;">탕수육1</span>
+    <span style="display: inline; border: solid 1px red; width: 250px; height: 200px;">팔보채1</span>
+    <!-- display: inline; 은 가로형태로 보여주는 것이고, 또한  width 및 height 가 적용이 안된다 -->
+    
+    <br/><br/>
+    
+    <span class="foodName" id="div2" >짜장면2</span>
+    <span class="foodName">탕수육2</span>
+    <span class="foodName">팔보채2</span>
+    <!-- inline element인 span 태그를 block 방식으로 변경함. 세로형태로 보여주는 것이다. block 방식의 width 크기는 화면 전체로 잡힌다.  -->
+    
+    <br/><br/>
+    
+    <span style="display: inline-block; border: solid 1px red; width: 150px; height: 100px;">짜장면3</span>
+    <span style="display: inline-block; border: solid 1px red; width: 200px; height: 150px;">탕수육3</span>
+    <span style="display: inline-block; border: solid 1px red; width: 250px; height: 200px;">팔보채3</span>
+    <!-- inline element인 span 태그를 inline-block 방식으로 변경함. 가로형태로 보여주면서, width 및 height 를 부여할 수 있게 한다. -->
+    
+    <div id="myid" class="myclass">CSS 우선순위에 대해서 알아봅니다</div>
+
+</body>
+</html>

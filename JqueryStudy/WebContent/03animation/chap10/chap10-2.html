@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+ <meta charset="UTF-8">
+ <title>이미지를 수평으로 스크롤하기(hover시 스크롤 멈추기)</title>
+ <!--
+	  가상 윈도우 내에서 여러 이미지가 오른쪽에서 왼쪽으로 스크롤 되게 하고 싶다.
+	  모든 이미지가 스크롤 되면 첫 번째 이미지가 다시 오른쪽에서 나와 왼쪽으로 스크롤이
+	  반복 되도록 한다. 그런데 마우스 포인터가 이미지 위에 대면 이미지 스크롤이 멈추고
+	  마우스 포인터가 이미지를 벗어나면 다시 스크롤 되게 해본다.
+ -->
+ <link rel="stylesheet" type="text/css" href="styles/animation6.css">
+ <script type="text/javascript" src="/JqueryStudy/js/jquery-3.3.1.min.js"></script>
+
+ <script type="text/javascript">
+    $(document).ready(function(){
+    	var $wrapper = $("#scroller a img");
+		$wrapper.css({'left':0});
+
+		var animator =	function(imgblock){
+							imgblock.animate({'left':-800}, 15000,
+											   function(){
+												  imgblock.css({'left':480});
+												// $(this).css({'left':480});
+												  animator(imgblock); //재귀함수 호출 -> 반복효과
+												  // animator($(this));
+							                   }
+							                 );	
+		                } // 함수정의
+
+		animator($wrapper); // 함수호출
+		
+		$wrapper.hover(
+				function(){
+					var eventCnt = $wrapper.queue('fx').length;
+					// .queue('fx').length 를 통해서 현재 적용된 애니메이션 관련 효과가 몇개인지를 알 수 있다.
+					for(var i=0; i<eventCnt; i++) {
+						$wrapper.stop(); // 현재 수행중인 애니메이션만 멈추는 stop()메소드
+					}
+				},
+
+				function(){
+					animator($wrapper);
+				}
+			);
+		
+	 });
+
+ </script>
+ 
+ </head>
+
+<body>
+	<div id="container">
+		<div id="header">Header</div>
+		<div id="content">Content</div>
+		<div id="sideinfo">Sideinfo</div>
+		<div id="footer"><br/>
+			<div style="font-size:10pt; color:bule; font-weight:bold; text-align:center;">여행상품사진보기</div>
+			<br/>
+			<div id="scroller">
+			<div id="images">
+			  <a href="http://www.hanatour.com/"><img src="image/image1.jpg" width=150px height=100px/></a>
+			  <a href="http://www.hanatour.com/"><img src="image/image2.jpg" width=150px height=100px/></a>
+			  <a href="http://www.hanatour.com/"><img src="image/image3.jpg" width=150px height=100px/></a>
+			  <a href="http://www.hanatour.com/"><img src="image/image4.jpg" width=150px height=100px/></a>
+			  <a href="http://www.hanatour.com/"><img src="image/image5.jpg" width=150px height=100px/></a>
+			</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<!--
+	 모든 앵커 엘리먼트는 image 클래스 이름을 할당하여 모든 이미지가 표시되어질 좌표는 
+	 절대치로 top:170px; left:940px; 로 동일하게 만든다.
+-->

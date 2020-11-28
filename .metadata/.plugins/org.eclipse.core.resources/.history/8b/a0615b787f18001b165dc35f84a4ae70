@@ -1,0 +1,19 @@
+package common.controller2;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public abstract class AbstractController2 implements InterCommand2 {
+	
+	
+	private boolean isRedirect = false;
+	
+	
+	private String viewPage;
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		
+	}
+	
+	
+}

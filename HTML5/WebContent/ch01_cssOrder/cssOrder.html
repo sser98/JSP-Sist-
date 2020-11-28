@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> css의 우선순위에 대해서 알아본다. Insert title here</title>
+</head> 
+<link rel ="stylesheet" href="mycss.css">
+<!-- 디자인은 그 파일링크에 있는것으로 하겠습니다. -->
+
+<style type= "text/css">
+
+/* 	=== CSS 우선순위 ===
+	!important(css 강제적용) > 해당 태그에 직접준것 (인라인방식) > 내부에 있는 html 파일에서 준 style 태그(임베디드 방식) > 외부에 있는 .css 파일을 로드 한 것(예: <link rel ="stylesheet" href="mycss.css"> )
+	해당 태그에 직접준것(인라인방식) HTML 파일에서 준 STYLE 태그(임) 
+*/
+div{
+	border: solid 1px blue;
+	background-color: #ccf2ff; /* 배경색 */ 	
+	color: red;
+}
+
+</style>
+
+<body>
+
+
+ <!--  HTML의 주석문 -->
+ <!-- HTML의 주석문 --> <!-- 블럭잡고 ctrl + SHIFR + / 블럭잡은곳 주석처리 -->
+ 
+ 
+ <!-- 인라인 방식 -->
+ <div STYLE="BORDER : SOLID 1PX RED; background-color: #ffffe6;">나는 DIV1</div>
+ 
+ <div>나는 DIV2</div>
+ 
+ 
+</body>
+</html>

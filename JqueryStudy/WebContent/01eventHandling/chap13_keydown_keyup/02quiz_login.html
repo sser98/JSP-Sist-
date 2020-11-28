@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>퀴즈 - 로그인하기</title>
+
+<style type="text/css">
+
+	body{ 
+		margin: 0;
+		padding: 0; 
+		font-family: Arial, "MS Trebuchet", sans-serif;
+	}
+
+	body #container {
+		/* border: 1px solid gray; */
+		
+		margin: 0 auto;
+		padding: 2% 9% 0 10%;
+	}
+
+	header#login {
+		/* border: 1px solid blue; */
+		
+		width: 99%;
+		height: 120px;
+		background-color: #fff;
+	}
+
+	header#login > form > table#loginTbl {
+		/* border: 1px solid red;  */
+		
+		float: left;
+		height: 105px;
+	}
+
+	table#loginTbl > td { 
+		font-size: 10pt;
+		font-weight: bold;
+	}
+
+	header#login div#logo{
+		/* border: 1px solid red; */
+		
+		float: left;
+		height: 105px;
+		margin: 0 50px;
+	}
+
+	header#login img#imgLogo{
+		width:  200px; 
+	}
+
+	div#contents {
+		/* border: solid 1px green; */
+		width: 99%; 
+	}
+
+	aside {
+	    /* border: solid 1px blue;  */
+	    
+		float: left;
+		width: 20%;
+		height: 450px;
+		padding: 5px 20px;
+		background-color: #999;
+	}
+
+	aside > nav > ul {
+		list-style: none;
+	}
+
+
+	aside > nav > ul > li {
+		/* border: 1px solid blue; */
+		
+		margin: 0 0 20px 0; 
+		padding: 0; 
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	aside > nav > ul > li > a {
+		text-decoration: none; 
+		color: #fff;
+	}
+
+	aside > nav > ul > li > a:hover {
+		color: red;
+		background-color: yellow;
+	} 
+
+	section {
+	    /* border: solid 1px red; */ 
+
+		float: right;
+		width: 72.1%;
+		height: 450px;
+		padding: 5px 20px;
+		background-color: #333;
+	}
+	
+	section article {
+		margin: 20px 0;
+		color : #ffd;
+	}
+
+	section article header {
+		font-size: 16pt;
+	}
+
+
+	footer {
+		/* border: solid 1px green; */ 
+		
+		clear: both;
+		width: 99%;
+		text-align: center;
+		background-color: #ccc;
+		padding: 30px 0;
+		margin-bottom: 30px;
+	}
+
+</style>
+
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	
+	$("table#loginTbl input:button").click(function(){
+		func_login();
+	});
+	
+	$("table#loginTbl input:password[id=passwd]").bind("keyup", function(event) {
+		var keycode = event.keyCode;
+		if(keycode == 13) { // 비밀번호에 엔터를 했을 경우 
+			func_login();
+		}
+	});
+	
+});// end of $(document).ready(function() {})------------------------
+
+function func_login() {
+	// alert("호호호");
+	
+	var frm = document.loginFrm;
+	frm.action="login.do";
+	frm.method="post";
+	frm.submit();
+}
+
+</script>
+
+</head>
+<body>
+	<div id="container">
+		<header id="login">
+			<form name="loginFrm">
+				<table id="loginTbl">
+					<tr>
+						<td>아이디</td>
+						<td><input type="text" name="userid" id="userid" placeholder="아이디" autocomplete="off"></input></td>
+					</tr>
+					<tr>
+						<td>비밀번호</td>
+						<td><input type="password" name="passwd" id="passwd" placeholder="비밀번호"></input></td>
+					</tr>
+					<tr align="center">
+						<td colspan="2">
+							<input type="button" value="로그인" />
+							<input type="reset" value="취소" />
+						</td>
+					</tr>
+				</table>
+			</form>
+			
+			<div id="logo">
+			 <img src="images/20170315064553027.png" id="imgLogo" />
+			</div>
+		</header>	
+		
+		<div id="contents">		
+		<aside>
+			<nav>
+				<ul>
+					<li><a href="#">카페</a></li>
+					<li><a href="#">메일</a></li>
+					<li><a href="#">뉴스</a></li>
+					<li><a href="#">지도</a></li>
+					<li><a href="#">증권</a></li>
+					<li><a href="#">블로그</a></li>
+				</ul>
+			</nav>
+		</aside>
+			
+		<section>
+			<article>
+				<header>기사1 제목입력</header>
+				<p>&quot;부동산 거래 동맥경화 우려..금리인하 검토시기 왔다&quot;</p>
+			</article>
+			
+			<article>
+				<header>기사2 제목입력</header>
+				<p>&quot;예매창 지붕 뚫었다&quot;.. '어벤져스:엔드게임' 4DX, 예매 오픈 후 순삭 '매진'[공식입장]</p>
+			</article>	
+		</section>	
+		</div>
+		
+		<footer>
+		  	Copyright &copy; Kakao Corp. All rights reserved.
+		</footer>
+
+	</div>	
+
+</body>
+</html>

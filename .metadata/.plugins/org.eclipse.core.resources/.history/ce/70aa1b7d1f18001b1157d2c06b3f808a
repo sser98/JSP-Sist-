@@ -1,0 +1,5 @@
+# index Mapping Information
+/index.up=common.controller.IndexController
+/main.up=common.controller.MainController
+/test1.up=test.controller.Test1Controller
+/test2.up=test.controller.Test2Controller

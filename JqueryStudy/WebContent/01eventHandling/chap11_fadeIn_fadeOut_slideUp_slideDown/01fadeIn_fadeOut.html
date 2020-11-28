@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>fadeIn()과 fadeOut()를 사용한 효과 주기</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		var personArr = new Array();
+		
+		personArr.push({name:"김태희"
+			           ,age:25
+			           ,school:"서울대학교"
+			           ,smImage:"kimth.jpg"
+			           ,lgImage:"kimthLarge.jpg"
+			           ,address:"서울시 강동구 천호동" 
+			           });
+		
+		personArr.push({name:"아이유"
+	                   ,age:28
+	                   ,school:"인천대학교"
+	                   ,smImage:"iyou.jpg"
+	                   ,lgImage:"iyouLarge.jpg"
+	                   ,address:"서울시 강서구 화곡동"
+	                  });
+		
+		personArr.push({name:"박보영"
+			           ,age:30
+			           ,school:"수원대학교"
+			           ,smImage:"parkby.jpg"
+			           ,lgImage:"parkbyLarge.jpg"
+			           ,address:"서울시 강남구 도곡동"
+			          });
+		
+	   //////////////////// ==메뉴넣기 시작==   ///////////////////////
+		var html = "<ul>";
+		
+		for(var i=0; i<personArr.length; i++) {
+			html += "<li class='friendname'>"+personArr[i].name+"</li>";
+		}
+		
+		html += "</ul>";
+		
+		$(document).on("mouseover","li.friendname", 
+				       function(){
+			 			  $(this).addClass("changeMenuColor"); 
+	      	           });
+		
+		$(document).on("mouseout","li.friendname", 
+			          function(){
+			              $(this).removeClass("changeMenuColor"); 
+   	                  });
+		
+		
+		$("div#header").html(html);
+	   ////////////////////  ==메뉴넣기 끝==  ///////////////////////
+		
+		
+	   ////////////////////  ==내용물넣기 시작==  ///////////////////////
+		for(var i=0; i<personArr.length; i++) {
+			html =  '<div class="personInfo" style="position: absolute; top: 200px; left: '+(100+i*280)+'px;">';
+			html += '   <img src="images/'+personArr[i].lgImage+'" />';
+			html += '   <ul class="personInfoUL">';
+			html += '      <li class="personName">'+personArr[i].name+'</li>';
+			html += '      <li>'+personArr[i].age+'세</li>';
+			html += '      <li>'+personArr[i].school+'</li>';
+			html += '      <li class="moreProphile" id="no'+i+'">프로필더보기</li>';
+			html += '   </ul>';
+			
+			html += '   <ul style="list-style: none; padding: 0px;" class="moreProphileContent" id="moreno'+i+'">';       
+			html += '     <li>'+personArr[i].address+'</li>';
+			html += '     <li style="color: red; cursor: pointer;" class="hideProphile" id="hideno'+i+'">프로필감추기</li>'; 
+			html += '   </ul>';
+			
+			html += '</div>';
+			
+			$("div#content").append(html);
+			
+		}// end of for-----------------------------------
+       //////////////////// ==내용물넣기 끝==  ///////////////////////
+       
+       
+       ///////////////////  ==프로필더보기 내용 감추기 시작 == ////////////
+       $(".moreProphileContent").hide();
+       ///////////////////  ==프로필더보기 내용 감추기 끝 ==  ////////////
+       
+       
+       //////////////////// ==프로필더보기 시작== /////////////////////
+       $(document).on("click", "li.moreProphile", 
+    		          function(event){
+						    	   var $target = $(event.target);
+						       	  //  console.log( $target.prop("id") ); // no0  no1  no2
+						       	  
+						           $("#more"+$target.prop("id")+"").fadeIn(3000);
+						       //  $("#more"+$target.prop("id")+"").fadeIn('slow');
+						       /*  선택자.fadeIn(3000); 은 선택자에 해당되는 내용물을 
+						                   숫자(단위는 밀리초) 밀리초 동안 천천히 나타내어라는 말이다.
+						           3000 은 3초 이다.
+						       	  	 
+						           3000 대신에 'slow'   를 쓰면  600 과 같다. 0.6초 이다.
+						           3000 대신에 'normal' 를 쓰면  400 과 같다. 0.4초 이다.
+						           3000 대신에 'fast'   를 쓰면  200 과 같다. 0.2초 이다.
+						       */               	      
+       });
+       //////////////////// ==프로필더보기 끝== /////////////////////
+       
+		
+       //////////////////// ==프로필감추기 시작== /////////////////////
+       $(document).on("click", "li.hideProphile", 
+    		   function(event){
+				    	   var $target = $(event.target);
+				           //  console.log( $target.prop("id") ); // hideno0  hideno1  hideno2
+				               
+				               $("#moreno"+$target.prop("id").substring(6)+"").fadeOut(3000);
+				            // $("#moreno"+$target.prop("id").substring(6)+"").fadeOut('slow');
+				          	/* 선택자.fadeOut(3000); 은 선택자에 해당되는 내용물을 
+				          	     숫자(단위는 밀리초) 밀리초 동안 천천히 사라져라는 말이다.
+				          	   3000 은 3초 이다.
+				          	
+				          	   3000 대신에 'slow'   를 쓰면  600 과 같다. 0.6초 이다.
+				          	   3000 대신에 'normal' 를 쓰면  400 과 같다. 0.4초 이다.
+				          	   3000 대신에 'fast'   를 쓰면  200 과 같다. 0.2초 이다.
+				          	*/
+       });
+      //////////////////// ==프로필감추기 끝== /////////////////////
+       
+	});// end of $(document).ready(function(){})------------------
+</script>
+</head>
+<body>
+	<div id="container">
+		
+		<div id="header"></div>
+		
+		<div id="content"></div>
+		
+		<div id="sideinfo">
+		  SIDEINFO
+		</div>
+		
+		<div id="footer">
+		  FOOTER
+		</div>
+		
+	</div>
+</body>
+</html>
+
+
+
+

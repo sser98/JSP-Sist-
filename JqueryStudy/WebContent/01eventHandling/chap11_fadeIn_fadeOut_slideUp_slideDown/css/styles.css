@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+div#container {
+	width: 98%;
+	margin: 0 auto;
+	/* border: 1px solid red; */
+}
+
+div#header {
+	background-color: #908886;
+	height: 100px;
+	padding: 2%;
+	/* border: 1px solid blue; */
+}
+
+div#content {
+	float: left;
+	width: 70%;
+	background-color: #F5F5F5;
+	min-height: 600px;
+	padding: 2%;
+	/* border: 1px solid green; */
+}
+
+div#sideinfo {
+	float: right;
+	width: 21.5%;
+	background-color: #DCDAD9;
+	min-height: 600px;
+	padding: 2%;
+	/* border: 1px solid blue; */
+}
+
+div#footer {
+	clear: both;
+	height: 100px;
+	padding: 2%;
+	background-color: #555;
+	/* border: 1px solid orange; */
+}
+
+
+div#header>ul {
+	list-style: none;
+	color: #e6e600;
+	font-size: 20pt;
+	font-weight: bold;
+	/* border: 1px solid red; */
+	
+	position: relative;
+	top: 45px;
+}
+
+div#header>ul>li {
+	display: inline-block;
+	margin-right: 30px;
+	/* border: 1px solid red; */
+} 
+
+
+.changeMenuColor {
+	background-color: navy;
+	color: white;
+	cursor: pointer;
+}
+
+div#content>div.personInfo {
+	display: inline-block;
+	margin-right: 30px; 
+	/* border: 1px solid red; */
+}
+
+
+div#content>div.personInfo>ul.personInfoUL {
+	list-style: none; 
+	padding: 0px; 
+	/* border: 1px solid red; */
+}
+
+
+ul.personInfoUL>li {
+	line-height: 200%;
+}
+
+
+ul.personInfoUL>li.personName {
+	font-size: 16pt;
+	font-weight: bold;
+}
+
+
+ul.personInfoUL>li.moreProphile {
+	display: inline; 
+	font-size: 14pt;
+	color: white;
+	background-color: navy;
+	cursor: pointer;
+} 
+
+
+

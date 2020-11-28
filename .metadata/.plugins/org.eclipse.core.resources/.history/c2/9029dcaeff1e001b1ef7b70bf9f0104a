@@ -1,0 +1,18 @@
+package member.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import common.controller.AbstractController;
+
+public class coinPurchaseTypeChoice extends AbstractController {
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		// 코인 충전을 하기 위한 전제조건은 먼저 로그인을 해야한다.
+		
+		
+	}
+
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>부트스트랩을 사용한 반응형웹페이지에 flip 효과주기</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+<script type="text/javascript" src="/JqueryStudy/js/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		var personArr = new Array();
+		
+		personArr.push({name:"김태희"
+			           ,age:25
+			           ,school:"서울대학교"
+			           ,smImage:"kimth.jpg"
+			           ,lgImage:"kimthLarge.jpg"
+			           });
+		
+		personArr.push({name:"아이유"
+	                   ,age:28
+	                   ,school:"인천대학교"
+	                   ,smImage:"iyou.jpg"
+	                   ,lgImage:"iyouLarge.jpg"
+	                  });
+		
+		personArr.push({name:"박보영"
+			           ,age:30
+			           ,school:"수원대학교"
+			           ,smImage:"parkby.jpg"
+			           ,lgImage:"parkbyLarge.jpg"
+			          });
+		
+		var html = "<ul>";
+		
+		for(var i=0; i<personArr.length; i++) {
+			html += "<li class='friendname'>"+personArr[i].name+"</li>";
+		}
+		
+		html += "</ul>";
+		
+		$(document).on("mouseover","li.friendname", 
+				       function(){
+			 			  $(this).addClass("changeMenuColor"); 
+	      	           });
+		
+		$(document).on("mouseout","li.friendname", 
+			          function(){
+			              $(this).removeClass("changeMenuColor"); 
+   	                  });
+		
+		
+		$("div#header").html(html);
+		
+		/////////// flipCard 넣어주기 ////////////
+		for(var i=0; i<personArr.length; i++) {
+			html = '<div class="flip-card" style="display: inline-block; margin-right: 30px;">';
+			html +=   '<div class="flip-card-inner">';
+		    html +=      '<div class="flip-card-front">';
+		    html +=	        '<img src="images/'+personArr[i].lgImage+'" style="width:228px;height:178px;">'; 
+		    html +=      '</div>';
+		    html +=   '<div class="flip-card-back">';
+		    html +=   '<h1>'+personArr[i].name+'</h1>'; 
+		    html +=   ' <p>'+personArr[i].age+'세</p>'; 
+		    html +=   ' <p>'+personArr[i].school+'</p>';
+		    html +=  '</div>';
+		    html += '</div>';
+		    html +='</div>';
+		    
+		    // $("div#content").append(html);
+		    // $("선택자").append(내용물);
+		    
+		    // 또는
+		    
+		    $(html).appendTo("div#content");
+		    // $(내용물).appendTo("선택자");
+		    
+		}// end of for----------------------
+		
+		////////////////////////////////////////
+		
+		
+	});// end of $(document).ready(function(){})------------------
+</script>
+</head>
+<body>
+	<div id="container">
+		
+		<div id="header"></div>
+		
+		<div id="content"></div>
+		
+		<div id="sideinfo">
+		  SIDEINFO
+		</div>
+		
+		<div id="footer">
+		  FOOTER
+		</div>
+		
+	</div>
+</body>
+</html>
+
+
+
+
+

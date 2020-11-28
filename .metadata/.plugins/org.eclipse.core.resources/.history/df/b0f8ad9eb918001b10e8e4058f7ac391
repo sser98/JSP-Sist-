@@ -1,0 +1,25 @@
+package myshop.model;
+
+public class ImageVO {
+	
+	
+	private int imgno;
+	private String imgfilename;
+	
+	
+	public String getImgno() {
+		return imgno;
+	}
+	public void setImgno(String imgno) {
+		this.imgno = imgno;
+	}
+	public String getImgfilename() {
+		return imgfilename;
+	}
+	public void setImgfilename(String imgfilename) {
+		this.imgfilename = imgfilename;
+	}
+	
+	
+	
+}

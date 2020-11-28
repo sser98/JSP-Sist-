@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+ <meta charset="UTF-8">
+ <title>주기적으로 이미지가 자동적으로 번갈아 표시하기</title>
+ <!--
+	  표시할 이미지가 여러개 있어서 번갈아 표시하고자 한다.
+	  첫 이미지가 표시되고 특정한 시간이 지나면 첫 이미지가 서서히 사라지고 다음 이미지가 나오게
+	  하고 싶다. 다시 특정한 시간이 지나면 두 번째 이미지가 사라지고 세 번째 이미지가 나오게 하고,
+	  그렇게 계속되다가 마지막 이미지가 보여진 후 특정한 시간이 지나면 다시 첫 이미지를 다시 표시하고 싶다.
+	  즉, 특정한 시간이 지나면 자동적으로 순서대로 다른 이미지로 대체되어 표시되도록 한다.
+ -->
+ <link rel="stylesheet" type="text/css" href="styles/animation4.css">
+ <script type="text/javascript" src="/JqueryStudy/js/jquery-3.3.1.min.js"></script>
+
+ <script type="text/javascript">
+    $(document).ready(function(){
+		var count = 1, maxcount = 5;
+
+		function scroll(){
+			if(count >= (maxcount)){
+				count = 0;
+			}
+
+			Action(count);
+		}// end of scroll()-------------------------
+
+
+		function Action(cnt){
+			if(count == 0) {cnt = maxcount;}
+
+			$("#image" + cnt).animate(
+				{
+					opacity: '0'
+				},
+				{
+					duration: 2000,
+					complete: function () {
+						if(count == 0) {cnt = 0;}
+						count = cnt + 1;
+						$(".image").css('display', 'none');
+						$("#image" + count).css('display', 'block');
+						$("#image" + count).animate({ opacity: '1.0' }, { duration: 500 });
+						scroll();
+					}
+				}
+			);
+		}// end of Action()------------------------------
+
+		$(".image").css('display', 'none');
+		$("#image1").css('display', 'block');
+		scroll();
+	});
+/*
+   이미지에 마우스를 클릭하면 같은 위치에서 다른 이미지로 대체되어야 하므로 이미지에 position 속성을
+   absolute로 하여(클래스 선택자 .image를 이용) 웹페이지에서 표시할 위치를 정확히 정할수 있게 한다.
+   그래서 top 의 속성을 170px, left 속성을 940px 로 하여 
+   이미지가 브라우저의 위쪽 경계에서 170픽셀, 왼쪽 경계에서 940픽셀 떨어진 위치에 나오게 한다.
+   jQuery 코드를 살펴보면, 이미지가 하나씩 표시되어야 하기 때문에 처음에는 모든 이미지를 사라지게 한다.
+   그리고 image 클래스인 HTML 엘리먼트의 첫 번째 엘리먼트를 웹페이지에서 서서히 표시한다.
+   즉, 웹 페이지를 열면 첫 번째 이미지가 서서히 표시된다. 이것이 웹페이지에서 나오는 첫 번째 이미지이고,
+   이것이 마무리되면 모든 이미지에 마우스 클릭 이벤트를 연결한다.
+   click 이벤트에서 마우스를 클릭하면 현재 이미지는 서시히 사라지고 다음 이미지가 표시되도록 한다.
+   그렇게 하기 위해서는 먼저 마지막 이미지인지 아닌지 확인해서 마지막 이미지가 아니면 다음 이미지를 
+   next 변수에 넣고, 마지막 이미지이라면 첫번째 이미지를 next 변수에 넣는다. 
+   그래서 다음에 표시할 이미지가 결정되면 next 변수에 담겨진 이미지가 서서히 표시된다.
+   그리고 클릭하면 링크되어 있는 웹페이지로 이동하는 것을 막기 위해 이벤트 처리함수에 전달된 
+   이벤트 객체의 preventDefault()메소드를 호출한다.
+*/
+ </script>
+ 
+ </head>
+
+<body>
+	<div id="container">
+		<div id="header">Header</div>
+		<div id="content">Content</div>
+		<div id="sideinfo">
+			<br/>
+			<div style="font-size:12pt; color:red; font-weight:bold; text-align:center;">이미지에 마우스를 클릭하세요</div>
+			<br/>
+			
+			<div id="advertise">
+			<div id="image1" class="image"><a href="http://www.hanatour.com/"><img src="image/image1.jpg" width=150px height=100px/></a></div>
+  			<div id="image2" class="image"><a href="http://www.hanatour.com/"><img src="image/image2.jpg" width=150px height=100px/></a></div>
+			<div id="image3" class="image"><a href="http://www.hanatour.com/"><img src="image/image3.jpg" width=150px height=100px/></a></div>
+			<div id="image4" class="image"><a href="http://www.hanatour.com/"><img src="image/image4.jpg" width=150px height=100px/></a></div>
+			<div id="image5" class="image"><a href="http://www.hanatour.com/"><img src="image/image5.jpg" width=150px height=100px/></a></div>
+	  		</div>
+	  		
+		</div>
+		<div id="footer">Footer</div>
+	</div>
+</body>
+</html>
+<!--
+	 모든 앵커 엘리먼트는 image 클래스 이름을 할당하여 모든 이미지가 표시되어질 좌표는 
+	 절대치로 top:170px; left:940px; 로 동일하게 만든다.
+-->

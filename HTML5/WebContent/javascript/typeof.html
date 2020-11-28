@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트에서 사용되는 데이터 타입에 대해서 알아봅니다.</title>
+
+<style type="text/css">
+
+	div#container {
+	/*  border: solid 1px gray; */
+		width: 90%;
+		margin: 0 auto;
+		padding: 2%;
+	}
+	
+	table, tr, th, td {
+		border: solid 1px gray;
+		border-collapse: collapse;
+	}
+	
+	td {
+		width: 200px;
+		height: 50px;
+		text-align: center;
+	} 
+
+</style>
+
+<script type="text/javascript">
+
+	// 1줄 주석문
+	
+	/*
+	   여러줄 
+	   주석문 
+	*/
+	
+	/*
+		window.onload = function() { } 은
+		웹페이지 문서가 모두 로드되어진 다음에 실행해주는 것이다.
+	*/
+	window.onload = function() {
+		
+	//	alert('alert는 주로 메시지를 띄우는 대화상자 입니다.');	
+		
+	//	console.log('console.log 도 결과물을 확인하는데 사용합니다.');
+		
+	//	document.write("웹페이지에 결과물을 나타내고자 할때 사용합니다.")	;
+	
+		var val1 = document.getElementById("val1").innerText;
+		console.log("val1 => " + val1);  // val1 => 1234
+		console.log("변수 val1 의  타입 => " + typeof(val1));  // 변수 val1 의  타입 => string 
+		// typeof(val1) 은 변수 val1의 데이터타입을 알려주는 것이다.
+		
+		document.getElementById("typeval1").innerText = typeof(val1);
+		////////////////////////////////////////////////////////////////
+		
+		var val2 = document.getElementById("val2").innerText;
+		console.log("val2 => " + val2);  // val2 => 1234 
+		
+		var val2_1 = document.getElementById("val2").innerHTML;
+		console.log("val2_1 => " + val2_1);  // val2_1 => <span style="color: blue;">1234</span>  
+		
+		document.getElementById("typeval2").innerHTML = "<span style='color:blue;'>"+typeof(parseInt(val2))+"</span>"; 
+        ////////////////////////////////////////////////////////////////
+
+        var val3 = document.getElementById('val3').innerText;
+		
+        document.getElementById('typeval3').innerHTML = '<span style="color:red;">'+typeof(parseFloat(val3))+'</span>';
+		////////////////////////////////////////////////////////////////
+		
+		var val4 = document.getElementById("val4").innerText; // 1234.567
+		document.getElementById("casting4").innerHTML = parseInt(val4); // parseInt(1234.567);
+        
+        document.getElementById("typeval4").innerHTML = typeof(parseInt(val4)); // typeof(parseInt(1234.567));
+        
+        var val5 = document.getElementByid("val5").innerText;
+        // val5글자를 읽어온다.
+        document.getElementById("casting5").innerHTML = number(val5);
+        document.getElementById("typeval5").innerHTML = "<span style='color:green;'>" + typeof(Number(val5)) +"</span>"; 
+	}
+
+</script>
+
+</head>
+<body>
+	
+	<div id="container">
+		<table>
+			<tr>
+				<th>데이터 값</th>
+				<th>형변환 후 데이터 값</th>
+				<th>데이터 타입</th>
+			</tr>
+			
+			<tr>
+				<td id="val1">1234</td>
+				<!-- val1 이라는 아이디 값으로 지정한 td태그안에 값을 변수 val1에 넣어준다. -->
+				<td>123</td>
+				<td id="typeval1"></td>
+			</tr>
+			
+			<tr>
+				<td id="val2"><span style="color: blue;">1234</span></td>
+				<td>parseInt(1234) => </td>
+				<td id="typeval2"></td>
+			</tr>
+			
+			<tr>
+				<td id="val3"><span style="color: red;">1234.567</span></td>
+				<td>parseFloat(1234.567) => </td>
+				<td id="typeval3"></td>
+			</tr>
+			
+			<tr>
+				<td id="val4">1234.567</td>
+				<td>parseInt(1234.567) => <span id="casting4"></span></td>
+				<td id="typeval4"></td>
+			</tr>
+			
+			<tr>
+				<td id="val5">1234</td>
+				<td>Number(1234) =></td>
+				<td id="typeval5"></td>
+			</tr>
+			
+			<tr>
+				<td id="val6">1234.567</td>
+				<td>Number(1234.567) => <span id="casting6"></span></td>
+				<td id="typeval6"></td>
+			</tr>
+			
+			
+		</table>
+	</div>
+
+</body>
+
+</html>

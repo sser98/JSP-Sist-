@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+ <meta charset="UTF-8">
+ <title>뉴스 스크롤러 만들기</title>
+ <!--
+	  웹 사이트 방문자에게 텍스트 형식으로 뉴스를 보여주고 싶다.
+	  뉴스는 위로 올라가게 하고 모두 올라가면 윈도우 아래에서 다시 나와 스크롤되게 하고 싶다.
+ -->
+ <link rel="stylesheet" type="text/css" href="styles/animation7.css">
+ <script type="text/javascript" src="/JqueryStudy/js/jquery-3.3.1.min.js"></script>
+
+ <script type="text/javascript">
+	$(document).ready(function(){
+		var $wrapper = $("#scroller p");
+	
+		$wrapper.css({'top':0});
+			
+		var animator = function(imgblock){
+				imgblock.animate(
+					{'top':-450}, 20000,
+					function(){
+						imgblock.css({'top':250});
+						animator($(this));
+						// animator(imgblock);
+					}
+				);
+		} // 함수정의
+	
+		animator($wrapper); // 함수호출
+	
+	});
+
+ </script>
+ 
+ </head>
+
+<body>
+	<div id="container">
+		<div id="header">Header</div>
+
+		<div id="content">
+			<br/>
+			<div style="font-size:12pt; color:red; font-weight:bold; text-align:center;">스포츠기사 읽기</div>
+			<br/>
+			<div id="scroller">
+			<p>
+			이선구 감독이 이끄는 여자대표팀은 지난 2일 인천송림체육관에서 열린 대회 여자 배구 결승서 중국을 3-0(25-20, 25-13, 25-21)으로 완파하고 금메달을 수확했다. 지난 1994년 히로시마아시안게임 이후 20년 만에 정상을 차지했다. 4년 전 광저우 대회 결승서 중국에 당했던 통한의 역전패도 깨끗이 설욕했다.
+			
+			여자대표팀은 최근 만리장성의 벽에 막혀 국제대회 정상 문턱에서 번번이 좌절했다. 4년 전 광저우에선 2-3으로 뼈아픈 역전패를 당했다. 2-0으로 여유있게 앞서다 내리 3세트를 내주며 무릎을 꿇었다. 지난달 8월 아시안게임 전초전이었던 아시아배구연맹(AVC)컵서도 중국에 연달아 두 번 패했다. 세계선수권대회 출전을 위해 1군이 아닌 1.5군으로 대회에 참가한 중국과 만나 조별리그와 결승서 모두 0-3으로 완패, 자존심에 큰 상처를 입었다.
+			
+			오뚝이같이 일어났다. 기어코 복수전을 펼쳤다. 무대는 안방에서 열린 인천아시안게임 결승전. 시종일관 상대를 압도했고, 3-0 완승을 거뒀다. 주장이자 에이스인 김연경은 "도하와 광저우에 이어 3번째 아시안게임서 드디어 금메달을 따게 돼 정말 기쁘다. 4~5개월 전부터 금메달을 생각하며 훈련을 했다"면서 "몇 명이 울 거라 생각했는데 안 울더라"며 함박웃음을 지었다. 결승전 미친 활약으로 우승을 이끈 김희진도 "동료들이 너무 기뻐서 울음이 나지 않는다고 했다"며 환하게 웃었다.	
+			</p>
+			</div>
+			<!--
+				div 엘리먼트를 정의한 이유는 아이디 선택자 #scroller 로 뉴스창의 크기를 자동으로 정하기 위함이다.
+				아이디 선택자 #scroller 는 animation7.css 파일에 정의되어 있고, 또한 animation7.css 파일에는
+				#scroller p 로 뉴스 텍스트를 표시하는 문단 엘리먼트의 스타일 속성을 정의해두었다.
+			
+				아이디 선택자 #scroller 는 뉴스창의 너비와 높이를 width:280px; height:350px; 로 정하였다.
+				이 창안에서 뉴스의 텍스트가 스크롤되게 할 것이다.
+				overflow 속성을 hidden으로 하여 뉴스 창 밖의 텍스트는 보이지 않게 한다.
+				position 속성은 relative로 한다(텍스트나 이미지가 스크롤하려면 현 위치에서 상대적인 위치가
+				정해져야 하기 때문에 무조건 필수 조건이다.)
+				margin 속성을 auto로 하여 스크롤되는 뉴스가 브라우저 윈도우의 가운데에 표시되게 한다.
+				border 속성을 2px solid로 하여 2픽셀 두께의 실선으로 테두리를 만들고, padding 10px 로 하여
+				텍스트와 뉴스 상자의 테두리 사이에 간격을 정한다.
+				타입 선택자 #scroller p 는 font-weight 속성을 bold로 하여 문단 텍스트가 볼드체로 표시되게 하고,
+				position 속성을 relative로 하여 문단 텍스트가 스크롤 되게 한다.
+			
+				jQuery 코드에서는 아이디가 scroller인 div 엘리먼트에 싸인 문단 텍스트 전체를 가져와서
+				$wrapper 변수에 저장한다. 텍스트는 맨처음엔 위 경계에서 0px 되는 지점에 나오게 하여
+				텍스트가 뉴스상자 상단 첫부분에서 부터 보이도록 한다.
+			
+				animator() 함수를 정의하여 모든 문단 텍스트를 이 함수에 imgblock 파라미터로 전달한다.
+				imgblock(즉, 모든 문단 텍스트)은 윈도우의 위로 애니메이션 되고 뉴스상자의 -450 px 되는 지점,
+				즉, 뉴스 텍스트가 모드 올라간 지점에에서 멈추게 한다.
+			    이 스크롤은 애니메이션 진행 시간이 20000 밀리초로 지정되어 서서히 일어난다.
+				애니메이션이 끝나면 실행되는 animiate() 메소드의 콜백함수에서는 문단 텍스트가 윈도우의 위 테두리에서
+				250 px 떨어진 위치에 나오도록 한다. 그리고 animator()함수를 재귀적으로 호출하여 스크롤을 반복한다.
+			-->
+		</div>
+
+		<div id="sideinfo">Sideinfo</div>
+		<div id="footer">Footer</div>
+	</div>
+</body>
+</html>
+<!--
+	 모든 앵커 엘리먼트는 image 클래스 이름을 할당하여 모든 이미지가 표시되어질 좌표는 
+	 절대치로 top:170px; left:940px; 로 동일하게 만든다.
+-->

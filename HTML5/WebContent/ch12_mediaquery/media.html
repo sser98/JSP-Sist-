@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- 반응형웹을 위해 width 크기 지정 --> 
+<title>media query</title>
+<style type="text/css">
+/* 360px 이하*/    /* 일반적으로 휴대폰 세로 */
+@media screen and (max-width:360px){
+       h1{color:red;}
+       ul{
+       		list-style:none;
+       }
+}
+
+/* 361px ~ 767px 이하*/    /* 일반적으로 휴대폰 가로 */
+@media screen and (min-width:361px) and (max-width: 767px){
+       h1{color:blue;}
+       ul{
+       		list-style:none;
+       }
+       ul li{
+       		display:inline;
+       		background-color:skyblue;
+       }
+}
+
+/*768px ~ 1023px*/ /* 일반적으로 태블릿 PC 세로 */
+@media screen and (min-width:768px) and (max-width: 1023px) {
+       h1{color:green;}
+       ul{
+       		list-style:none;
+       }
+}
+
+/*1024px이상*/   /* 일반적으로 태블릿 PC 가로 및 일반적으로 데스크탑 PC */
+@media screen and (min-width:1024px){
+       h1{color:red; 
+	      background-color:yellow;
+	   }
+       ul{
+       		list-style:none;
+       }
+       ul li{
+       		background-color:navy;
+       		color:white;
+       		display:inline;
+       }
+}
+</style>
+</head>
+<body>
+<h1>미디어 쿼리</h1>
+<ul>
+	<li>서울</li>
+	<li>부산</li>
+	<li>대구</li>
+	<li>광주</li>
+	<li>인천</li>
+</ul>
+</body>
+</html>

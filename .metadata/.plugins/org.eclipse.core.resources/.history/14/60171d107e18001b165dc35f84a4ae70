@@ -1,0 +1,6 @@
+package common.controller2;
+
+public interface InterCommand2 {
+	
+	public void excute 
+}

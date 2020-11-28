@@ -1,0 +1,9 @@
+@charset "UTF-8";
+/* 디자인 처리를 하는곳 */
+
+
+div {
+	border: solid 3px navy !important; /* 테두리는 solid 실선으로 3px 두께로 색상은 네이비로 */	
+}
+
+/* 이 태그에 담겨져있는것을 디자인을 어떻게 할거냐?? */

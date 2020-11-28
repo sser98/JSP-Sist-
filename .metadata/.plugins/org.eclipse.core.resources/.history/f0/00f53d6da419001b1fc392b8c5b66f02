@@ -1,0 +1,8 @@
+package member.controller;
+
+import common.controller.AbstractController;
+
+public class IdDuplicateCheckAction extends AbstractController {
+	
+	
+}

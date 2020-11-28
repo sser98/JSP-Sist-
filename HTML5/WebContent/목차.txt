@@ -1,0 +1,8 @@
+01typeof
+	-- typof.html
+	
+	
+
+
+02getElement
+   -- Element.html

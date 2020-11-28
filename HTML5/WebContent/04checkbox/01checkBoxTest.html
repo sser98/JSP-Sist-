@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="01checkBoxTest.js"></script>
+  <style type="text/css">
+    @import url("01checkBoxTest.css");
+    </style>
+
+</head>
+
+<body>
+<div align="center">
+   <h2 class="h2class" id="underline">거래처등록1</h2>
+   <table>
+      <tr>
+         <td class="title">거래처명</td>
+         <td class="data"><input type="text" size="20" /></td>
+      </tr>
+      <tr>
+         <td class="title">주소</td>
+         <td class="data"><input type="text" size="50" /></td>
+      </tr>
+      <tr>
+         <td class="title">전화번호</td>
+         <td class="data">
+             <input type="text" size="5" maxlength="3" />&nbsp;-&nbsp;    
+             <input type="text" size="5" maxlength="4" />&nbsp;-&nbsp;
+             <input type="text" size="5" maxlength="4" />
+         </td>
+      </tr>
+      <tr>
+         <td class="title">품명(국산)</td>
+         <td class="data">
+            <input type="checkbox" name="product_kor" id="product_kor1" value="kor01" /><label for="product_kor1">메인보드</label>&nbsp;
+            <input type="checkbox" name="product_kor" id="product_kor2" value="kor02" /><label for="product_kor2">모니터</label>&nbsp;
+            <input type="checkbox" name="product_kor" id="product_kor3" value="kor03" /><label for="product_kor3">프린터</label>&nbsp;
+            <input type="checkbox" name="product_kor" id="product_kor4" value="kor04" /><label for="product_kor4">하드디스크</label>&nbsp;
+            <input type="checkbox" name="product_kor" id="product_kor5" value="kor05" /><label for="product_kor5">메모리</label>&nbsp;
+            <input type="checkbox" name="product_kor" id="product_kor6" value="kor06" /><label for="product_kor6">CPU</label>&nbsp;
+         </td>
+      </tr>
+      
+      <!-- 
+         >>> === checkbox 제어의 기본개념 === <<<
+          - checkbox 는 동일한 이름을 가진 체크박스들이 여러개 존재하며
+              다수의 선택을 가능하게 하는 기능을 제공한다.
+         checkbox 는 배열의 개념이 필요하기 때문에 getElementById 가 아닌
+         getElementsByName 을 이용하여 제어한다.
+         그래서 id 가 아닌 name 을 이용하기 때문에 태그에 id 를 지정할 필요가 없다.
+         반드시 태그에  name 을 지정해야만 한다.  
+                       
+         >>> === checkbox 의 주요속성 === <<<
+            1. name    => 체크박스의 이름.
+            2. length  => 동일한 이름의 체크박스의 갯수.
+            3. checked => 체크박스의 체크여부. 체크가 되어지면 true, 체크가 해제되면 false 를 리턴함.
+            4. value   => 체크박스의 값.             
+      -->
+      
+      <tr>
+         <td class="title">품명(중고품)</td>
+         <td class="data">
+             <input type="checkbox" name="product_old" id="product_old1" value="old01" onClick="onlyOneCheck(this);" /><label for="product_old1">메인보드</label>&nbsp;
+             <!-- 모든 태그는 객체  this는 input 객체 -->
+            <input type="checkbox" name="product_old" id="product_old2" value="old02" onClick="onlyOneCheck(this);" /><label for="product_old2">모니터</label>&nbsp;
+            <input type="checkbox" name="product_old" id="product_old3" value="old03" onClick="onlyOneCheck(this);" /><label for="product_old3">프린터</label>&nbsp;
+            <input type="checkbox" name="product_old" id="product_old4" value="old04" onClick="onlyOneCheck(this);" /><label for="product_old4">하드디스크</label>&nbsp;
+            <input type="checkbox" name="product_old" id="product_old5" value="old05" onClick="onlyOneCheck(this);" /><label for="product_old5">메모리</label>&nbsp;
+            <input type="checkbox" name="product_old" id="product_old6" value="old06" onClick="onlyOneCheck(this);" /><label for="product_old6">CPU</label>&nbsp;
+         </td>
+      </tr>
+      <tr>
+         <td class="title">
+             <span id="allChoice">
+               <label for="allCheck">모두선택/해제</label><input type="checkbox" id="allCheck" onClick="fun_allCheck(this.checked);" />      
+             </span>
+             <br/>품명(중국산)
+         </td>
+         <td class="data">
+             <input type="checkbox" name="product_china" id="product_china1" value="china01" onclick="fun_chinaCheck()" /><label for="product_china1">메인보드</label>&nbsp;
+            <input type="checkbox" name="product_china" id="product_china2" value="china02" onclick="fun_chinaCheck()" /><label for="product_china2">모니터</label>&nbsp;
+            <input type="checkbox" name="product_china" id="product_china3" value="china03" onclick="fun_chinaCheck()" /><label for="product_china3">프린터</label>&nbsp;
+            <input type="checkbox" name="product_china" id="product_china4" value="china04" onclick="fun_chinaCheck()" /><label for="product_china4">하드디스크</label>&nbsp;
+            <input type="checkbox" name="product_china" id="product_china5" value="china05" onclick="fun_chinaCheck()" /><label for="product_china5">메모리</label>&nbsp;
+            <input type="checkbox" name="product_china" id="product_china6" value="china06" onclick="fun_chinaCheck()" /><label for="product_china6">CPU</label>&nbsp;
+         </td>
+      </tr>
+      <tr align="center">
+         <td colspan="2" class="bordernone">
+            <button type="button">쓰기</button>&nbsp;&nbsp;
+            <button type="button">취소</button>
+         </td>
+      </tr>
+   </table>
+</div>
+</body>
+
+</html>

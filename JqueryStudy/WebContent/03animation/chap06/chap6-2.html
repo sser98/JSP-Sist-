@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지에 마우스를 클릭할 때 마다 이미지 번갈아 표시하기</title>
+<!--
+	  표시할 이미지가 여러개 있어서 번갈아 표시하고자 한다.
+	  첫 이미지가 표시되고 그 위에 마우스를 클릭하면 첫 이미지가 서서히 사라지고 다음 이미지가 나오게 하고 싶다. 
+	  다시 마우스를 클릭하면 두 번째 이미지가 사라지고 세 번째 이미지가 나오게 하고,
+	  그렇게 계속되다가 마지막 이미지에 클릭하면 다시 첫 이미지를 다시 표시하고 싶다.
+	  즉, 이미지를 클릭하면 순서대로 다른 이미지로 대체되어 표시되도록 한다.
+ -->
+ <link rel="stylesheet" type="text/css" href="styles/animation3.css">
+ 
+ <script type="text/javascript" src="/JqueryStudy/js/jquery-3.3.1.min.js"></script>
+
+ <script type="text/javascript">
+    $(document).ready(function(){
+		$(".image").hide();
+		$(".image:first").fadeIn('slow');
+		$(".image").click(function(){
+		    				$(this).fadeIn('slow');
+							var next = ($(this).next().length)?$(this).next():$(".image:first");
+						     // .length 속성값 : 엘리먼트의 갯수를 알려준다.
+						     // 즉, 여기서는 class image 로 묶여진 <a>태그중 선택한 <a> 바로 다음에 나오는
+						     // <a> 태그의 갯수를 알려주는 것이다.
+               				$(this).fadeOut('slow');
+							next.fadeIn('slow');
+				});
+	  });
+/*
+   이미지에 마우스를 클릭하면 같은 위치에서 다른 이미지로 대체되어야 하므로 이미지에 position 속성을
+   absolute로 하여(클래스 선택자 .image를 이용) 웹페이지에서 표시할 위치를 정확히 정할수 있게 한다.
+   그래서 top 과 left 속성을 10px 로 하여 이미지가 브라우저의 위쪽과 왼쪽 경계에서 10픽셀 떨어진 
+   위치에 나오게 한다.
+   jQuery 코드를 살펴보면, 이미지가 하나씩 표시되어야 하기 때문에 처음에는 모든 이미지를 사라지게 한다.
+   그리고 image 클래스인 HTML 엘리먼트의 첫 번째 엘리먼트를 웹페이지에서 서서히 표시한다.
+   즉, 웹 페이지를 열면 첫 번째 이미지가 서서히 표시된다. 이것이 웹페이지에서 나오는 첫 번째 이미지이고,
+   이것이 마무리되면 모든 이미지에 마우스 클릭 이벤트를 연결한다.
+   click 이벤트에서 마우스를 클릭하면 현재 이미지는 서시히 사라지고 다음 이미지가 표시되도록 한다.
+   그렇게 하기 위해서는 먼저 마지막 이미지인지 아닌지 확인해서 마지막 이미지가 아니면 다음 이미지를 
+   next 변수에 넣고, 마지막 이미지이라면 첫번째 이미지를 next 변수에 넣는다. 
+   그래서 다음에 표시할 이미지가 결정되면 next 변수에 담겨진 이미지가 서서히 표시된다.
+*/
+ </script>
+ </head>
+
+<body>
+	<div id="scroller">	
+	    이미지에서 마우스 클릭을 하세요<br/><br/>
+  	  <img src="image/image1.jpg" width=356px height=190px class="image"/>
+  	  <img src="image/image2.jpg" width=356px height=190px class="image"/>
+  	  <img src="image/image3.jpg" width=356px height=190px class="image"/>
+  	  <img src="image/image4.jpg" width=356px height=190px class="image"/>
+  	  <img src="image/image5.jpg" width=356px height=190px class="image"/>
+  	</div>
+</body>
+</html>
+<!--
+	 모든 앵커 엘리먼트는 image 클래스 이름을 할당하여 모든 이미지가 표시되어질 좌표는 
+	 절대치로 top:10px; left:10px; 로 동일하게 만든다.
+-->

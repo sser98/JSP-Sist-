@@ -1,0 +1,10 @@
+span#sum {
+  font-size: 30pt;
+  font-family: "고딕체";
+  font-weight: bolder;
+  }
+
+  span#corretAnswer {
+  font-weight: bolder;
+  color: red;
+  }

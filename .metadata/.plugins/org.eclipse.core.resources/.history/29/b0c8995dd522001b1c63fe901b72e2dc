@@ -1,0 +1,349 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+
+
+<%
+	String ctxPath = request.getContextPath();
+%>
+
+<script type="text/javascript">
+	
+
+	
+</script>
+<style>
+
+
+
+
+div.c_container {
+	display: flex;
+	font-family: "배달의민족 도현";
+}
+
+.item {
+	
+}
+
+.item1 {
+	width: 15%;
+	margin-right: 2%;
+}
+
+.item2 {
+	width: 83%;
+	background-color: white;
+}
+
+div#header {
+	display: flex;
+}
+
+header.item1 {
+	width: 30%;
+	margin-right: 2%;
+}
+
+header.item2 {
+	width: 68%;
+
+	/* 중간으로 오게하기. */
+}
+
+
+
+
+
+table {
+	width: 100%;
+	border: 1px solid black;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+div.right {
+	text-align: center;
+	
+	display : flex;
+	flex-direction: column;
+	justify-content:center;
+	align-items:center;
+	
+	
+	background-image: url("images/배경이미지.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 80%;
+	height: 170px;
+}
+
+img.centerimage {
+	height: 170px;
+	width: 172.5px;
+}
+
+
+.btn-default {
+	color: #333;
+	background-color: #fff;
+	border-color: #ccc;
+	height: 34px;
+}
+
+.vertical-menu {
+
+	text-decoration: none;
+	
+}
+
+.vertical-menu a {
+	
+	background-color : #eee;
+	color: black;
+	display: block;
+	padding: 12px;
+	background-color: #eee;
+}
+
+.vertical-menu a:hover {
+	background-color: #ccc;
+	transition: all ease 1s 0s;
+	
+}
+
+.vertical-menu a.active {
+	background-color: #4CAF50;
+	color: white;
+}
+
+/////////////////////////////////sidebar Dropdown
+
+/* Fixed sidenav, full height */
+
+.sidenav {
+  
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  padding: 20px;
+  color: white;
+  display: block;
+  border: none;
+  background-color: #111;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  font-weight: 100;
+  
+	
+
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: black;
+	background-color: white;
+	transition: all ease 1s 0s;
+	text-decoration: none;
+}
+
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: green;
+  color: white;
+}
+
+
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+
+.serch-result {
+	
+	cursor: pointer;
+
+}
+
+ 
+.table-condensed {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+</style>
+
+
+
+<jsp:include page="header.jsp" />
+
+<div class="c_container">
+
+	<div class="item item1">
+
+
+
+		<div>
+			<img class="centerimage" src="<%=ctxPath%>/images/고객센터.png" alt="고객센터">
+
+		</div>
+		
+		<br>
+		<br>
+		<br>
+		
+		<div class="sidenav">
+		  <a href="http://localhost:9090/Logitech/customCenter.jsp" class="active">고객센터 홈</a>
+			<button class="dropdown-btn">자주묻는 질문 
+		    <i class="fa fa-caret-down"></i>
+		  </button>
+		  <div class="dropdown-container">
+		    <a href="#">Link 1</a>
+		    <a href="#">Link 2</a>
+		    <a href="#">Link 3</a>
+		  </div>
+		  <a href="http://localhost:9090/Logitech/oneQueryform.jsp">1:1 문의하기</a>
+		  <a href="http://localhost:9090/Logitech/oneQueryView.jsp">1:1 문의내역 조회</a>
+
+		</div>
+		
+		
+	</div>
+
+
+	<div class="item item2">
+
+		<div id="header">
+			<div class="header itme1 left">
+				<img src="<%=ctxPath%>/images/FAQ.png" alt="FAQ">
+			</div>
+			
+			
+			<div class="header itme2 right">
+				<h1>무엇을 도와드릴까요?</h1>
+				
+			  
+			    <div class="input-group">
+			     <form class="serch-form"  action="/action_page.php">
+			      <input type="text" class="form-control" placeholder="Search" name="search" style="width: 500px">
+			      <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+			      </form>
+			   </div>
+			  
+			  
+			  	 <DIV>
+					<span>검색결과가 충분하지 못하면 1:1문의를 이용하세요</span> <button id="oneqbtn">1:1 문의</button>
+				</DIV>    
+			</div>
+			  
+		</div>
+			
+			
+			<div>
+
+			<br> <br>
+			
+			
+			<h2>자주 묻는 질문 (FAQ)</h2>
+			<table>
+				
+				<tr>
+					<th>회원정보/멤버십</th>
+				</tr>
+				
+				<tr>
+					<td><span> 전체보기 | </span> <span> 회원가입/탈퇴 | </span> <span> 회원정보 | </span><span> 통합멤버십 | </span></td>
+				</tr>
+
+			</table>
+			
+			</div>
+
+			<br>
+			
+			 <table class="table table-condensed">
+  				<h3>카테고리(<span id="serch-resultCnt"></span>)건</h3>
+				    <tbody>
+				    
+				      <tr class="serch-result">
+				        <td> <span>아이콘</span> </td>
+				        <td> <span>카테고리</span> </td>
+				        <td> <span>세부제목1</span>  <i class="fa fa-caret-down"></i> </td>
+				      </tr>
+				      
+				      <tr class="answer in open" id="answer_381" style="display:none;">
+		                  <td class="type"><span>답변</span></td>
+		                  <td colspan="2" class="substance"><p>&nbsp;</p><p>오프라인 매장 재고는 온라인 재고와 다르게 운영되기 때문에 방문하시려는 매장 통하여 재고 확인 먼저 부탁드립니다.</p><p>&nbsp;</p><p>전자랜드 쇼핑몰 상단 좌측 지점안내 버튼을 클릭하여 방문하시려는 매장 전화번호를 확인하실 수 있습니다.</p><p>&nbsp;</p></td>
+		              </tr>
+		              
+				      <tr class="serch-result">
+				        <td class="tbtype" >아이콘</td>
+				        <td class="tbtype">카테고리</td>
+				        <td class="tbtype">세부제목2</td>0
+				      </tr>
+				      <tr class="serch-result">
+				        <td class="tbtype">아이콘</td>
+				        <td class="tbtype">카테고리</td>
+				        <td class="tbtype">세부제목3</td>
+				      </tr>
+				    </tbody>
+			  </table>
+			
+			
+			
+			
+			
+
+		</div>
+
+	</div>
+
+
+
+
+
+<jsp:include page="footer.jsp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

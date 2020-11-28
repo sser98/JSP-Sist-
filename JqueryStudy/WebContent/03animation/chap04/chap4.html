@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>왼쪽으로 스크롤되며 사라졌다가 오른쪽에 나타나는 이미지 만들기</title>
+<!--
+      가상 윈도우에 싸여 브라우저 중앙에 표시되는 이미지가 있다.
+	이미지를 클릭하면 왼쪽으로 스크롤 되어 사라지고,
+	전부 사라지면 오른쪽에서 다시 나타나 원래의 자리로 스크롤 되게 한다.
+ -->
+ <link rel="stylesheet" type="text/css" href="styles/animation2.css">
+ 
+ <script type="text/javascript" src="/JqueryStudy/js/jquery-3.3.1.min.js"></script>
+
+ <script type="text/javascript">
+    $(document).ready(function(){
+		$(".image").click(function(event){
+			$(this).animate({'left':-160},'slow',
+							function(){
+								$(this).css('left',150);
+								$(this).animate({'left':0},'slow');
+							}
+			);
+		});
+    });
+/*
+   animation2.css 파일에서
+   
+    아이디 선택자 #scroller는 width 와 height 속성을 155px 로 하여 
+    이미지를 둘러싼 가상 윈도우의 너비와 높이를 정한다.
+   margin 속성을 auto 로 하여 가상 윈도우가 브라우저 윈도우의 중앙에 위치하도록 한다.
+   overflow 속성을 hidden으로 하여 윈도우의 경계를 벗어나는 영역은 보이지 않게 한다.
+   position 속성을 relative로 하여 이미지가 감싸진 윈도우에 대해 스크롤 되도록 한다.
+   
+    클래스 선택자 .image는 position 속성을 relative로 하여 현재의 위치에서 스크롤 되게 한다.
+   
+    처음에는 이미지가 브라우저의 중앙에 표시되고, 이미지를 클릭하면 서서히 왼쪽으로 사라진다.
+
+   jQuery 코드에서 클릭 이벤트가 이미지에 연결되어 있다.
+    클릭 이벤트의 이벤트 처리 함수에서는 animate 메소드가 이미지를 서서히 왼쪽으로 스크롤 하여
+   -160 픽셀 지점, 즉 이미지가 완전히 사라지는 지점에서 멈추도록 하였으므로 이미지가 사라져 보인다.
+   animate() 메소드가 끝나는 시점, 즉 이미지가 왼쪽으로 완전히 사라진 시점에 호출되는 
+   animate() 메소드의 콜백함수에서는 css() 메소드를 사용하여 이미지가 가상 윈도우 왼쪽 경계에서 부터
+   150 픽셀 떨어진 지점에서 나타나 다시 animate 메서드로 이미지를 스크롤하게 하여 왼쪽 경계에서 부터
+   0 픽셀 떨어진 지점, 즉 처음 표시된 지점에서 멈추게 한다.
+
+*/
+ </script>
+ </head>
+
+<body>
+   <div id="scroller">	
+	 <img src="image/image1.jpg" width=150 height=100 class="image" />
+   </div>
+</body>
+</html>
